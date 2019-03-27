@@ -1,0 +1,204 @@
+<com.example.helloworld.CustomToolBar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    app:left_tv_visible="true"
+    app:left_tv_text="返回"
+    app:right_btn_visible="true"
+    app:right_tv_visible="true"
+    app:right_tv_text="菜单"
+    app:title_visible="true"
+    app:title_text="商品信息录入"
+    tools:context="com.example.helloworld.producer.ProducerActivity">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                >
+
+                <TextView
+                    android:text="商品名称"
+
+                    android:layout_width="120dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:layout_width="240dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:text="朔州神仙羊肉"
+                    android:textAlignment="center"
+                    android:background="#FFFFFF"/>
+                <Button
+                    android:id="@+id/item_photo"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+
+                    android:background="@drawable/button_select"
+                    />
+            </LinearLayout>
+            <View  android:layout_height="1px"
+                android:layout_width="match_parent"
+                android:background="#FF4081"
+                />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        >
+
+        <TextView
+            android:text="商品编号"
+
+            android:layout_width="120dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/productionid"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="A548uu"
+            android:textSize="18dp"
+
+            android:textAlignment="center"
+            android:background="#FFFFFF"/>
+    </LinearLayout>
+    <View  android:layout_height="1px"
+        android:layout_width="match_parent"
+        android:background="#FF4081"
+        />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                >
+
+                <TextView
+                    android:text="产地"
+
+                    android:layout_width="120dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/selllocation"
+                    android:layout_width="240dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="13456891022"
+                    android:textSize="18dp"
+
+                    android:textAlignment="center"
+                    android:background="#FFFFFF"/>
+            </LinearLayout>
+            <View  android:layout_height="1px"
+                android:layout_width="match_parent"
+                android:background="#FF4081"
+                />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                >
+
+                <TextView
+                    android:text="商品接收时间"
+
+                    android:layout_width="120dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/receivetime"
+                    android:layout_width="240dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="2018.7.1"
+                    android:textSize="18dp"
+
+                    android:textAlignment="center"
+                    android:background="#FFFFFF"/>
+            </LinearLayout>
+            <View  android:layout_height="1px"
+                android:layout_width="match_parent"
+                android:background="#FF4081"
+                />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                >
+
+                <TextView
+                    android:text="商品上架时间"
+
+                    android:layout_width="120dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/sellouttime"
+
+                    android:layout_width="240dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="2018.12.3"
+                    android:textSize="18dp"
+
+                    android:textAlignment="center"
+                    android:background="#FFFFFF"/>
+            </LinearLayout>
+            <View  android:layout_height="1px"
+                android:layout_width="match_parent"
+                android:background="#FF4081"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+              >
+
+                <TextView
+                    android:text="商品售价"
+
+                    android:layout_width="120dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/price"
+
+                    android:layout_width="240dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="229元/斤"
+                    android:textSize="18dp"
+
+                    android:textAlignment="center"
+                    android:background="#FFFFFF"/>
+            </LinearLayout>
+            <View  android:layout_height="1px"
+                android:layout_width="match_parent"
+                android:background="#FF4081"
+                />
+
+            <Button
+                android:id="@+id/item_submit"
+                android:layout_width="150dip"
+                android:layout_height="wrap_content"
+                android:text="录入"
+                android:textSize="20dp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/shape"
+                android:layout_marginTop="14dip"
+                android:layout_gravity="center"/>
+
+
+</com.example.helloworld.CustomToolBar>

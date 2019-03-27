@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">农产品溯源</string>
+    <string name="text_back">返回</string>
+    <string name="text_forward">菜单</string>
+    <string name="user_inf">个人信息修改</string>
+    <string name="owner_inf">农场信息修改</string>
+    <string name="item_inf">羊状态信息</string>
+    <string name="output">出栏操作</string>
+</resources>

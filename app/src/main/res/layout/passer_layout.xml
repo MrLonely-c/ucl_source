@@ -1,0 +1,66 @@
+<com.example.helloworld.CustomToolBar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:icoand="http://widgets.demo.com"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    app:left_tv_visible="true"
+    app:left_tv_text="返回"
+    app:right_btn_visible="true"
+    app:right_tv_visible="true"
+    app:right_tv_text="菜单"
+    app:title_visible="true"
+    app:title_text="运输人员操作"
+    tools:context="com.example.helloworld.producer.ProducerActivity">
+
+
+
+    <Button
+            android:id="@+id/bt_transport_1"
+            android:text="@string/user_inf"
+        android:background="@drawable/shape2"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dip"
+            android:textColor="@android:color/black"
+        android:drawableLeft="@drawable/pg2"/>
+
+
+
+
+    <!--<Button-->
+        <!--android:id="@+id/bt_transport_2"-->
+        <!--android:layout_width="170dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_marginTop="30dip"-->
+        <!--android:text="查看用户信息"-->
+        <!--android:background="@drawable/shape2"-->
+        <!--android:textColor="@android:color/black" />-->
+
+    <Button
+        android:id="@+id/bt_transport_2"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dip"
+        android:text="商品核对"
+        android:drawableLeft="@drawable/pg10"
+        android:background="@drawable/shape2"
+        android:textColor="@android:color/black" />
+
+    <Button
+        android:id="@+id/bt_transport_3"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dip"
+        android:text="运输数据"
+        android:drawableLeft="@drawable/pg5"
+        android:background="@drawable/shape2"
+        android:textColor="@android:color/black" />
+</com.example.helloworld.CustomToolBar>

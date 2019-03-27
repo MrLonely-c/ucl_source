@@ -1,0 +1,19 @@
+<com.example.helloworld.CustomToolBar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:icoand="http://widgets.demo.com"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    app:left_tv_visible="true"
+    app:left_tv_text="返回"
+    app:right_btn_visible="true"
+    app:right_tv_visible="true"
+    app:right_tv_text="菜单"
+    app:title_visible="true"
+    app:title_text="普通用户"
+    tools:context="com.example.helloworld.producer.ProducerActivity">
+
+</com.example.helloworld.CustomToolBar>

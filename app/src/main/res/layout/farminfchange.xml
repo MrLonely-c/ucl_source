@@ -1,0 +1,361 @@
+<com.example.helloworld.CustomToolBar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    app:left_tv_visible="true"
+    app:left_tv_text="返回"
+    app:right_btn_visible="true"
+    app:right_tv_visible="true"
+    app:right_tv_text="菜单"
+    app:title_visible="true"
+    app:title_text="农场信息修改"
+    tools:context="com.example.helloworld.producer.ProducerActivity">
+    <ScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:text="农场名"
+
+                    android:layout_width="160dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:text="浦口大渡口第一养殖中心"
+                    android:textAlignment="center"
+                    android:background="#FFFFFF"/>
+            </LinearLayout>
+            <View  android:layout_height="1px"
+                android:layout_width="match_parent"
+                android:background="#FF4081"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="农场地址"
+
+                    android:layout_width="160dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:text="浦口区一号"
+
+                    android:textAlignment="center"
+                    android:background="#FFFFFF"/>
+            </LinearLayout>
+            <View  android:layout_height="1px"
+                android:layout_width="match_parent"
+                android:background="#FF4081"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="法人"
+
+                    android:layout_width="160dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="张伯伦"
+                    android:textSize="18dp"
+                    android:textColor="#808080"
+
+                    android:textAlignment="center"
+                    android:background="#FFFFFF"/>
+            </LinearLayout>
+            <View  android:layout_height="1px"
+                android:layout_width="match_parent"
+                android:background="#FF4081"
+                />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="法人身份证号"
+
+                    android:layout_width="160dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="985640192840989"
+                    android:textSize="18dp"
+                    android:textColor="#808080"
+                    android:textAlignment="center"
+                    android:background="#FFFFFF"/>
+            </LinearLayout>
+            <View  android:layout_height="1px"
+                android:layout_width="match_parent"
+                android:background="#FF4081"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                >
+
+                <TextView
+                    android:text="法人联系方式"
+
+                    android:layout_width="160dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="13333334567"
+                    android:textSize="18dp"
+                    android:textColor="#808080"
+                    android:textAlignment="center"
+                    android:background="#FFFFFF"/>
+            </LinearLayout>
+            <View  android:layout_height="1px"
+                android:layout_width="match_parent"
+                android:background="#FF4081"
+                />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="经营类型"
+
+                    android:layout_width="160dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="家畜养殖（羊）"
+                    android:textSize="18dp"
+                    android:textColor="#808080"
+                    android:textAlignment="center"
+                    android:background="#FFFFFF"/>
+            </LinearLayout>
+            <View  android:layout_height="1px"
+                android:layout_width="match_parent"
+                android:background="#FF4081"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="产地检验结果"
+
+                    android:layout_width="160dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="合格"
+                    android:textSize="18dp"
+                    android:textColor="#1122FF"
+                    android:textAlignment="center"
+                    android:background="#FFFFFF"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#FF4081" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                >
+
+                <TextView
+                    android:text="营业执照"
+
+                    android:layout_width="160dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/farm_change_1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_select"
+                    />
+            </LinearLayout>
+            <View  android:layout_height="1px"
+                android:layout_width="match_parent"
+                android:background="#FF4081"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="生产许可证"
+
+                    android:layout_width="160dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="564718293001"
+                    android:textSize="18dp"
+                    android:textColor="#808080"
+                    android:textAlignment="center"
+                    android:background="#FFFFFF"/>
+            </LinearLayout>
+            <View  android:layout_height="1px"
+                android:layout_width="match_parent"
+                android:background="#FF4081"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                >
+
+                <TextView
+                    android:text="动物防疫条件合格证号"
+
+                    android:layout_width="160dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/farm_change_2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_select"
+                    />
+            </LinearLayout>
+            <View  android:layout_height="1px"
+                android:layout_width="match_parent"
+                android:background="#FF4081"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="税务登记证"
+
+                    android:layout_width="160dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="234190182"
+                    android:textSize="18dp"
+                    android:textColor="#808080"
+                    android:textAlignment="center"
+                    android:background="#FFFFFF"/>
+            </LinearLayout>
+            <View  android:layout_height="1px"
+                android:layout_width="match_parent"
+                android:background="#FF4081"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                >
+
+                <TextView
+                    android:text="组织机构代码"
+
+                    android:layout_width="160dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/farm_change_3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/button_select"
+                    />
+            </LinearLayout>
+            <View  android:layout_height="1px"
+                android:layout_width="match_parent"
+                android:background="#FF4081"
+                />
+            <Button
+                android:id="@+id/out_b"
+                android:layout_width="150dip"
+                android:layout_height="wrap_content"
+                android:text="提交"
+                android:textSize="20dp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/shape"
+                android:layout_marginTop="18dip"
+                android:layout_marginBottom="10dip"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+    </ScrollView>
+</com.example.helloworld.CustomToolBar>

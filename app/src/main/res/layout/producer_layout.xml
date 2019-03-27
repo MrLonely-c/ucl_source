@@ -1,0 +1,98 @@
+<android.support.v4.widget.DrawerLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    >
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       >
+         <com.example.helloworld.CustomToolBar
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+             android:id="@+id/toolbar"
+            app:left_tv_visible="true"
+            app:left_tv_text="返回"
+            app:right_btn_visible="true"
+            app:right_tv_visible="true"
+            app:right_tv_text="信息"
+            app:title_visible="true"
+            app:title_text="生产者操作界面"
+            tools:context="com.example.helloworld.producer.ProducerActivity">
+
+
+                    <Button
+
+                        android:id="@+id/bt_producer_1"
+
+                        android:layout_width="170dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="50dip"
+                        android:drawableLeft="@drawable/pg2"
+                        android:background="@drawable/shape2"
+                        android:text="@string/user_inf"
+                        android:textColor="@android:color/black" >
+
+                        </Button>
+
+                    <Button
+                        android:id="@+id/bt_producer_2"
+                        android:layout_width="170dp"
+                        android:layout_height="50dp"
+                        android:drawableLeft="@drawable/pg3"
+                        android:background="@drawable/shape2"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="30dip"
+                        android:text="@string/owner_inf"
+                        android:textColor="@android:color/black" />
+
+                    <Button
+                        android:id="@+id/bt_producer_3"
+                        android:layout_width="170dp"
+                        android:layout_height="50dp"
+                        android:drawableLeft="@drawable/pg4"
+                        android:background="@drawable/shape2"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="30dip"
+                        android:text="@string/item_inf"
+                        android:textColor="@android:color/black" />
+
+                    <Button
+                        android:id="@+id/bt_producer_4"
+                        android:layout_width="170dp"
+                        android:layout_height="50dp"
+                        android:drawableLeft="@drawable/outout"
+                        android:background="@drawable/shape2"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="30dip"
+                        android:text="@string/output"
+                        android:textColor="@android:color/black" />
+             <Button
+                 android:id="@+id/bt_producer_5"
+                 android:layout_width="170dp"
+                 android:layout_height="50dp"
+                 android:drawableLeft="@drawable/pg8"
+                 android:background="@drawable/shape2"
+                 android:layout_gravity="center_horizontal"
+                 android:layout_marginTop="30dip"
+                 android:text="产地检疫申请"
+                 android:textColor="@android:color/black" />
+
+             </com.example.helloworld.CustomToolBar>
+    </FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:text="hello !!"
+        android:textSize="30sp"
+        android:background="#FFF"
+        android:id="@+id/information"/>
+</android.support.v4.widget.DrawerLayout>

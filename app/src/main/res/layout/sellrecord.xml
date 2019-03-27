@@ -1,0 +1,45 @@
+<com.example.helloworld.CustomToolBar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:icoand="http://widgets.demo.com"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    app:left_tv_visible="true"
+    app:left_tv_text="返回"
+    app:right_btn_visible="true"
+    app:right_tv_visible="true"
+    app:right_tv_text="菜单"
+    app:title_visible="true"
+    app:title_text="销售记录"
+    tools:context="com.example.helloworld.producer.ProducerActivity">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:id="@+id/sellrecord_add"
+        >
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="添加商品记录"
+        android:background="@drawable/shape2"
+        android:id="@+id/btn"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="保存记录"
+        android:background="@drawable/shape"
+        android:id="@+id/save"/>
+    </LinearLayout>
+</ScrollView>
+</com.example.helloworld.CustomToolBar>

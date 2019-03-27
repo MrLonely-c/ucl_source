@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.helloworld"
+    >
+    <!-- 往SDCard写入数据权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
+    <uses-permission android:name="android.permissionREAD_EXTERNAL_STORAGE"></uses-permission>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+
+        >
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".producer.ProducerActivity" ></activity>
+        <activity android:name=".transporter.TransporterActivity" ></activity>
+        <activity android:name=".checker.CheckerActivity" ></activity>
+        <activity android:name=".process.ProcessActivity" ></activity>
+        <activity android:name=".sell.SellerActivity" ></activity>
+        <activity android:name=".producer.OutActivity" ></activity>
+        <activity android:name=".sell.marketinf_inActivity"></activity>
+        <activity android:name=".sell.marketinf_changeActivity"></activity>
+        <activity android:name=".sell.sellerinf_changeActivity"></activity>
+        <activity android:name=".sell.Item_in_Activity"></activity>
+        <activity android:name=".sell.sellrecordActivity"></activity>
+        <activity android:name=".sell.SellerMessCompleteActivity"></activity>
+        <activity android:name=".sell.Iteminf_findActivity"></activity>
+        <activity android:name=".producer.productionStateActivity"></activity>
+        <activity android:name=".producer.producer_inf_changeActivity"></activity>
+        <activity android:name=".checker.check_inf_markActivity" ></activity>
+        <activity android:name=".producer.farm_inf_changeActivity"></activity>
+        <activity android:name=".transporter.transporterinf_changeActivity"></activity>
+        <activity android:name=".process.process_inf_changeActivity" ></activity>
+        <activity android:name=".checker.checker_inf_changeActivity" ></activity>
+        <activity android:name=".process.process_inf_loginActivity" ></activity>
+        <activity android:name=".transporter.TransportDataActivity" ></activity>
+        <activity android:name=".transporter.ProductionCheckActivity" ></activity>
+        <activity android:name=".checker.check_recordActivity" ></activity>
+        <activity android:name=".process.process_recordActivity" ></activity>
+        <activity android:name=".process.ProcesserMessCompleteActivity"></activity>
+        <activity android:name=".baseuser.BaseUserSignUpActivity"></activity>
+        <activity android:name=".baseuser.BaseUserActivity"></activity>
+        <activity android:name=".company.CompanyManagerActivity"></activity>
+        <activity android:name=".company.CompanySignupActivity"></activity>
+        <activity android:name=".loginAndSign.LoginAndSignActivity"></activity>
+        <activity android:name=".loginAndSign.ResponsibleChooseActivity"></activity>
+        <activity android:name=".checker.CheckerMessCompleteActivity"></activity>
+        <activity android:name=".producer.ProducerMessCompleteActivity"></activity>
+        <activity android:name=".transporter.TransporterMessCompleteActivity"></activity>
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.helloworld.sell"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
+</manifest>
