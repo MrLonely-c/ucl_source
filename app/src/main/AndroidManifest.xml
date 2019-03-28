@@ -30,7 +30,7 @@
         </activity>
         <activity android:name=".producer.ProducerActivity" ></activity>
         <activity android:name=".transporter.TransporterActivity" ></activity>
-        <activity android:name=".checker.CheckerActivity" ></activity>
+        <activity android:name=".checker.checkerActivity" ></activity>
         <activity android:name=".process.ProcessActivity" ></activity>
         <activity android:name=".sell.SellerActivity" ></activity>
         <activity android:name=".producer.OutActivity" ></activity>
@@ -51,8 +51,8 @@
         <activity android:name=".process.process_inf_loginActivity" ></activity>
         <activity android:name=".transporter.TransportDataActivity" ></activity>
         <activity android:name=".transporter.ProductionCheckActivity" ></activity>
-        <activity android:name=".checker.check_recordActivity" ></activity>
-        <activity android:name=".process.process_recordActivity" ></activity>
+        <activity android:name=".checker.checker_outActivity" ></activity>
+        <activity android:name=".process.process_out_Activity" ></activity>
         <activity android:name=".process.ProcesserMessCompleteActivity"></activity>
         <activity android:name=".baseuser.BaseUserSignUpActivity"></activity>
         <activity android:name=".baseuser.BaseUserActivity"></activity>

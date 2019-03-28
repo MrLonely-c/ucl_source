@@ -22,7 +22,6 @@ import android.widget.Toast;
 
 import com.example.helloworld.BaseUtil;
 import com.example.helloworld.R;
-import com.example.helloworld.sell.sellerinf_changeActivity;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -112,7 +111,7 @@ public class CheckerMessCompleteActivity extends AppCompatActivity
 
                 if (BaseUtil.isCompleted(pref.getInt("characterFlags", 0b000000), 2)) {
                     Toast.makeText(this, "信息注册成功", Toast.LENGTH_SHORT).show();
-                    intent = new Intent(CheckerMessCompleteActivity.this, CheckerActivity.class);
+                    intent = new Intent(CheckerMessCompleteActivity.this, checkerActivity.class);
                     intent.putExtra("title", "检疫结果录入");
                     startActivity(intent);
                     finish();

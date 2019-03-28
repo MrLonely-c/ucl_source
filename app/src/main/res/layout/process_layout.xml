@@ -44,7 +44,7 @@
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dip"
-        android:text="工作记录"
+        android:text="运输申请"
         android:textColor="@android:color/black"
         android:background="@drawable/shape2"/>
 

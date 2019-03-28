@@ -44,7 +44,7 @@
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dip"
-        android:text="检疫记录"
+        android:text="申请运输"
         android:background="@drawable/shape2"
         android:textColor="@android:color/black" />
 

@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.example.helloworld.R;
 
-public class CheckerActivity extends AppCompatActivity  {
+public class checkerActivity extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class CheckerActivity extends AppCompatActivity  {
 
         rightClick.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(CheckerActivity.this,
+                Toast.makeText(checkerActivity.this,
                         "按钮被点击", Toast.LENGTH_SHORT).show();
             }
         });
@@ -38,7 +38,7 @@ public class CheckerActivity extends AppCompatActivity  {
         Button checker_inf_change=findViewById(R.id.bt_check_1);
         checker_inf_change.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent intent=new Intent(CheckerActivity.this,checker_inf_changeActivity.class);
+                Intent intent=new Intent(checkerActivity.this,checker_inf_changeActivity.class);
                 startActivity(intent);
             }
         });
@@ -46,7 +46,7 @@ public class CheckerActivity extends AppCompatActivity  {
         Button checke_inf_mark=findViewById(R.id.bt_check_2);
         checke_inf_mark.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent intent=new Intent(CheckerActivity.this,check_inf_markActivity.class);
+                Intent intent=new Intent(checkerActivity.this,check_inf_markActivity.class);
                 startActivity(intent);
             }
         });
@@ -54,7 +54,7 @@ public class CheckerActivity extends AppCompatActivity  {
         Button checke_record=findViewById(R.id.bt_check_3);
         checke_record.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent intent=new Intent(CheckerActivity.this,check_recordActivity.class);
+                Intent intent=new Intent(checkerActivity.this, checker_outActivity.class);
                 startActivity(intent);
             }
         });
