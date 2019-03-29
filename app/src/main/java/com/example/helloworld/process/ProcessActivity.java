@@ -57,7 +57,7 @@ public class ProcessActivity extends AppCompatActivity  {
         Button process_record=findViewById(R.id.bt_process_3);
         process_record.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent intent=new Intent(ProcessActivity.this,process_recordActivity.class);
+                Intent intent=new Intent(ProcessActivity.this,process_out_Activity.class);
                 startActivity(intent);
             }
         });

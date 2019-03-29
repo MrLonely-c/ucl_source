@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.helloworld.checker.CheckerActivity;
+import com.example.helloworld.checker.checkerActivity;
 import com.example.helloworld.loginAndSign.LoginAndSignActivity;
 import com.example.helloworld.process.ProcessActivity;
 import com.example.helloworld.producer.ProducerActivity;
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, CheckerActivity.class);
+                Intent intent=new Intent(MainActivity.this, checkerActivity.class);
                 startActivity(intent);
                 //finish();
             }

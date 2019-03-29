@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.example.helloworld.BaseUtil;
 import com.example.helloworld.R;
-import com.example.helloworld.checker.CheckerActivity;
+import com.example.helloworld.checker.checkerActivity;
 import com.example.helloworld.process.ProcessActivity;
 import com.example.helloworld.process.ProcesserMessCompleteActivity;
 import com.example.helloworld.producer.ProducerActivity;
@@ -116,7 +116,7 @@ public class ResponsibleChooseActivity extends AppCompatActivity
                 break;
             case R.id.iv_quarantiner:
                 if (BaseUtil.isCompleted(pref.getInt("characterFlags", 0b000000), 2)) {
-                    intent = new Intent(ResponsibleChooseActivity.this, CheckerActivity.class);
+                    intent = new Intent(ResponsibleChooseActivity.this, checkerActivity.class);
                     //跳转到检疫人员操作界面
                     startActivity(intent);
                 } else {

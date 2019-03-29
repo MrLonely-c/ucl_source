@@ -12,6 +12,9 @@
     app:right_tv_visible="true"
     app:right_tv_text="菜单"
     app:title_visible="true"
-    app:title_text="加工记录"
+    app:title_text="运输申请"
     tools:context="com.example.helloworld.producer.ProducerActivity">
+
+
+
 </com.example.helloworld.CustomToolBar>

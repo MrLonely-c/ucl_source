@@ -26,15 +26,20 @@
             android:layout_width="120dp"
             android:layout_gravity="center"
             android:layout_height="wrap_content" />
-        <EditText
+
+        <Spinner
+
             android:layout_width="240dp"
             android:layout_height="match_parent"
+            android:id="@+id/spinner_1"
             android:gravity="center"
-            android:text="屠宰"
             android:textSize="18dp"
 
             android:textAlignment="center"
-            android:background="#FFFFFF"/>
+            android:background="#FFFFFF">
+        </Spinner>
+
+
     </LinearLayout>
     <View  android:layout_height="1px"
         android:layout_width="match_parent"
@@ -53,6 +58,7 @@
             android:layout_gravity="center"
             android:layout_height="wrap_content" />
         <TextView
+            android:id="@+id/processer"
             android:layout_width="240dp"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -81,6 +87,7 @@
             android:layout_gravity="center"
             android:layout_height="wrap_content" />
         <TextView
+            android:id="@+id/processer_num"
             android:layout_width="240dp"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -109,6 +116,7 @@
             android:layout_gravity="center"
             android:layout_height="wrap_content" />
         <TextView
+            android:id="@+id/location"
             android:layout_width="240dp"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -134,6 +142,7 @@
             android:layout_gravity="center"
             android:layout_height="wrap_content" />
         <EditText
+            android:id="@+id/old_id"
             android:layout_width="240dp"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -160,6 +169,7 @@
             android:layout_gravity="center"
             android:layout_height="wrap_content" />
         <EditText
+            android:id="@+id/total_kind"
             android:layout_width="240dp"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -185,6 +195,7 @@
             android:layout_gravity="center"
             android:layout_height="wrap_content" />
         <EditText
+            android:id="@+id/kind_num"
             android:layout_width="240dp"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -198,31 +209,7 @@
         android:layout_width="match_parent"
         android:background="#FF4081"
         />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        >
 
-        <TextView
-            android:text="加工后批次"
-
-            android:layout_width="120dp"
-            android:layout_gravity="center"
-            android:layout_height="wrap_content" />
-        <EditText
-            android:layout_width="240dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text=""
-            android:textSize="18dp"
-
-            android:textAlignment="center"
-            android:background="#FFFFFF"/>
-    </LinearLayout>
-    <View  android:layout_height="1px"
-        android:layout_width="match_parent"
-        android:background="#FF4081"
-        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -235,6 +222,7 @@
             android:layout_gravity="center"
             android:layout_height="wrap_content" />
         <EditText
+            android:id="@+id/new_id"
             android:layout_width="240dp"
             android:layout_height="match_parent"
             android:gravity="center"
