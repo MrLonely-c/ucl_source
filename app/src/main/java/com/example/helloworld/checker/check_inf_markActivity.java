@@ -11,6 +11,9 @@ import android.widget.Toast;
 import com.example.helloworld.R;
 import com.example.helloworld.sell.marketinf_inActivity;
 import com.yzq.zxinglibrary.common.Constant;
+import com.yzq.zxinglibrary.android.CaptureActivity;
+import com.yzq.zxinglibrary.common.Constant;
+
 
 public class check_inf_markActivity extends AppCompatActivity {
     @Override
