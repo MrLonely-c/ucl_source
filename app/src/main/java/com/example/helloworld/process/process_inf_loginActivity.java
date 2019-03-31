@@ -81,6 +81,15 @@ public class process_inf_loginActivity extends AppCompatActivity {
             }
         });
 
+        Button next=findViewById(R.id.next);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Intent inent=new Intent(process_inf_loginActivity.this,process_inf_loginActivity.class);
+                startActivity(inent);
+            }
+        });
 
     }
     private void initUI() {

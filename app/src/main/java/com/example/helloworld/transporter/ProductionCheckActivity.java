@@ -4,13 +4,33 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.helloworld.HttpUtil;
+import com.example.helloworld.JsonUtil;
 import com.example.helloworld.R;
+import com.yzq.zxinglibrary.android.CaptureActivity;
+import com.yzq.zxinglibrary.common.Constant;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class ProductionCheckActivity extends AppCompatActivity {
-
+    private EditText p_id;
+    private EditText passer_id;
+    private static final String TAG = "tigercheng";
+    private Button submit=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +39,8 @@ public class ProductionCheckActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
+        p_id=findViewById(R.id.p_id);
+        passer_id=findViewById(R.id.passer_id);
 
         TextView btnback=findViewById(R.id.toolbar_left_tv);
         btnback.setOnClickListener(new View.OnClickListener(){
@@ -26,6 +48,104 @@ public class ProductionCheckActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+        submit=findViewById(R.id.submit_item);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                submit_passer_item();
+            }
+        });
 
+        Button code_photo=findViewById(R.id.photo_out);
+        code_photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProductionCheckActivity.this, CaptureActivity.class);
+                /*ZxingConfig是配置类  可以设置是否显示底部布局，闪光灯，相册，是否播放提示音  震动等动能
+                 * 也可以不传这个参数
+                 * 不传的话  默认都为默认不震动  其他都为true
+                 * */
+
+                //ZxingConfig config = new ZxingConfig();
+                //config.setShowbottomLayout(true);//底部布局（包括闪光灯和相册）
+                //config.setPlayBeep(true);//是否播放提示音
+                //config.setShake(true);//是否震动
+                //config.setShowAlbum(true);//是否显示相册
+                //config.setShowFlashLight(true);//是否显示闪光灯
+                //intent.putExtra(Constant.INTENT_ZXING_CONFIG, config);
+                startActivityForResult(intent,0);
+
+            }
+
+
+        });
+
+    }
+    private void submit_passer_item() {
+        String getid= passer_id.getText().toString();
+        String getpid=p_id.getText().toString();
+
+
+        Log.d(TAG, "productioncheck_submit: ");
+        //http://223.3.72.161/register??characterFlag=1
+        HttpUtil.sendOKHttp3RequestPOST("http://223.3.74.177:8000/transport/product_enter/",
+                JsonUtil.getJSON(
+
+
+                        "ProductionID",getpid,
+                "TransactionPersonID",getid
+
+
+
+
+
+
+//                        "password", passwordSS
+                ),
+                new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        Log.d(TAG, "onFailure: " + e.toString());
+                    }
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        final String resStr = response.body().string();
+
+                        Log.d(TAG, "code: " + response.code());
+                        Log.d(TAG, "resStr: " + resStr);
+                        try {
+                            JSONObject resJson = new JSONObject(resStr);
+                            Log.d(TAG, "resJson: " + resJson.toString());
+
+                        } catch (JSONException e) {
+                            Log.d(TAG, "JSONException: " + e.toString());
+                            runOnUiThread(new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(ProductionCheckActivity.this, ""+resStr, Toast.LENGTH_SHORT).show();
+                                }
+                            }));
+//                            e.printStackTrace();
+                        }
+                    }
+                }
+
+        );
+
+
+
+    }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // 扫描二维码/条码回传
+        if (requestCode == 0 && resultCode == RESULT_OK) {
+            if (data != null) {
+
+                String content = data.getStringExtra(Constant.CODED_CONTENT);
+                Toast.makeText(ProductionCheckActivity.this,"扫描结果为;"+content,Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

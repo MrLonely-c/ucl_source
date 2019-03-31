@@ -34,7 +34,7 @@
                         android:layout_width="170dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="50dip"
+                        android:layout_marginTop="30dip"
                         android:drawableLeft="@drawable/pg2"
                         android:background="@drawable/shape2"
                         android:text="@string/user_inf"
@@ -84,12 +84,22 @@
                  android:layout_marginTop="30dip"
                  android:text="产地检疫申请"
                  android:textColor="@android:color/black" />
-
+             <Button
+                 android:id="@+id/bt_producer_6"
+                 android:layout_width="170dp"
+                 android:layout_height="50dp"
+                 android:drawableLeft="@drawable/pg9"
+                 android:background="@drawable/shape2"
+                 android:layout_gravity="center_horizontal"
+                 android:layout_marginTop="30dip"
+                 android:text="产地运输申请"
+                 android:textColor="@android:color/black" />
 
 
              </com.example.helloworld.CustomToolBar>
     </FrameLayout>
     <TextView
+        android:singleLine="false"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"

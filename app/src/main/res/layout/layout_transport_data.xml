@@ -13,7 +13,7 @@
     app:right_tv_visible="true"
     app:right_tv_text="菜单"
     app:title_visible="true"
-    app:title_text="运输数据"
+    app:title_text="运输数据填写"
     tools:context="com.example.helloworld.producer.ProducerActivity">
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,44 +29,58 @@
             android:orientation="vertical">
 
             <TextView
+                android:layout_marginTop="10dp"
                 android:id="@+id/textView17"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:text="运输员：" />
+                android:text="运输员id：" />
 
             <TextView
+                android:layout_marginTop="10dp"
                 android:id="@+id/textView18"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:text="商品名称：" />
+                android:text="来源：" />
 
             <TextView
+                android:layout_marginTop="10dp"
                 android:id="@+id/textView19"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:text="运输时间：" />
+                android:text="目的地：" />
 
             <TextView
+                android:layout_marginTop="10dp"
                 android:id="@+id/textView20"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:text="运输起点：" />
+                android:text="开始时间：" />
 
             <TextView
+                android:layout_marginTop="10dp"
                 android:id="@+id/textView21"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:text="运输终点：" />
+                android:text="到达时间：" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/shangpin"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="商品id：" />
         </LinearLayout>
 
         <LinearLayout
@@ -76,57 +90,94 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/passer_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="黄大牛"
+                android:hint="36521"
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/from"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="朔州羊"
+                android:hint="东方养殖场"
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/editText3"
+                android:id="@+id/to"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="20190302"
+                android:hint="西北加工"
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/editText4"
+                android:id="@+id/begin_show"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="北京"
+                android:hint=""
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/editText5"
+                android:id="@+id/arrive_show"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="南京"
+                android:hint=""
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/p_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint=""
                 android:inputType="textPersonName" />
         </LinearLayout>
-    </LinearLayout>
-    <Button
-        android:id="@+id/submit_transport_data"
-        android:layout_width="150dip"
-        android:layout_height="wrap_content"
-        android:text="提交"
-        android:textSize="20dp"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/shape"
-        android:layout_marginTop="18dip"
-        android:layout_gravity="center"/>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/starttime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape2"
+            android:text="开始运输" />
+
+        <Button
+            android:id="@+id/arrivetime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape2"
+
+            android:text="到达终点" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal">
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/submit_pass"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/shape"
+        android:text="提交上传" />
+    </LinearLayout>
 
 
 </com.example.helloworld.CustomToolBar>

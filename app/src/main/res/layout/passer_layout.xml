@@ -48,7 +48,7 @@
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dip"
-        android:text="商品核对"
+        android:text="信息录入"
         android:drawableLeft="@drawable/pg10"
         android:background="@drawable/shape2"
         android:textColor="@android:color/black" />
@@ -59,7 +59,7 @@
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dip"
-        android:text="运输数据"
+        android:text="运输数据填写"
         android:drawableLeft="@drawable/pg5"
         android:background="@drawable/shape2"
         android:textColor="@android:color/black" />
