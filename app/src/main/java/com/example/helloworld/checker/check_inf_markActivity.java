@@ -28,7 +28,7 @@ import java.io.IOException;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
-
+import test.Test_Pack;
 
 public class check_inf_markActivity extends AppCompatActivity {
     private static final String TAG = "tigercheng";
@@ -41,6 +41,7 @@ public class check_inf_markActivity extends AppCompatActivity {
     private EditText checker_name=null;
     private EditText productionid=null;
     private Button submit_check=null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,7 +93,35 @@ public class check_inf_markActivity extends AppCompatActivity {
 
         Log.d(TAG, "check_inf_markin: ");
         //http://223.3.72.161/register??characterFlag=1
-        HttpUtil.sendOKHttp3RequestPOST("http://223.3.95.218:8000/quarantineTest/quarantine/submit",
+        JSONObject json = new JSONObject();
+        JSONObject cdpsJson = new JSONObject();
+        JSONObject contentJson = new JSONObject();
+        try {
+            contentJson.put("QuarantineID" ,"acx0");
+            contentJson.put("QuarantineBatch" , "axc023");
+            contentJson.put("QuarantinePersonID", "09093");
+            contentJson.put( "ProductionId" , "123");
+            contentJson.put("QuarantineLocation", "nanjing");
+            contentJson.put("Applicant", "wang");
+            contentJson.put("QuarantinerName", "lin");
+            contentJson.put("QuarantineRes" , "***");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            cdpsJson.put("content",contentJson);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            json.put("cdps",cdpsJson);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        String uclStr = json.toString();
+        Test_Pack.JSONToUCL(uclStr);
+        Log.d(TAG, "check_result_in: "+uclStr);
+        HttpUtil.sendOKHttp3RequestPOST("http://223.3.95.218:8000/quarantine/quarantine/submit",
                 JsonUtil.getJSON(
 
                         "QuarantineID" , "acx0",
@@ -112,6 +141,7 @@ public class check_inf_markActivity extends AppCompatActivity {
 
 //                        "password", passwordSS
                 ),
+
                 new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {

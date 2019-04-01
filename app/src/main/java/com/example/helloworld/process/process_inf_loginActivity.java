@@ -15,9 +15,20 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.helloworld.HttpUtil;
+import com.example.helloworld.JsonUtil;
 import com.example.helloworld.R;
 import com.example.helloworld.sell.marketinf_inActivity;
 import com.yzq.zxinglibrary.common.Constant;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class process_inf_loginActivity extends AppCompatActivity {
     private int kind;
@@ -25,12 +36,13 @@ public class process_inf_loginActivity extends AppCompatActivity {
     private String str;
 //    private EditText process_round=null;
     private TextView processer=null;
-    private TextView processer_num=null;
-    private TextView process_location=null;
+    private EditText processer_num=null;
+    private EditText process_location=null;
     private EditText process_old_id=null;
     private  EditText process_kind_total=null;
     private EditText kind_num=null;
     private EditText process_new_id=null;
+    private Button submit=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,14 +84,7 @@ public class process_inf_loginActivity extends AppCompatActivity {
                 // TODO Auto-generated method stub
             }
         });
-        Button submit=findViewById(R.id.submit);
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(process_inf_loginActivity.this,
-                      str, Toast.LENGTH_SHORT).show();
-            }
-        });
+
 
         Button next=findViewById(R.id.next);
         next.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +96,12 @@ public class process_inf_loginActivity extends AppCompatActivity {
             }
         });
 
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                in_processinf();
+            }
+        });
     }
     private void initUI() {
 
@@ -102,10 +113,71 @@ public class process_inf_loginActivity extends AppCompatActivity {
         process_kind_total=findViewById(R.id.total_kind);
         kind_num=findViewById(R.id.kind_num);
         process_new_id=findViewById(R.id.new_id);
+        submit=findViewById(R.id.submit);
 //        get_inf();
 
 
     }
+    private void in_processinf() {
+        String getname = processer.getText().toString();
+        String getworkid = processer_num.getText().toString();
+        String getlocation = process_location.getText().toString();
+        String getproid=process_old_id.getText().toString();
+        String getkind=process_kind_total.getText().toString();
 
+        Log.d(TAG, "processerinf_change: ");
+        //http://223.3.72.161/register??characterFlag=1
+        HttpUtil.sendOKHttp3RequestPOST("http://223.3.74.248:8000/process/processtion_add/",
+                JsonUtil.getJSON(
+
+                        "ProcessID", "20181455",
+                "ProductionID", getproid,
+                "ConsumerID",getworkid,
+                "ProcessLocation", getlocation,
+                "ProductionKind",getkind,
+                "ReproductionID1", "121238273 ",
+                "ReproductionID2", "1354651351",
+                "ProcessUCLLink","121315112"
+
+
+
+
+
+
+//                        "password", passwordSS
+                ),
+                new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        Log.d(TAG, "onFailure: " + e.toString());
+                    }
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        final String resStr = response.body().string();
+
+                        Log.d(TAG, "code: " + response.code());
+                        Log.d(TAG, "resStr: " + resStr);
+                        try {
+                            JSONObject resJson = new JSONObject(resStr);
+                            Log.d(TAG, "resJson: " + resJson.toString());
+
+                        } catch (JSONException e) {
+                            Log.d(TAG, "JSONException: " + e.toString());
+                            runOnUiThread(new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(process_inf_loginActivity.this, ""+resStr, Toast.LENGTH_SHORT).show();
+                                }
+                            }));
+//                            e.printStackTrace();
+                        }
+                    }
+                }
+
+        );
+
+
+    }
 
 }

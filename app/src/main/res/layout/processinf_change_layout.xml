@@ -337,7 +337,7 @@
                     android:layout_height="match_parent"
                     android:background="#FFFFFF"
                     android:gravity="center"
-                    android:text="***************"
+                    android:text=""
 
                     android:textAlignment="center"
                     android:textSize="18dp" />
@@ -366,7 +366,7 @@
                     android:layout_height="match_parent"
                     android:background="#FFFFFF"
                     android:gravity="center"
-                    android:text="请输入新密码"
+                    android:hint="请输入新密码"
 
                     android:textAlignment="center"
                     android:textSize="18dp" />

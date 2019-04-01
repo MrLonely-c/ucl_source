@@ -63,7 +63,7 @@ public class TransportDataActivity extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");// HH:mm:ss
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// HH:mm:ss
 //获取当前时间
                 Date date = new Date(System.currentTimeMillis());
                 start_show.setText(simpleDateFormat.format(date));
@@ -75,7 +75,7 @@ public class TransportDataActivity extends AppCompatActivity {
         arrive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");// HH:mm:ss
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// HH:mm:ss
 //获取当前时间
                 Date date = new Date(System.currentTimeMillis());
                 arrive_show.setText(simpleDateFormat.format(date));

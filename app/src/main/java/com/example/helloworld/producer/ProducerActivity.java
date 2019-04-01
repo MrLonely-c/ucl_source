@@ -2,6 +2,7 @@ package com.example.helloworld.producer;
 
 import android.content.Intent;
 import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -32,6 +33,20 @@ public class ProducerActivity extends AppCompatActivity  {
     private static final String TAG = "tigercheng";
         private TextView information;
 
+public static final int UPDATE_TEXT=1;
+private Handler handler=new Handler(){
+    public void handleMessage(Message msg){
+        switch(msg.what){
+            case UPDATE_TEXT:
+                information=findViewById(R.id.information);
+                information.setText("运输人员信息:");
+                getreact();
+                break;
+                default:
+                    break;
+        }
+    }
+};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,7 +119,14 @@ public class ProducerActivity extends AppCompatActivity  {
         apply_trans.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getreact();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Message message=new Message();
+                        message.what=UPDATE_TEXT;
+                        handler.sendMessage(message);
+                    }
+                }).start();
 
             }
         });
@@ -123,9 +145,6 @@ public class ProducerActivity extends AppCompatActivity  {
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
                         final String resStr = response.body().string();
-                                information=findViewById(R.id.information);
-
-
 
                         try{
                             JSONObject jsonObjec=new JSONObject(resStr);
@@ -144,7 +163,7 @@ public class ProducerActivity extends AppCompatActivity  {
                             String phone=jsonObjec.getString("ContactNo");
 
 
-                            information.setText(jsonObjec.getString("ConsumerName")+phone);
+                            information.append(jsonObjec.getString("ConsumerName")+phone);
 
                         } catch (JSONException e) {
                             e.printStackTrace();

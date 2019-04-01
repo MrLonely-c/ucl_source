@@ -1,6 +1,8 @@
 package com.example.helloworld.sell;
 
 import android.content.Intent;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +14,7 @@ import android.widget.Toast;
 import com.example.helloworld.R;
 
 public class SellerActivity extends AppCompatActivity  {
-
+    private DrawerLayout mDrawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +37,15 @@ public class SellerActivity extends AppCompatActivity  {
             }
         });
         Button SellerClick = findViewById(R.id.bt_1);
+        mDrawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
 
+        Button menuB=findViewById(R.id.toolbar_right_btn);
+        menuB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDrawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
         SellerClick.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent=new Intent(SellerActivity.this, sellerinf_changeActivity.class);

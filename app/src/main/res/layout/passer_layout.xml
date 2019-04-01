@@ -1,3 +1,14 @@
+<android.support.v4.widget.DrawerLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    >
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
 <com.example.helloworld.CustomToolBar
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -64,3 +75,14 @@
         android:background="@drawable/shape2"
         android:textColor="@android:color/black" />
 </com.example.helloworld.CustomToolBar>
+    </FrameLayout>
+<TextView
+android:singleLine="false"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:layout_gravity="start"
+android:text="hello !!"
+android:textSize="30sp"
+android:background="#FFF"
+android:id="@+id/information"/>
+    </android.support.v4.widget.DrawerLayout>

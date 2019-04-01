@@ -172,7 +172,7 @@ public class process_inf_changeActivity extends AppCompatActivity {
     }
 
     private void get_inf(){
-        HttpUtil.sendOKHttp3RequestGET("http://223.3.90.103:8000/process/processor_inquiry?consumer_id="+"1",
+        HttpUtil.sendOKHttp3RequestGET("http://223.3.74.248:8000/process/processor_inquiry?ConsumerID="+"2",
 
                 new Callback() {
                     @Override
@@ -193,7 +193,7 @@ public class process_inf_changeActivity extends AppCompatActivity {
                         try{
                             JSONObject jsonObjec=new JSONObject(resStr);
                             worker_name.setText(jsonObjec.getString("ConsumerName"));
-                            process_id.setText(jsonObjec.getString("ConsumerId"));
+                            process_id.setText(jsonObjec.getString("ConsumerID"));
                             idno_processer.setText(jsonObjec.getString("IDNo"));
                             reg_time.setText(jsonObjec.getString("RegisterTimeConsumer"));
                             contact_num.setText(jsonObjec.getString("ContactNo"));
@@ -243,10 +243,10 @@ public class process_inf_changeActivity extends AppCompatActivity {
 
         Log.d(TAG, "processerinf_change: ");
         //http://223.3.72.161/register??characterFlag=1
-        HttpUtil.sendOKHttp3RequestPOST("http://223.3.90.103:8000/process/processor_update/",
+        HttpUtil.sendOKHttp3RequestPOST("http://223.3.74.248:8000/process/processor_update/",
                 JsonUtil.getJSON(
 
-                        "ConsumerId", "1",
+                        "ConsumerId", "2",
                 "ConsumerName", getname,
                 "ContactNo", getphone,
                 "Password", getnewpassword,

@@ -1,6 +1,8 @@
 package com.example.helloworld.transporter;
 
 import android.content.Intent;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +15,7 @@ import com.example.helloworld.MainActivity;
 import com.example.helloworld.R;
 
 public class TransporterActivity extends AppCompatActivity  {
-
+    private DrawerLayout mDrawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +29,15 @@ public class TransporterActivity extends AppCompatActivity  {
             }
         });
         TextView rightClick = findViewById(R.id.toolbar_right_tv);
+        mDrawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
 
+        Button menuB=findViewById(R.id.toolbar_right_btn);
+        menuB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDrawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
         rightClick.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Toast.makeText(TransporterActivity.this,
