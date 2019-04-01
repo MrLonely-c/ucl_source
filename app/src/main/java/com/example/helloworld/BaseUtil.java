@@ -22,8 +22,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.helloworld.TCCallbackListener;
-
 import java.io.File;
 import java.io.IOException;
 
@@ -32,7 +30,7 @@ import javax.security.auth.callback.Callback;
 public class BaseUtil {
 
     private static final String TAG = "tigercheng";
-
+    
     //信息是否完善 完善返回true
     public static boolean isCompleted(int characterFlags, int character) {
         boolean result = false;
@@ -100,7 +98,7 @@ public class BaseUtil {
         return imageUri;
     }
 
-    public static Uri getAlbumImagePath(Context context, Intent data) {
+    public static String getAlbumImagePath(Context context, Intent data) {
         String imagePath = null;
 
         Uri uri = data.getData();
@@ -134,7 +132,7 @@ public class BaseUtil {
 //            Log.d(TAG, "handleImageOnKitKat: null");
 //        }
 
-        return uri;
+        return imagePath;
     }
 
     public static void handleImageOnKitKat(Context context, Intent data) {

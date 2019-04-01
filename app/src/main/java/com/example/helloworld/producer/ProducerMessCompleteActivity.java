@@ -137,16 +137,19 @@ public class ProducerMessCompleteActivity extends AppCompatActivity
             case R.id.btnPhotoIDCard:
 //                Log.d(TAG, "onClick: " + getExternalCacheDir());
                 try {
-                    BaseUtil.takeAPhoto(this, String.valueOf(getExternalCacheDir()), new TCCallbackListener() {
-                        @Override
-                        public void jump(Uri uri, File file, int requestCode) {
-                            Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                            intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
-                            IDCardUri = uri;
-                            IDCardFile = file;
-                            startActivityForResult(intent, requestCode);
-                        }
-                    }, PHOTO_IDCARD);
+                    BaseUtil.takeAPhoto(this,
+                            String.valueOf(Environment.getExternalStorageDirectory()) + "/DCIM/Camera/",
+//                            String.valueOf(getExternalCacheDir()),
+                            new TCCallbackListener() {
+                                @Override
+                                public void jump(Uri uri, File file, int requestCode) {
+                                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                                    intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+                                    IDCardUri = uri;
+                                    IDCardFile = file;
+                                    startActivityForResult(intent, requestCode);
+                                }
+                            }, PHOTO_IDCARD);
                 } catch (Exception e) {
                     Log.d(TAG, "onClick: " + e);
                 }
@@ -167,16 +170,18 @@ public class ProducerMessCompleteActivity extends AppCompatActivity
 
             case R.id.btnPhotoCertificates:
 
-                BaseUtil.takeAPhoto(this, String.valueOf(getExternalCacheDir()), new TCCallbackListener() {
-                    @Override
-                    public void jump(Uri uri, File file, int requestCode) {
-                        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                        intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
-                        CertificatesUri = uri;
-                        CertificatesFile = file;
-                        startActivityForResult(intent, requestCode);
-                    }
-                }, PHOTO_CERTIFICATES);
+                BaseUtil.takeAPhoto(this,
+                        String.valueOf(Environment.getExternalStorageDirectory()) + "/DCIM/Camera/",
+                        new TCCallbackListener() {
+                            @Override
+                            public void jump(Uri uri, File file, int requestCode) {
+                                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                                intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+                                CertificatesUri = uri;
+                                CertificatesFile = file;
+                                startActivityForResult(intent, requestCode);
+                            }
+                        }, PHOTO_CERTIFICATES);
                 break;
 
             case R.id.btnAlbumCertificates:
@@ -193,6 +198,7 @@ public class ProducerMessCompleteActivity extends AppCompatActivity
                 break;
 
             case R.id.btnProducerSave:
+//                prefEditor = pref.edit();
                 characterFlags = characterFlags | 0b100000;
                 Log.d(TAG, "characterFlags: " + characterFlags);
 
@@ -231,15 +237,15 @@ public class ProducerMessCompleteActivity extends AppCompatActivity
                                     HttpUtil.sendOKHttpMultipartRequestPOST(
                                             HttpUtil.BASEURL_LOGIN_SIGN_PRODUCE + "/user/img_fulfil",
                                             new MultipartBody.Builder("AaB03x")
+//                                    MultipartBody body = new MultipartBody.Builder("")
                                                     .setType(MultipartBody.FORM)
-                                                    .addFormDataPart(
-                                                            "imgID", "imgID.jpg",
-                                                            RequestBody.create(MediaType.parse("image/*"),
-                                                                    IDCardFile))
-                                                    .addFormDataPart(
-                                                            "imgwork", "imgwork.jpg",
-                                                            RequestBody.create(MediaType.parse("image/*"),
-                                                                    CertificatesFile))
+                                                    .addFormDataPart("imgID", "imgID.jpg", RequestBody.create(
+//                                                    MediaType.parse("image/jpeg"),
+                                                            MediaType.parse("image/*"),
+                                                            IDCardFile))
+                                                    .addFormDataPart("imgwork", "imgwork.jpg", RequestBody.create(
+                                                            MediaType.parse("image/*"),
+                                                            CertificatesFile))
                                                     .addFormDataPart("ConsumerId", pref.getString("id", "id"))
                                                     .addFormDataPart("CharacterFlag", "0")
                                                     .build(),
@@ -253,13 +259,15 @@ public class ProducerMessCompleteActivity extends AppCompatActivity
                                                 public void onResponse(Call call, Response response) throws IOException {
                                                     String resStr = response.body().string();
                                                     Log.d(TAG, "protocol:" + response.protocol() + " code:" + response.code() + " message:" + response.message());
-
+//                                            Headers headers = response.headers();
+//                                            for (int i = 0; i < headers.size(); i++) {
+//                                                Log.d(TAG, headers.name(i) + ":" + headers.value(i));
+//                                            }
                                                     Log.d(TAG, "onResponse: " + resStr);
                                                     if (response.code() == 200) {
 
-                                                        intent = new Intent(
-                                                                ProducerMessCompleteActivity.this,
-                                                                productionStateActivity.class);
+                                                        intent = new Intent(ProducerMessCompleteActivity.this, productionStateActivity.class);
+                                                        intent.putExtra("title", "羊状态信息查询");
                                                         startActivity(intent);
                                                         runOnUiThread(new Runnable() {
                                                             @Override
@@ -288,6 +296,8 @@ public class ProducerMessCompleteActivity extends AppCompatActivity
                             }
                         }
                 );
+
+
                 break;
             default:
                 break;
@@ -312,8 +322,12 @@ public class ProducerMessCompleteActivity extends AppCompatActivity
                 break;
 
             case ALBUM_IDCARD:
+//                handleImageOnKitKat(this, data);
                 if (resultCode == RESULT_OK) {
                     try {
+                        Log.d(TAG, "getAlbumImagePath: " + BaseUtil.getAlbumImagePath(this, data));
+                        IDCardFile = new File(BaseUtil.getAlbumImagePath(this, data));
+
                         Bitmap bitmap = BitmapFactory.decodeStream(
                                 getContentResolver().openInputStream(data.getData()));
                         ivIDCard.setImageBitmap(bitmap);
@@ -338,8 +352,10 @@ public class ProducerMessCompleteActivity extends AppCompatActivity
                 break;
 
             case ALBUM_CERTIFICATES:
+//                handleImageOnKitKat(this, data);
                 if (resultCode == RESULT_OK) {
                     try {
+                        CertificatesFile = new File(BaseUtil.getAlbumImagePath(this, data));
                         Bitmap bitmap = BitmapFactory.decodeStream(
                                 getContentResolver().openInputStream(data.getData()));
                         ivCertificates.setImageBitmap(bitmap);
@@ -352,6 +368,4 @@ public class ProducerMessCompleteActivity extends AppCompatActivity
         }
 
     }
-
-
 }

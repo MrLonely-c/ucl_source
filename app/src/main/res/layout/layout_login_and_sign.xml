@@ -16,6 +16,14 @@
         app:srcCompat="@drawable/water" />
 
 
+    <TextView
+        android:id="@+id/textView49"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:paddingRight="20dp"
+        android:text="SEU-UCL-溯源" />
+
     <RadioGroup
         android:id="@+id/rg_choselogkind"
         android:layout_width="match_parent"
@@ -65,7 +73,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="用户名：" />
+                android:text="登录账户：" />
 
             <TextView
                 android:id="@+id/textView31"
@@ -84,13 +92,13 @@
             android:weightSum="3">
 
             <EditText
-                android:id="@+id/etx_username"
+                android:id="@+id/etx_contactNo"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="输入用户名"
-                android:inputType="textPersonName" />
+                android:hint="输入账户"
+                android:inputType="number" />
 
             <EditText
                 android:id="@+id/etx_password"
@@ -128,7 +136,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="注册" />
+            android:background="@drawable/btn_selector"
+            android:letterSpacing="0.4"
+            android:text="注册"
+            android:textColor="#fff"
+            android:textSize="19sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btn_login"
@@ -136,6 +149,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
             android:layout_weight="1"
-            android:text="登录" />
+            android:background="@drawable/btn_selector"
+            android:letterSpacing="0.4"
+            android:text="登录"
+            android:textColor="#fff"
+            android:textSize="19sp"
+            android:textStyle="bold" />
     </LinearLayout>
 </LinearLayout>
