@@ -138,6 +138,39 @@ public class CompanySignupActivity extends AppCompatActivity
                                 "ConsumerName", "Name"
                         );
                         break;
+
+                    case 1:
+                        url += "";
+                        postData = JsonUtil.getJSON(
+                                "ConsumerId", "123",
+                                "ConsumerName", "Name"
+                        );
+                        break;
+
+                    case 2:
+                        url += "";
+                        postData = JsonUtil.getJSON(
+                                "ConsumerId", "123",
+                                "ConsumerName", "Name"
+                        );
+                        break;
+
+                    case 3:
+                        url += "";
+                        postData = JsonUtil.getJSON(
+                                "ConsumerId", "123",
+                                "ConsumerName", "Name"
+                        );
+                        break;
+
+                    case 4:
+                        url += "";
+                        postData = JsonUtil.getJSON(
+                                "ConsumerId", "123",
+                                "ConsumerName", "Name"
+                        );
+                        break;
+
                 }
 
                 HttpUtil.sendOKHttp3RequestPOST(url, postData, new Callback() {
