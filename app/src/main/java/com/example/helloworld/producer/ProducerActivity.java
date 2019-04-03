@@ -32,21 +32,28 @@ public class ProducerActivity extends AppCompatActivity  {
     private DrawerLayout mDrawerLayout;
     private static final String TAG = "tigercheng";
         private TextView information;
+   private String name;
+   private String phone;
+    public static final int UPDATE_TEXT=1;
 
-public static final int UPDATE_TEXT=1;
-private Handler handler=new Handler(){
+    private Handler handler=new Handler(){
     public void handleMessage(Message msg){
         switch(msg.what){
             case UPDATE_TEXT:
-                information=findViewById(R.id.information);
-                information.setText("运输人员信息:");
                 getreact();
+                information=findViewById(R.id.information);
+                information.append("姓名："+name);
+                information.append("\n");
+                information.append("联系方式:"+phone);
+                information.append("\n");
+
+
                 break;
                 default:
                     break;
-        }
-    }
-};
+         }
+         }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +68,8 @@ private Handler handler=new Handler(){
             });
             mDrawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
         TextView rightClick = findViewById(R.id.toolbar_right_tv);
-
+        information=findViewById(R.id.information);
+        information.setText("运输人员信息：\n");
         rightClick.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Toast.makeText(ProducerActivity.this,
@@ -134,6 +142,7 @@ private Handler handler=new Handler(){
 
 
     private void getreact(){
+
         HttpUtil.sendOKHttp3RequestGET("http://223.3.74.177:8000/transport/transpoter/apply/",
 
                 new Callback() {
@@ -160,10 +169,10 @@ private Handler handler=new Handler(){
 ////                            information.append(jsonObjec.getString("ContactNo"));
 
 
-                            String phone=jsonObjec.getString("ContactNo");
+                            phone=jsonObjec.getString("ContactNo");
+                            name=jsonObjec.getString("ConsumerName");
 
-
-                            information.append(jsonObjec.getString("ConsumerName")+phone);
+//                            information.append(name+phone);
 
                         } catch (JSONException e) {
                             e.printStackTrace();

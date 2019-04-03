@@ -119,20 +119,24 @@ public class check_inf_markActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         String uclStr = json.toString();
-        Test_Pack.JSONToUCL(uclStr);
-        Log.d(TAG, "check_result_in: "+uclStr);
+
+        String re=Test_Pack.JSONToUCL(uclStr);
+        Log.d(TAG, "check_result_in: "+re);
+
+        String back=Test_Pack.UCLToJSON(re);
+        Log.d(TAG, "check_result_in: "+back);
         HttpUtil.sendOKHttp3RequestPOST("http://223.3.95.218:8000/quarantine/quarantine/submit",
                 JsonUtil.getJSON(
 
-                        "QuarantineID" , "acx0",
-                                 "QuarantineBatch" , "axc023",
-                                  "QuarantinePersonID", "09093",
-                                "ProductionId" , "123",
-                                "QuarantineLocation", "nanjing",
-                                "Applicant", "wang"   ,
-                                 "QuarantinerName", "lin" ,
-                                 "QuarantineRes" , "***"
-
+//                        "QuarantineID" , "acx0",
+//                                 "QuarantineBatch" , "axc023",
+//                                  "QuarantinePersonID", "09093",
+//                                "ProductionId" , "123",
+//                                "QuarantineLocation", "nanjing",
+//                                "Applicant", "wang"   ,
+//                                 "QuarantinerName", "lin" ,
+//                                 "QuarantineRes" , "***"
+                            "quarantine",re
 
 
 
@@ -176,3 +180,5 @@ public class check_inf_markActivity extends AppCompatActivity {
 
     }
 }
+
+//2019_4_1 完成ucl基本测试以及 textview的添加工作
