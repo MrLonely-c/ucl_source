@@ -324,7 +324,7 @@
                 android:weightSum="8">
 
                 <EditText
-                    android:id="@+id/editText26"
+                    android:id="@+id/etxCompanyName2"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -332,7 +332,7 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editText25"
+                    android:id="@+id/etxTradeLocation2"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -340,7 +340,7 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editText65"
+                    android:id="@+id/etxLoginName2"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -348,7 +348,7 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editText66"
+                    android:id="@+id/etxLoginPassword2"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -356,7 +356,7 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editText67"
+                    android:id="@+id/etxReLoginPassword2"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -539,7 +539,7 @@
                         android:orientation="vertical">
 
                         <EditText
-                            android:id="@+id/editText47"
+                            android:id="@+id/etxCompanyName3"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -547,7 +547,7 @@
                             android:inputType="textPersonName" />
 
                         <EditText
-                            android:id="@+id/editText48"
+                            android:id="@+id/etxCorporate3"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -555,7 +555,7 @@
                             android:inputType="textPersonName" />
 
                         <EditText
-                            android:id="@+id/editText49"
+                            android:id="@+id/etxCorporateIDCardNo3"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -563,7 +563,7 @@
                             android:inputType="textPersonName" />
 
                         <EditText
-                            android:id="@+id/editText50"
+                            android:id="@+id/etxCompanyContactNo3"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -571,7 +571,7 @@
                             android:inputType="textPersonName" />
 
                         <EditText
-                            android:id="@+id/editText68"
+                            android:id="@+id/etxCompanySignUpTime3"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -579,7 +579,7 @@
                             android:inputType="textPersonName" />
 
                         <EditText
-                            android:id="@+id/editText69"
+                            android:id="@+id/etxTradeLocation3"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -587,7 +587,7 @@
                             android:inputType="textPersonName" />
 
                         <EditText
-                            android:id="@+id/editText70"
+                            android:id="@+id/etxLoginName3"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -595,7 +595,7 @@
                             android:inputType="textPersonName" />
 
                         <EditText
-                            android:id="@+id/editText51"
+                            android:id="@+id/etxLoginPassword3"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -603,7 +603,7 @@
                             android:inputType="textPersonName" />
 
                         <EditText
-                            android:id="@+id/editText52"
+                            android:id="@+id/etxReLoginPassword3"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -780,7 +780,7 @@
                 android:weightSum="12">
 
                 <EditText
-                    android:id="@+id/editText53"
+                    android:id="@+id/etxCompanyName4"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -788,7 +788,7 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editText54"
+                    android:id="@+id/etxCorporate4"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -796,7 +796,7 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editText71"
+                    android:id="@+id/etxCorporateIDCardNo4"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -804,7 +804,7 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editText72"
+                    android:id="@+id/etxCompanyContactNo4"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -812,7 +812,7 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editText73"
+                    android:id="@+id/etxTradeLocation4"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -820,7 +820,7 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editText74"
+                    android:id="@+id/etxLoginName4"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -828,7 +828,7 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editText55"
+                    android:id="@+id/etxLoginPassword4"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -836,7 +836,7 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editText56"
+                    android:id="@+id/etxReLoginPassword4"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -987,7 +987,7 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/editText57"
+                    android:id="@+id/etxCompanyName5"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -995,7 +995,7 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editText58"
+                    android:id="@+id/etxCorporate5"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -1003,7 +1003,7 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editText75"
+                    android:id="@+id/etxCorporateIDCardNo5"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -1011,7 +1011,7 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editText76"
+                    android:id="@+id/etxCompanyContactNo5"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -1019,7 +1019,7 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editText77"
+                    android:id="@+id/etxTradeLocation5"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -1027,7 +1027,7 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editText59"
+                    android:id="@+id/etxLoginName5"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -1035,7 +1035,7 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editText60"
+                    android:id="@+id/etxLoginPassword5"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -1043,7 +1043,7 @@
                     android:inputType="textPersonName" />
 
                 <EditText
-                    android:id="@+id/editText61"
+                    android:id="@+id/etxReLoginPassword5"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
