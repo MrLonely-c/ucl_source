@@ -2,10 +2,12 @@ package com.example.helloworld.loginAndSign;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.UiThread;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +24,9 @@ import com.example.helloworld.baseuser.BaseUserSignUpActivity;
 import com.example.helloworld.company.CompanyManagerActivity;
 import com.example.helloworld.company.CompanySignupActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 
 import okhttp3.Call;
@@ -34,7 +39,7 @@ public class LoginAndSignActivity extends AppCompatActivity
     private static final String TAG = "tigercheng";
 
     //控件
-    private TextView etxUserName = null;
+    private TextView etxContactNo = null;
     private TextView etxPassword = null;
 
     private Button btnSignUp = null;
@@ -82,7 +87,7 @@ public class LoginAndSignActivity extends AppCompatActivity
             rbtnCompany.setChecked(companyFlag);
             rbtnPersonal.setChecked(!companyFlag);
 
-            etxUserName.setText(pref.getString("userName", ""));
+            etxContactNo.setText(pref.getString("userName", ""));
             etxPassword.setText(pref.getString("password", ""));
             cboxRemeberPwd.setChecked(true);
             btnLogIn.callOnClick();
@@ -112,20 +117,10 @@ public class LoginAndSignActivity extends AppCompatActivity
     protected void onStart() {
         Log.d(TAG, "onStart: ");
         super.onStart();
-//        rememberPwdFlag = pref.getBoolean("rememberPwd", false);
-//        if (!rememberPwdFlag) {
-//            companyFlag = pref.getBoolean("companyFlag", false);
-//            rbtnCompany.setChecked(companyFlag);
-//            rbtnPersonal.setChecked(!companyFlag);
-//
-//            etxUserName.setText("");
-//            etxPassword.setText("");
-//            cboxRemeberPwd.setChecked(false);
-//        }
     }
 
     private void initUI() {
-        etxUserName = findViewById(R.id.etx_username);
+        etxContactNo = findViewById(R.id.etx_contactNo);
         etxPassword = findViewById(R.id.etx_password);
 
         btnSignUp = findViewById(R.id.btn_signup);
@@ -178,89 +173,119 @@ public class LoginAndSignActivity extends AppCompatActivity
 
     private void logIn() {
         Log.d(TAG, "companyFlag: " + companyFlag);
-        final String username = etxUserName.getText().toString();
+        final String contactNo = etxContactNo.getText().toString();
         final String password = etxPassword.getText().toString();
 
-//        sendLoginRequest(false);
-//        if (username.equals("123") && password.equals("123")) {
 
-        HttpUtil.sendOKHttp3RequestGET("https://www.baidu.com/s",
+        if (companyFlag) {
+            //企业组织登录操作
+            Log.d(TAG, "企业组织用户登录操作");
 
-                new Callback() {
-                    @Override
-                    public void onFailure(Call call, IOException e) {
-                        Log.d(TAG, "onFailure: " + e);
-                    }
-
-                    @Override
-                    public void onResponse(Call call, Response response) throws IOException {
-                        Log.d(TAG, "response code: " + response.code());
-//                Log.d(TAG, "response tostring: " + response.toString());
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                Toast.makeText(LoginAndSignActivity.this,
-                                        "okkkkkkk:" + etxUserName.getText().toString(), Toast.LENGTH_SHORT).show();
-
-                                if (loginAccess) {
-
-                                    if (companyFlag) {
-                                        //企业组织登录操作
-                                        Log.d(TAG, "企业组织用户登录操作");
-                                        intent = new Intent(LoginAndSignActivity.this, CompanyManagerActivity.class);
-                                        intent.putExtra("title", "企业组织管理");
-                                        startActivity(intent);
-                                        finish();
-                                    } else {
-                                        //个人用户登录操作
-                                        Log.d(TAG, "个人用户登录操作");
-//                Log.d(TAG, "characterFlag: " + pref.getInt("characterFlag", -1));
-                                        intent = new Intent(LoginAndSignActivity.this, ResponsibleChooseActivity.class);
-                                        startActivity(intent);
-                                        finish();
-                                    }
-
-                                    prefEditor = pref.edit();
-                                    if (cboxRemeberPwd.isChecked()) {
-                                        prefEditor.putBoolean("rememberPwd", true);
-                                        prefEditor.putBoolean("companyFlag", companyFlag);
-                                        prefEditor.putString("userName", username);
-                                        prefEditor.putString("password", password);
-                                        prefEditor.putInt("characterFlags", characterFlags);
-                                    } else {
-//                prefEditor.clear();
-                                        prefEditor.putBoolean("rememberPwd", false);
-                                        prefEditor.remove("userName");
-                                        prefEditor.remove("password");
-                                        etxUserName.setText("");
-                                        etxPassword.setText("");
-                                        prefEditor.putInt("characterFlags", 0);
-                                    }
-
-                                    prefEditor.apply();
-
-//            Log.d(TAG, Integer.toBinaryString(pref.getInt("characterFlags", 0b111111)));
-//            System.out.println(Integer.toBinaryString(1088));
-//            System.out.println(Integer.toBinaryString(pref.getInt("characterFlags", 0b111111)));
-
-                                } else {
-//            Toast.makeText(this, "登录失败", Toast.LENGTH_SHORT).show();
-                                    Log.d(TAG, "登录失败");
-                                }
-
-                            }
-                        });
-
-                        if (response.code() == 200) {
-                            loginAccess = true;
-//        characterFlags = 0b011000;
-                            characterFlags = 0;
+            HttpUtil.sendOKHttp3RequestPOST(HttpUtil.BASEURL_LOGIN_SIGN_PRODUCE + "/user/login?characterFlag=0",
+                    JsonUtil.getJSON(
+                            "ContactNo", Integer.parseInt(contactNo),
+                            "Password", password
+                    ),
+                    new Callback() {
+                        @Override
+                        public void onFailure(Call call, IOException e) {
+                            Log.d(TAG, "onFailure: " + e.toString());
                         }
 
-                    }
-                }, "wd", "android");
+                        @Override
+                        public void onResponse(Call call, Response response) throws IOException {
+                            String resStr = response.body().string();
+                            Log.d(TAG, "response.code: " + response.code());
+                            Log.d(TAG, "企业组织用户登录操作resStr: " + resStr);
+
+                            intent = new Intent(LoginAndSignActivity.this, CompanyManagerActivity.class);
+                            intent.putExtra("title", "企业组织管理");
+                            handlePreference(companyFlag, contactNo, password, characterFlags, "");
+
+                            startActivity(intent);
+                            finish();
+                        }
+                    });
 
 
+        } else {
+            //个人用户登录操作
+            Log.d(TAG, "个人用户登录操作");
+
+            HttpUtil.sendOKHttp3RequestPOST(HttpUtil.BASEURL_LOGIN_SIGN_PRODUCE + "/user/login?CharacterFlag=1",
+                    JsonUtil.getJSON(
+                            "ContactNo", Integer.parseInt(contactNo),
+                            "Password", password
+                    ),
+                    new Callback() {
+                        @Override
+                        public void onFailure(Call call, IOException e) {
+                            Log.d(TAG, "onFailure: " + e.toString());
+                        }
+
+                        @Override
+                        public void onResponse(Call call, Response response) throws IOException {
+                            final String resStr = response.body().string();
+                            Log.d(TAG, "response.code: " + response.code());
+                            Log.d(TAG, "个人用户登录操作resStr: " + resStr);
+
+                            try {
+                                JSONObject resJson = null;
+                                resJson = new JSONObject(resStr);
+                                Log.d(TAG, "resJson: " + resJson.toString());
+
+                                characterFlags = Integer.valueOf(resJson.getString("CharacterFlag"));
+
+                                intent = new Intent(LoginAndSignActivity.this, ResponsibleChooseActivity.class);
+                                handlePreference(
+                                        companyFlag, contactNo, password, characterFlags,
+                                        resJson.getString("ConsumerId")
+                                );
+
+                                startActivity(intent);
+                                finish();
+                            } catch (JSONException e) {
+                                Log.d(TAG, "JSONException: " + e.toString());
+//                                etxContact.setText("");
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(LoginAndSignActivity.this, resStr, Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+        }
+
+    }
+
+    private void handlePreference(
+            boolean companyFlag, String username,
+            String password, int characterFlags,
+            String id) {
+        prefEditor = pref.edit();
+        if (cboxRemeberPwd.isChecked()) {
+            prefEditor.putBoolean("rememberPwd", true);
+            prefEditor.putBoolean("companyFlag", companyFlag);
+            prefEditor.putString("userName", username);
+            prefEditor.putString("password", password);
+            prefEditor.putInt("characterFlags", characterFlags);
+
+        } else {
+            prefEditor.putBoolean("rememberPwd", false);
+            prefEditor.remove("userName");
+            prefEditor.remove("password");
+            prefEditor.remove("id");
+            etxContactNo.setText("");
+            etxPassword.setText("");
+            prefEditor.putInt("characterFlags", 0);
+        }
+
+        prefEditor.putString("id", id);
+
+        prefEditor.apply();
     }
 
     private void sendLoginRequest(boolean isComapany) {
@@ -271,7 +296,7 @@ public class LoginAndSignActivity extends AppCompatActivity
         HttpUtil.sendOKHttp3RequestPOST("https://www.baidu.com",
                 JsonUtil.getJSON(
                         "isCompany", isComapany ? "true" : "false",
-                        "username", etxUserName.getText().toString(),
+                        "username", etxContactNo.getText().toString(),
                         "password", etxPassword.getText().toString()
                 ),
                 new Callback() {
@@ -306,7 +331,13 @@ public class LoginAndSignActivity extends AppCompatActivity
                     public void onResponse(Call call, Response response) throws IOException {
                         Log.d(TAG, "response code: " + response.code());
 //                Log.d(TAG, "response tostring: " + response.toString());
-
+//                        String res = response.body().string();
+//                        try {
+//                            JSONObject jsonObjec = new JSONObject(res);
+//                            etxContactNo.setText(jsonObjec.getString("name"));
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
                         if (response.code() == 200) {
                             loginAccess = true;
 //        characterFlags = 0b011000;
@@ -314,7 +345,8 @@ public class LoginAndSignActivity extends AppCompatActivity
                         }
 
                     }
-                }, "wd", "android");
+                }, "wd", "android",
+                "id", 123);
 
 
     }
