@@ -65,7 +65,7 @@
             android:layout_width="240dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="A548uu"
+            android:text="3200000002"
             android:textSize="18dp"
 
             android:textAlignment="center"
@@ -178,7 +178,7 @@
                     android:layout_width="240dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="229元/斤"
+                    android:text="229"
                     android:textSize="18dp"
 
                     android:textAlignment="center"
