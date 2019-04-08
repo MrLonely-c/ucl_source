@@ -40,208 +40,559 @@
             android:orientation="horizontal"
             android:weightSum="7">
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:orientation="vertical"
-                android:weightSum="12">
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/textView44"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="企业名称"
-                    android:textSize="12sp" />
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="7">
 
-                <TextView
-                    android:id="@+id/textView46"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="企业法人"
-                    android:textSize="12sp" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:orientation="vertical"
+                        android:weightSum="12">
 
-                <TextView
-                    android:id="@+id/textView47"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="企业法人身份证"
-                    android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/textView44"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="企业名称"
+                            android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/textView48"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="企业联系方式"
-                    android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/textView46"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="企业法人"
+                            android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/textView69"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="企业注册时间"
-                    android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/textView47"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="企业法人身份证"
+                            android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/textView109"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="登录名"
-                    android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/textView48"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="企业联系方式"
+                            android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/textView110"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="登录密码"
-                    android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/textView69"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="企业注册时间"
+                            android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/textView111"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="确认密码"
-                    android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/textView109"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="登录名"
+                            android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/textView70"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="经营地址"
-                    android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/textView110"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="登录密码"
+                            android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/textView73"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="营业执照"
-                    android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/textView111"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="确认密码"
+                            android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/textView75"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="动物防疫条件合格证"
-                    android:textSize="12sp" />
-            </LinearLayout>
+                        <TextView
+                            android:id="@+id/textView70"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="经营地址"
+                            android:textSize="12sp" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="4.5"
-                android:orientation="vertical"
-                android:weightSum="12">
+                        <TextView
+                            android:id="@+id/textView73"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="营业执照"
+                            android:textSize="12sp" />
 
-                <EditText
-                    android:id="@+id/etxCompanyName1"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
+                        <TextView
+                            android:id="@+id/textView75"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="动物防疫条件合格证"
+                            android:textSize="12sp" />
+                    </LinearLayout>
 
-                <EditText
-                    android:id="@+id/etxCorporate1"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4.5"
+                        android:orientation="vertical"
+                        android:weightSum="12">
 
-                <EditText
-                    android:id="@+id/etxCoporateIDCardNo1"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
+                        <EditText
+                            android:id="@+id/etxCompanyName1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
 
-                <EditText
-                    android:id="@+id/etxCompanyContactNo1"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
+                        <EditText
+                            android:id="@+id/etxCorporate1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
 
-                <EditText
-                    android:id="@+id/etxCompanySignUpTime1"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
+                        <EditText
+                            android:id="@+id/etxCoporateIDCardNo1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
 
-                <EditText
-                    android:id="@+id/etxLoginName1"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
+                        <EditText
+                            android:id="@+id/etxCompanyContactNo1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
 
-                <EditText
-                    android:id="@+id/etxLoginPassword1"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
+                        <EditText
+                            android:id="@+id/etxCompanySignUpTime1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
 
-                <EditText
-                    android:id="@+id/etxReLoginPassword1"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
+                        <EditText
+                            android:id="@+id/etxLoginName1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
+
+                        <EditText
+                            android:id="@+id/etxLoginPassword1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
+
+                        <EditText
+                            android:id="@+id/etxReLoginPassword1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
 
 
-                <EditText
-                    android:id="@+id/etxTradeLocation1"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
+                        <EditText
+                            android:id="@+id/etxTradeLocation1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
 
-                <Button
-                    android:id="@+id/button21"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:text="拍照上传" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/button20"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:text="拍照上传" />
+                            <ImageView
+                                android:id="@+id/ivProducerPaper1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/paper" />
 
-            </LinearLayout>
+                            <Button
+                                android:id="@+id/btnProducerCamera1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="拍照"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+
+                            <Button
+                                android:id="@+id/btnProducerAlbum1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="相册"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ivProducerPaper2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/paper" />
+
+                            <Button
+                                android:id="@+id/btnProducerCamera2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="拍照"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+
+                            <Button
+                                android:id="@+id/btnProducerAlbum2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="相册"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="2"-->
+            <!--android:orientation="vertical"-->
+            <!--android:weightSum="12">-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView44"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:text="企业名称"-->
+            <!--android:textSize="12sp" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView46"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:text="企业法人"-->
+            <!--android:textSize="12sp" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView47"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:text="企业法人身份证"-->
+            <!--android:textSize="12sp" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView48"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:text="企业联系方式"-->
+            <!--android:textSize="12sp" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView69"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:text="企业注册时间"-->
+            <!--android:textSize="12sp" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView109"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:text="登录名"-->
+            <!--android:textSize="12sp" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView110"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:text="登录密码"-->
+            <!--android:textSize="12sp" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView111"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:text="确认密码"-->
+            <!--android:textSize="12sp" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView70"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:text="经营地址"-->
+            <!--android:textSize="12sp" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView73"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:text="营业执照"-->
+            <!--android:textSize="12sp" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView75"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:text="动物防疫条件合格证"-->
+            <!--android:textSize="12sp" />-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="4.5"-->
+            <!--android:orientation="vertical"-->
+            <!--android:weightSum="12">-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/etxCompanyName1"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:ems="10"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/etxCorporate1"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:ems="10"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/etxCoporateIDCardNo1"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:ems="10"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/etxCompanyContactNo1"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:ems="10"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/etxCompanySignUpTime1"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:ems="10"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/etxLoginName1"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:ems="10"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/etxLoginPassword1"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:ems="10"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/etxReLoginPassword1"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:ems="10"-->
+            <!--android:inputType="textPersonName" />-->
+
+
+            <!--<EditText-->
+            <!--android:id="@+id/etxTradeLocation1"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:ems="10"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<ImageView-->
+            <!--android:id="@+id/ivProducerPaper1"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--app:srcCompat="@drawable/paper" />-->
+
+            <!--<Button-->
+            <!--android:id="@+id/btnProducerCamera1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:background="@drawable/btn_selector"-->
+            <!--android:letterSpacing="0.2"-->
+            <!--android:minWidth="40dp"-->
+            <!--android:minHeight="20dp"-->
+            <!--android:text="拍照"-->
+            <!--android:textColor="#fff"-->
+            <!--android:textSize="14sp" />-->
+
+            <!--<Button-->
+            <!--android:id="@+id/btnProducerAlbum1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:background="@drawable/btn_selector"-->
+            <!--android:letterSpacing="0.2"-->
+            <!--android:minWidth="40dp"-->
+            <!--android:minHeight="20dp"-->
+            <!--android:text="相册"-->
+            <!--android:textColor="#fff"-->
+            <!--android:textSize="14sp" />-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<ImageView-->
+            <!--android:id="@+id/ivProducerPaper2"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--app:srcCompat="@drawable/paper" />-->
+
+            <!--<Button-->
+            <!--android:id="@+id/btnProducerCamera2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:background="@drawable/btn_selector"-->
+            <!--android:letterSpacing="0.2"-->
+            <!--android:minWidth="40dp"-->
+            <!--android:minHeight="20dp"-->
+            <!--android:text="拍照"-->
+            <!--android:textColor="#fff"-->
+            <!--android:textSize="14sp" />-->
+
+            <!--<Button-->
+            <!--android:id="@+id/btnProducerAlbum2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:background="@drawable/btn_selector"-->
+            <!--android:letterSpacing="0.2"-->
+            <!--android:minWidth="40dp"-->
+            <!--android:minHeight="20dp"-->
+            <!--android:text="相册"-->
+            <!--android:textColor="#fff"-->
+            <!--android:textSize="14sp" />-->
+            <!--</LinearLayout>-->
+
+            <!--</LinearLayout>-->
         </LinearLayout>
 
         <LinearLayout
@@ -363,12 +714,46 @@
                     android:ems="10"
                     android:inputType="textPersonName" />
 
-                <Button
-                    android:id="@+id/button22"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="拍照上传" />
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ivQuarantinerPaper1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/paper" />
+
+                    <Button
+                        android:id="@+id/btnQuarantinerCamera1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/btn_selector"
+                        android:letterSpacing="0.2"
+                        android:minWidth="40dp"
+                        android:minHeight="20dp"
+                        android:text="拍照"
+                        android:textColor="#fff"
+                        android:textSize="14sp" />
+
+                    <Button
+                        android:id="@+id/btnQuarantinerAlbum1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/btn_selector"
+                        android:letterSpacing="0.2"
+                        android:minWidth="40dp"
+                        android:minHeight="20dp"
+                        android:text="相册"
+                        android:textColor="#fff"
+                        android:textSize="14sp" />
+                </LinearLayout>
 
             </LinearLayout>
         </LinearLayout>
@@ -379,6 +764,497 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:visibility="gone">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="7">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:weightSum="9"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView82"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="企业名称"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView83"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="企业法人"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView84"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="企业法人身份证"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView85"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="企业联系方式"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView86"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="企业注册时间"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView87"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="经营地址"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView115"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="登录名"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView116"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="登录密码"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView117"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="确认密码"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView88"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="组织机构代码证"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView93"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="营业执照"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView89"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="税务登记证"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView90"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="食品生产许可证"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView91"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="食品流通许可证"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView92"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="食品卫生许可证"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4.5"
+                        android:weightSum="9"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/etxCompanyName3"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
+
+                        <EditText
+                            android:id="@+id/etxCorporate3"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
+
+                        <EditText
+                            android:id="@+id/etxCorporateIDCardNo3"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
+
+                        <EditText
+                            android:id="@+id/etxCompanyContactNo3"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
+
+                        <EditText
+                            android:id="@+id/etxCompanySignUpTime3"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
+
+                        <EditText
+                            android:id="@+id/etxTradeLocation3"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
+
+                        <EditText
+                            android:id="@+id/etxLoginName3"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
+
+                        <EditText
+                            android:id="@+id/etxLoginPassword3"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
+
+                        <EditText
+                            android:id="@+id/etxReLoginPassword3"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ivProcesserPaper1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/paper" />
+
+                            <Button
+                                android:id="@+id/btnProcesserCamera1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="拍照"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+
+                            <Button
+                                android:id="@+id/btnProcesserAlbum1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="相册"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ivProcesserPaper2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/paper" />
+
+                            <Button
+                                android:id="@+id/btnProcesserCamera2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="拍照"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+
+                            <Button
+                                android:id="@+id/btnProcesserAlbum2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="相册"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ivProcesserPaper3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/paper" />
+
+                            <Button
+                                android:id="@+id/btnProcesserCamera3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="拍照"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+
+                            <Button
+                                android:id="@+id/btnProcesserAlbum3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="相册"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ivProcesserPaper4"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/paper" />
+
+                            <Button
+                                android:id="@+id/btnProcesserCamera4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="拍照"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+
+                            <Button
+                                android:id="@+id/btnProcesserAlbum4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="相册"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ivProcesserPaper5"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/paper" />
+
+                            <Button
+                                android:id="@+id/btnProcesserCamera5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="拍照"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+
+                            <Button
+                                android:id="@+id/btnProcesserAlbum5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="相册"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ivProcesserPaper6"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/paper" />
+
+                            <Button
+                                android:id="@+id/btnProcesserCamera6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="拍照"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+
+                            <Button
+                                android:id="@+id/btnProcesserAlbum6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="相册"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_transporter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:weightSum="7">
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -394,10 +1270,11 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:weightSum="12">
 
                         <TextView
-                            android:id="@+id/textView82"
+                            android:id="@+id/textView94"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -406,7 +1283,7 @@
                             android:textSize="12sp" />
 
                         <TextView
-                            android:id="@+id/textView83"
+                            android:id="@+id/textView95"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -415,7 +1292,7 @@
                             android:textSize="12sp" />
 
                         <TextView
-                            android:id="@+id/textView84"
+                            android:id="@+id/textView96"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -424,7 +1301,7 @@
                             android:textSize="12sp" />
 
                         <TextView
-                            android:id="@+id/textView85"
+                            android:id="@+id/textView97"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -433,16 +1310,7 @@
                             android:textSize="12sp" />
 
                         <TextView
-                            android:id="@+id/textView86"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="企业注册时间"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/textView87"
+                            android:id="@+id/textView118"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -451,7 +1319,7 @@
                             android:textSize="12sp" />
 
                         <TextView
-                            android:id="@+id/textView115"
+                            android:id="@+id/textView119"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -460,7 +1328,7 @@
                             android:textSize="12sp" />
 
                         <TextView
-                            android:id="@+id/textView116"
+                            android:id="@+id/textView120"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -469,7 +1337,7 @@
                             android:textSize="12sp" />
 
                         <TextView
-                            android:id="@+id/textView117"
+                            android:id="@+id/textView121"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -478,7 +1346,7 @@
                             android:textSize="12sp" />
 
                         <TextView
-                            android:id="@+id/textView88"
+                            android:id="@+id/textView98"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -487,7 +1355,7 @@
                             android:textSize="12sp" />
 
                         <TextView
-                            android:id="@+id/textView93"
+                            android:id="@+id/textView99"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -496,34 +1364,332 @@
                             android:textSize="12sp" />
 
                         <TextView
-                            android:id="@+id/textView89"
+                            android:id="@+id/textView100"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="税务登记证"
+                            android:text="道路运输经营许可证"
                             android:textSize="12sp" />
+                    </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/textView90"
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4.5"
+                        android:orientation="vertical"
+                        android:weightSum="12">
+
+                        <EditText
+                            android:id="@+id/etxCompanyName4"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
+
+                        <EditText
+                            android:id="@+id/etxCorporate4"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
+
+                        <EditText
+                            android:id="@+id/etxCorporateIDCardNo4"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
+
+                        <EditText
+                            android:id="@+id/etxCompanyContactNo4"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
+
+                        <EditText
+                            android:id="@+id/etxTradeLocation4"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
+
+                        <EditText
+                            android:id="@+id/etxLoginName4"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
+
+                        <EditText
+                            android:id="@+id/etxLoginPassword4"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
+
+                        <EditText
+                            android:id="@+id/etxReLoginPassword4"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:inputType="textPersonName" />
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="食品生产许可证"
-                            android:textSize="12sp" />
+                            android:orientation="horizontal">
 
-                        <TextView
-                            android:id="@+id/textView91"
+                            <ImageView
+                                android:id="@+id/ivTransporterPaper1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/paper" />
+
+                            <Button
+                                android:id="@+id/btnTransporterCamera1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="拍照"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+
+                            <Button
+                                android:id="@+id/btnTransporterAlbum1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="相册"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="食品流通许可证"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ivTransporterPaper2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/paper" />
+
+                            <Button
+                                android:id="@+id/btnTransporterCamera2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="拍照"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+
+                            <Button
+                                android:id="@+id/btnTransporterAlbum2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="相册"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ivTransporterPaper3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/paper" />
+
+                            <Button
+                                android:id="@+id/btnTransporterCamera3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="拍照"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+
+                            <Button
+                                android:id="@+id/btnTransporterAlbum3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="相册"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_seller"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:weightSum="7">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="7">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:weightSum="12"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView101"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="企业名称"
                             android:textSize="12sp" />
 
                         <TextView
-                            android:id="@+id/textView92"
+                            android:id="@+id/textView102"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="企业法人"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView103"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="企业法人身份证"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView104"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="企业联系方式"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView105"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="经营地址"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView122"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="登录名"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView123"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="登录密码"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView124"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="确认密码"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView106"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="组织机构代码证"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView107"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="营业执照"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView108"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -536,10 +1702,11 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="4.5"
+                        android:weightSum="12"
                         android:orientation="vertical">
 
                         <EditText
-                            android:id="@+id/etxCompanyName3"
+                            android:id="@+id/etxCompanyName5"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -547,7 +1714,7 @@
                             android:inputType="textPersonName" />
 
                         <EditText
-                            android:id="@+id/etxCorporate3"
+                            android:id="@+id/etxCorporate5"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -555,7 +1722,7 @@
                             android:inputType="textPersonName" />
 
                         <EditText
-                            android:id="@+id/etxCorporateIDCardNo3"
+                            android:id="@+id/etxCorporateIDCardNo5"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -563,7 +1730,7 @@
                             android:inputType="textPersonName" />
 
                         <EditText
-                            android:id="@+id/etxCompanyContactNo3"
+                            android:id="@+id/etxCompanyContactNo5"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -571,7 +1738,7 @@
                             android:inputType="textPersonName" />
 
                         <EditText
-                            android:id="@+id/etxCompanySignUpTime3"
+                            android:id="@+id/etxTradeLocation5"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -579,7 +1746,7 @@
                             android:inputType="textPersonName" />
 
                         <EditText
-                            android:id="@+id/etxTradeLocation3"
+                            android:id="@+id/etxLoginName5"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -587,7 +1754,7 @@
                             android:inputType="textPersonName" />
 
                         <EditText
-                            android:id="@+id/etxLoginName3"
+                            android:id="@+id/etxLoginPassword5"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -595,482 +1762,140 @@
                             android:inputType="textPersonName" />
 
                         <EditText
-                            android:id="@+id/etxLoginPassword3"
+                            android:id="@+id/etxReLoginPassword5"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
                             android:ems="10"
                             android:inputType="textPersonName" />
 
-                        <EditText
-                            android:id="@+id/etxReLoginPassword3"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:ems="10"
-                            android:inputType="textPersonName" />
+                            android:gravity="center"
+                            android:orientation="horizontal">
 
-                        <Button
-                            android:id="@+id/button29"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="拍照上传" />
+                            <ImageView
+                                android:id="@+id/ivSellerPaper1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/paper" />
 
-                        <Button
-                            android:id="@+id/button30"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="拍照上传" />
+                            <Button
+                                android:id="@+id/btnSellerCamera1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="拍照"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
 
-                        <Button
-                            android:id="@+id/button31"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="拍照上传" />
+                            <Button
+                                android:id="@+id/btnSellerAlbum1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="相册"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+                        </LinearLayout>
 
-                        <Button
-                            android:id="@+id/button32"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:text="拍照上传" />
+                            android:gravity="center"
+                            android:orientation="horizontal">
 
-                        <Button
-                            android:id="@+id/button33"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="拍照上传" />
+                            <ImageView
+                                android:id="@+id/ivSellerPaper2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/paper" />
 
-                        <Button
-                            android:id="@+id/button34"
+                            <Button
+                                android:id="@+id/btnSellerCamera2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="拍照"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+
+                            <Button
+                                android:id="@+id/btnSellerAlbum2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="相册"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:text="拍照上传" />
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ivSellerPaper3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/paper" />
+
+                            <Button
+                                android:id="@+id/btnSellerCamera3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="拍照"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+
+                            <Button
+                                android:id="@+id/btnSellerAlbum3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/btn_selector"
+                                android:letterSpacing="0.2"
+                                android:minWidth="40dp"
+                                android:minHeight="20dp"
+                                android:text="相册"
+                                android:textColor="#fff"
+                                android:textSize="14sp" />
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </ScrollView>
 
-        </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/ll_transporter"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:visibility="gone"
-            android:weightSum="7">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:orientation="vertical"
-                android:weightSum="12">
-
-                <TextView
-                    android:id="@+id/textView94"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="企业名称"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView95"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="企业法人"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView96"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="企业法人身份证"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView97"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="企业联系方式"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView118"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="经营地址"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView119"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="登录名"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView120"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="登录密码"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView121"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="确认密码"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView98"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="组织机构代码证"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView99"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="营业执照"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView100"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="道路运输经营许可证"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="4.5"
-                android:orientation="vertical"
-                android:weightSum="12">
-
-                <EditText
-                    android:id="@+id/etxCompanyName4"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/etxCorporate4"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/etxCorporateIDCardNo4"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/etxCompanyContactNo4"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/etxTradeLocation4"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/etxLoginName4"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/etxLoginPassword4"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/etxReLoginPassword4"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
-
-                <Button
-                    android:id="@+id/button35"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:text="拍照上传" />
-
-                <Button
-                    android:id="@+id/button36"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:text="拍照上传" />
-
-                <Button
-                    android:id="@+id/button37"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:text="拍照上传" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_seller"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:visibility="gone"
-            android:weightSum="7">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView101"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="企业名称"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView102"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="企业法人"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView103"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="企业法人身份证"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView104"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="企业联系方式"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView105"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="经营地址"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView122"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="登录名"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView123"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="登录密码"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView124"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="确认密码"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView106"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="组织机构代码证"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView107"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="营业执照"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/textView108"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="食品卫生许可证"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="4.5"
-                android:orientation="vertical">
-
-                <EditText
-                    android:id="@+id/etxCompanyName5"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/etxCorporate5"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/etxCorporateIDCardNo5"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/etxCompanyContactNo5"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/etxTradeLocation5"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/etxLoginName5"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/etxLoginPassword5"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/etxReLoginPassword5"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
-
-                <Button
-                    android:id="@+id/button38"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:text="拍照上传" />
-
-                <Button
-                    android:id="@+id/button39"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:text="拍照上传" />
-
-                <Button
-                    android:id="@+id/button40"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:text="拍照上传" />
-            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
@@ -1080,6 +1905,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="提交" />
+        android:background="@drawable/btn_selector"
+        android:letterSpacing="0.4"
+        android:text="提交"
+        android:textColor="#fff"
+        android:textSize="19sp"
+        android:textStyle="bold" />
 
 </com.example.helloworld.CustomToolBar>
