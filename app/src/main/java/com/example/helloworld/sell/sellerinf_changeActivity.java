@@ -123,7 +123,7 @@ public class sellerinf_changeActivity extends AppCompatActivity  {
     }
 
     private void get_inf(){
-        HttpUtil.sendOKHttp3RequestGET("http://223.3.79.119:8000/Sell2/inquiry_seller/?SellerID="+"123",
+        HttpUtil.sendOKHttp3RequestGET("http://223.3.79.119:8000/sell/inquiry_seller/?ConsumerId=3200000002",
 
                 new Callback() {
                     @Override
@@ -146,9 +146,9 @@ public class sellerinf_changeActivity extends AppCompatActivity  {
                         try{
                             JSONObject jsonObjec=new JSONObject(resStr);
                             seller_name.setText(jsonObjec.getString("ConsumerName"));
-                            seller_id.setText(jsonObjec.getString("SellerID"));
+                            seller_id.setText(jsonObjec.getString("ConsumerId"));
                             idno.setText(jsonObjec.getString("IDNo"));
-                            in_time.setText(jsonObjec.getString("RegisterTime"));
+                            in_time.setText(jsonObjec.getString("RegisterTimeConsumer"));
                             contact_num.setText(jsonObjec.getString("ContactNo"));
                             workplace.setText(jsonObjec.getString("WorkPlaceID"));
                             cur_password.setText(jsonObjec.getString("Password"));
@@ -192,23 +192,23 @@ public class sellerinf_changeActivity extends AppCompatActivity  {
         String getnewpassword = new_password.getText().toString();
         Log.d(TAG, "sellerinf_change: ");
         //http://223.3.72.161/register??characterFlag=1
-        HttpUtil.sendOKHttp3RequestPOST("http://223.3.79.119:8000/Sell2/alter_seller/",
+        HttpUtil.sendOKHttp3RequestPOST("http://223.3.79.119:8000/sell/alter_seller/",
                 JsonUtil.getJSON(
 
-                        "ConsumerId", "123",
-                "ConsumerName",getname,
-                "ContactNo", getphone,
-                "RegisterTimeConsumer", getintime,
+                        "ConsumerId", "3200000002",
+                "ConsumerName", "销售员01",
+                "ContactNo","186XXXXXXXX",
+                "RegisterTimeConsumer", "2019-01-01",
                 "SearchCounts", 0,
-                "VIP", false,
-                "Password", getnewpassword,
-                "consumerregistry_ptr", 1,
-                "SellerID", "123",
-                "SellerName", getname,
-                "IDNo", getidno,
-                "RegisterTime", getintime,
-                "WorkPlaceID", getplace,
+                "VIP", 0,
+                "Password", "123456",
+                "CharacterFlag", 1,
+                "IDNo", "3210XXXXXXXXXXXXXX",
+                "RegisterTime", "2019-01-01",
+                "WorkPlaceID", "123XXXXXXXX",
                 "PhotoSrc", "XXXXXXXXX"
+
+
 
 
 

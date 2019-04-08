@@ -98,7 +98,7 @@ public class Item_in_Activity extends AppCompatActivity  {
 
         Log.d(TAG, "item_in: ");
         //http://223.3.72.161/register??characterFlag=1
-        HttpUtil.sendOKHttp3RequestPOST("http://223.3.79.119:8000/Sell2/register_commodity/",
+        HttpUtil.sendOKHttp3RequestPOST("http://223.3.79.119:8000/sell/register_commodity/",
                 JsonUtil.getJSON(
 
 
@@ -112,15 +112,15 @@ public class Item_in_Activity extends AppCompatActivity  {
 //                "AccountabilityFlag",false,
 //                "SellUCLLink","XXxxXXXXXX"
 
-                        "SellID","233",
-                "ProductionID","666",
-                "SellLocation","Nantong",
+                        "ProductionID",getitemid,
                 "SPReceiveTime","2019-01-02 14:20:00",
-                "SPSelloutTime","2019-01-03 14:00:00",
                 "Price",120,
                 "APApprovalRes",0,
-                "AccountabilityFlag",false,
-                "SellUCLLink","XXxxXXXXXX"
+                "AccountabilityFlag",0,
+                "SellUCLLink","XXxxXXXXXX",
+                "GoodsName","朔州羊肉",
+                "ConsumerID","3200000002"
+
 ),
                 new Callback() {
                     @Override

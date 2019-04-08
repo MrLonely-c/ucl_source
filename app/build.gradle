@@ -34,5 +34,5 @@ dependencies {
     /*添加依赖*/
     implementation 'com.github.yuzhiqiang1993:zxing:2.1.1'
 
-    implementation files('libs/UCL_Trace20190401(1).jar')
+    implementation files('libs/UCL_JAVA_Trace20190404.jar')
 }
