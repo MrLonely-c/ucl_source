@@ -91,7 +91,7 @@
             android:layout_width="240dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="201899021323"
+            android:text="1323"
             android:textSize="18dp"
 
             android:textAlignment="center"
@@ -120,7 +120,7 @@
             android:layout_width="240dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="九龙湖第一屠宰场"
+            android:text="001"
             android:textSize="18dp"
 
             android:textAlignment="center"

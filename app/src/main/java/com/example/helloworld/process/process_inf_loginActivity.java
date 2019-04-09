@@ -100,6 +100,9 @@ public class process_inf_loginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 in_processinf();
+                String a="2018201800000000";
+                String b=a.replaceFirst("00","01");
+                Log.d(TAG, "onClick: "+b);
             }
         });
     }
@@ -127,12 +130,12 @@ public class process_inf_loginActivity extends AppCompatActivity {
 
         Log.d(TAG, "processerinf_change: ");
         //http://223.3.72.161/register??characterFlag=1
-        HttpUtil.sendOKHttp3RequestPOST("http://223.3.74.248:8000/process/processtion_add/",
+        HttpUtil.sendOKHttp3RequestPOST("http://223.3.85.206:8000/process/processtion_add/",
                 JsonUtil.getJSON(
 
                         "ProcessID", "20181455",
                 "ProductionID", getproid,
-                "ConsumerID",getworkid,
+                "ConsumerId",getworkid,
                 "ProcessLocation", getlocation,
                 "ProductionKind",getkind,
                 "ReproductionID1", "121238273 ",

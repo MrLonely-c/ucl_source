@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.helloworld.BaseUtil;
 import com.example.helloworld.R;
+import com.example.helloworld.baseuser.BaseUserActivity;
 import com.example.helloworld.checker.checkerActivity;
 import com.example.helloworld.process.ProcessActivity;
 import com.example.helloworld.process.ProcesserMessCompleteActivity;
@@ -159,6 +160,8 @@ public class ResponsibleChooseActivity extends AppCompatActivity
                 }
                 break;
             case R.id.iv_baseUser:
+                intent =new Intent(ResponsibleChooseActivity.this, BaseUserActivity.class);
+                startActivity(intent);
                 break;
             default:
                 break;

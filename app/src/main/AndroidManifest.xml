@@ -63,6 +63,8 @@
         <activity android:name=".checker.CheckerMessCompleteActivity"></activity>
         <activity android:name=".producer.ProducerMessCompleteActivity"></activity>
         <activity android:name=".transporter.TransporterMessCompleteActivity"></activity>
+        <activity android:name=".producer.sheep_inActivity"></activity>
+        <activity android:name=".producer.sheep_follow_Activity"></activity>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.example.helloworld.sell"
