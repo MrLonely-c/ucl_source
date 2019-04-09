@@ -1,4 +1,5 @@
 package com.example.helloworld.producer;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -13,12 +14,22 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.helloworld.HttpUtil;
+import com.example.helloworld.JsonUtil;
 import com.example.helloworld.R;
 import com.example.helloworld.UCLadapters.ProductionStateAdapter;
 import com.example.helloworld.UCLclasses.ProductionState;
 
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
+
 public class productionStateActivity extends AppCompatActivity
         implements ProductionStateAdapter.OnRecycleViewItemClickListener {
     private static final String TAG = "tigercheng";
@@ -42,19 +53,22 @@ public class productionStateActivity extends AppCompatActivity
         initUI();
 
         pref = PreferenceManager.getDefaultSharedPreferences(this);
-        Log.d(TAG, "SharedPreferences: " + pref.getInt("characterFlag", 0));
-        TextView btnback=findViewById(R.id.toolbar_left_tv);
-        btnback.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                onBackPressed();
-            }
-        });
+//        Toast.makeText(this, "" + pref.getBoolean("rememberPwd", false), Toast.LENGTH_SHORT).show();
+        prefEditor = pref.edit();
+        prefEditor.apply();
+
+        Log.d(TAG, "SharedPreferences: " + String.valueOf(pref.getInt("characterFlags", 0b000000))
+                + "--" + pref.getString("id", "id"));
+        Toast.makeText(this,
+                String.valueOf(pref.getInt("characterFlags", 0b000000))
+                        + pref.getString("id", "id"),
+                Toast.LENGTH_SHORT).show();
+
+
+
     }
 
     private void initUI() {
-        Intent intent = getIntent();
-
-
         initProductionState();
         RecyclerView recyclerView = findViewById(R.id.recycle_view);
 
@@ -77,6 +91,24 @@ public class productionStateActivity extends AppCompatActivity
                     37);
             productionStateList.add(_ps);
         }
+
+        HttpUtil.sendOKHttp3RequestGET(
+                HttpUtil.BASEURL_LOGIN_SIGN_PRODUCE + "/produce/sheep_state",
+                new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        Log.d(TAG, "onFailure: " + e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        String resStr = response.body().string();
+                        Log.d(TAG, "code: " + response.code() + "resStr: " + resStr);
+                        ArrayList<JSONObject> js = JsonUtil.getJSONArray(resStr);
+                        Log.d(TAG, "js.toString: " + js.toString());
+                    }
+                }
+        );
     }
 
     @Override
@@ -89,4 +121,3 @@ public class productionStateActivity extends AppCompatActivity
         Toast.makeText(this, "longclick:" + view.getTag(), Toast.LENGTH_SHORT).show();
     }
 }
-
