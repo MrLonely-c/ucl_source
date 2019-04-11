@@ -2,6 +2,7 @@ package com.example.helloworld;
 
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -52,12 +53,13 @@ public class JsonUtil {
         return resultJson.toString();
     }
 
-    public static ArrayList<JSONObject> getJSONArray(String str) {
+    public static ArrayList<JSONObject> getJSONArray(String str, String regex) {
+        Log.d(TAG, "getJSONArray's str: " + str);
 
         ArrayList<JSONObject> jsonAL = new ArrayList<>();
 
-        String[] strings = str.split("\\}\\{");
-        Log.d(TAG, "getJSONArray: " + strings.length);
+        String[] strings = str.split(regex);
+        Log.d(TAG, "strings.length: " + strings.length);
         int l = strings.length;
         try {
             for (int i = 0; i < l; i++) {

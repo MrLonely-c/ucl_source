@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.helloworld.CustomToolBar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:icoand="http://widgets.demo.com"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:left_tv_text="返回"
+    app:left_tv_visible="true"
+    app:right_btn_visible="true"
+    app:right_tv_text="菜单"
+    app:right_tv_visible="true"
+    app:title_text="企业人员管理"
+    app:title_visible="true"
+    tools:context="com.example.helloworld.producer.ProducerActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_staff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/button14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="hhhhhh" />
+
+
+</com.example.helloworld.CustomToolBar>

@@ -65,7 +65,6 @@ public class productionStateActivity extends AppCompatActivity
                 Toast.LENGTH_SHORT).show();
 
 
-
     }
 
     private void initUI() {
@@ -104,7 +103,7 @@ public class productionStateActivity extends AppCompatActivity
                     public void onResponse(Call call, Response response) throws IOException {
                         String resStr = response.body().string();
                         Log.d(TAG, "code: " + response.code() + "resStr: " + resStr);
-                        ArrayList<JSONObject> js = JsonUtil.getJSONArray(resStr);
+                        ArrayList<JSONObject> js = JsonUtil.getJSONArray(resStr, "\\}\\{");
                         Log.d(TAG, "js.toString: " + js.toString());
                     }
                 }
