@@ -75,17 +75,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        Button realstart=(Button)findViewById(R.id.bt_6);
-//        realstart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent=new Intent(MainActivity.this, LoginAndSignActivity.class);
-//                startActivity(intent);
-//                //finish();
-//            }
-//        });
-        Button realstart=(Button)findViewById(R.id.bt_6);
-        realstart.setOnClickListener(new View.OnClickListener() {
+
+        Button baseuser=(Button)findViewById(R.id.bt_6);
+        baseuser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(MainActivity.this, BaseUserActivity.class);
@@ -93,6 +85,18 @@ public class MainActivity extends AppCompatActivity {
                 //finish();
             }
         });
+
+
+        Button realstart=(Button)findViewById(R.id.bt_7);
+        realstart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this, LoginAndSignActivity.class);
+                startActivity(intent);
+                //finish();
+            }
+        });
+
 
     }
 }

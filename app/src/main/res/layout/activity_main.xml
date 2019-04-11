@@ -13,7 +13,7 @@
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dip"
+        android:layout_marginTop="15dip"
         android:text="生产者"
         android:background="@drawable/shape2"
         android:textColor="@android:color/black" />
@@ -23,7 +23,7 @@ op
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dip"
+        android:layout_marginTop="15dip"
         android:text="运输人员"
         android:textColor="@android:color/black"
         android:background="@drawable/shape2"/>
@@ -33,7 +33,7 @@ op
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dip"
+        android:layout_marginTop="15dip"
         android:text="检疫人员"
         android:background="@drawable/shape2"
         android:textColor="@android:color/black" />
@@ -43,7 +43,7 @@ op
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dip"
+        android:layout_marginTop="15dip"
         android:text="加工人员"
         android:background="@drawable/shape2"
         android:textColor="@android:color/black" />
@@ -52,7 +52,7 @@ op
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dip"
+        android:layout_marginTop="15dip"
         android:text="销售人员"
         android:background="@drawable/shape2"
         android:textColor="@android:color/black" />
@@ -62,7 +62,17 @@ op
         android:layout_width="170dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dip"
+        android:layout_marginTop="15dip"
+        android:text="普通用户"
+        android:background="@drawable/shape2"
+        android:textColor="@android:color/black" />
+
+    <Button
+        android:id="@+id/bt_7"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dip"
         android:text="登录注册"
         android:background="@drawable/shape2"
         android:textColor="@android:color/black" />

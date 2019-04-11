@@ -9,12 +9,17 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSON;
 import com.example.helloworld.R;
 import com.yzq.zxinglibrary.android.CaptureActivity;
 import com.yzq.zxinglibrary.common.Constant;
 
-public class OutActivity extends AppCompatActivity  {
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.w3c.dom.Text;
 
+public class OutActivity extends AppCompatActivity  {
+private TextView id=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,13 +71,21 @@ public class OutActivity extends AppCompatActivity  {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+        id=findViewById(R.id.num_id);
         // 扫描二维码/条码回传
         if (requestCode == 0 && resultCode == RESULT_OK) {
             if (data != null) {
 
                 String content = data.getStringExtra(Constant.CODED_CONTENT);
                Toast.makeText(OutActivity.this,"扫描结果为;"+content,Toast.LENGTH_SHORT).show();
+                try {
+                    JSONObject jsonObject=new JSONObject(content);
+                    String p_id=jsonObject.getString("ProductionId");
+                    id.setText(p_id);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
             }
         }
     }

@@ -56,7 +56,7 @@
         <activity android:name=".process.ProcesserMessCompleteActivity"></activity>
         <activity android:name=".baseuser.BaseUserSignUpActivity"></activity>
         <activity android:name=".baseuser.BaseUserActivity"></activity>
-<<<<<<< HEAD
+
         <activity android:name=".company.CompanyManagerActivity"></activity>
         <activity android:name=".company.CompanySignupActivity"></activity>
         <activity android:name=".loginAndSign.LoginAndSignActivity"></activity>
@@ -66,16 +66,10 @@
         <activity android:name=".transporter.TransporterMessCompleteActivity"></activity>
         <activity android:name=".producer.sheep_inActivity"></activity>
         <activity android:name=".producer.sheep_follow_Activity"></activity>
-=======
-        <activity android:name=".company.CompanyManagerActivity"/>
-        <activity android:name=".company.CompanySignupActivity"/>
-        <activity android:name=".loginAndSign.LoginAndSignActivity"/>
-        <activity android:name=".loginAndSign.ResponsibleChooseActivity"/>
-        <activity android:name=".checker.CheckerMessCompleteActivity"/>
-        <activity android:name=".producer.ProducerMessCompleteActivity"/>
-        <activity android:name=".transporter.TransporterMessCompleteActivity"/>
 
->>>>>>> 61ae6a91a44ce0323b4408940be5d9761389abae
+
+
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.example.helloworld.sell"
