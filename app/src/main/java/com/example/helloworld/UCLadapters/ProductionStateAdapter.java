@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.helloworld.R;
 import com.example.helloworld.UCLclasses.ProductionState;
+import com.yzq.zxinglibrary.view.ViewfinderView;
 
 import java.util.List;
 
@@ -55,10 +56,17 @@ public class ProductionStateAdapter
             @NonNull ProductionStateAdapter.ViewHolder viewHolder, int i) {
         //i--position
         ProductionState _ps = mProductionList.get(i);
-        viewHolder.tx_producitonId.setText(String.valueOf(_ps.getProductionId()));
-        viewHolder.tx_healthState.setText(_ps.getHealthState());
-        viewHolder.tx_daySteps.setText(String.valueOf(_ps.getDaySteps()));
-        viewHolder.tx_dayTempareture.setText((String.valueOf(_ps.getDayTemperature()) + "℃"));
+        viewHolder.tvProductionState1.setText(String.valueOf(_ps.getMonitorId()));
+        viewHolder.tvProductionState2.setText(String.valueOf(_ps.getState()));
+        viewHolder.tvProductionState3.setText(String.valueOf(_ps.getHealthState()));
+        viewHolder.tvProductionState4.setText(String.valueOf(_ps.getGPSLocation()));
+        viewHolder.tvProductionState5.setText(String.valueOf(_ps.getActiveDis() + " (m)"));
+        viewHolder.tvProductionState6.setText(String.valueOf(_ps.getBodyTemperature() + " (℃)"));
+        viewHolder.tvProductionState7.setText(String.valueOf(_ps.getWeight() + " (kg)"));
+        viewHolder.time.setText(String.valueOf(
+                _ps.getMonitorRecordTime()
+                        .replace("T", " ")
+                        .replaceAll("Z", "")));
 
         //在tag中设置索引信息
         viewHolder.itemView.setTag(i);
@@ -70,18 +78,25 @@ public class ProductionStateAdapter
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-
-        TextView tx_producitonId;
-        TextView tx_healthState;
-        TextView tx_daySteps;
-        TextView tx_dayTempareture;
+        TextView tvProductionState1;
+        TextView tvProductionState2;
+        TextView tvProductionState3;
+        TextView tvProductionState4;
+        TextView tvProductionState5;
+        TextView tvProductionState6;
+        TextView tvProductionState7;
+        TextView time;
 
         public ViewHolder(@NonNull View view) {
             super(view);
-            tx_producitonId = view.findViewById(R.id.text_productionId);
-            tx_healthState = view.findViewById(R.id.text_healthState);
-            tx_daySteps = view.findViewById(R.id.text_daySteps);
-            tx_dayTempareture = view.findViewById(R.id.text_dayTemperature);
+            tvProductionState1 = view.findViewById(R.id.tvProductionState1);
+            tvProductionState2 = view.findViewById(R.id.tvProductionState2);
+            tvProductionState3 = view.findViewById(R.id.tvProductionState3);
+            tvProductionState4 = view.findViewById(R.id.tvProductionState4);
+            tvProductionState5 = view.findViewById(R.id.tvProductionState5);
+            tvProductionState6 = view.findViewById(R.id.tvProductionState6);
+            tvProductionState7 = view.findViewById(R.id.tvProductionState7);
+            time = view.findViewById(R.id.label_time);
         }
     }
 

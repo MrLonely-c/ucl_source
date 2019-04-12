@@ -12,6 +12,8 @@
                     <corners android:radius="10dp" />
                     <!-- 矩形的填充色 -->
                     <solid android:color="#66000000" />
+                    <!--<gradient android:angle="-45" android:centerColor="#80F2F7F2" android:centerX="0.5" android:centerY="0.45" android:endColor="#10B1B3B1" android:startColor="#D9DAD9" android:type="linear" />-->
+
 
                 </shape>
             </item>
