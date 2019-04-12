@@ -127,7 +127,7 @@ public class sheep_follow_Activity extends AppCompatActivity  {
     }
 
     private void sheep_f(String s){
-        HttpUtil.sendOKHttp3RequestGET("http://223.3.86.106:8000/user/origin/?ProductionID="+s,
+        HttpUtil.sendOKHttp3RequestGET("http://223.3.90.242:8000/user/origin/?ProductionID="+s,
 
                 new Callback() {
                     @Override

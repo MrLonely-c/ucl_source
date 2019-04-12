@@ -33,8 +33,8 @@ public class Iteminf_findActivity extends AppCompatActivity  {
     private SearchView searchView;
     private static final String TAG = "tigercheng";
     private SearchListView list=null;
-    private String id;
-
+    private String id="";
+private int flag=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,8 +58,9 @@ public class Iteminf_findActivity extends AppCompatActivity  {
 
                 System.out.println("我收到了" + string);
                 search_item(string);
-
-                re.setText(id);
+                    if(flag==1) {
+                        re.setText(id + "\n");
+                    }
             }
         });
 
@@ -75,6 +76,7 @@ public class Iteminf_findActivity extends AppCompatActivity  {
     }
 
     private void search_item(String s){
+        flag=1;
         HttpUtil.sendOKHttp3RequestGET("http://223.3.79.119:8000/sell/sell_state/?GoodsName="+s,
 
                 new Callback() {
@@ -97,6 +99,7 @@ public class Iteminf_findActivity extends AppCompatActivity  {
                                 JSONObject jsonObjec = new JSONObject(strs[i]);
 
                                 id += jsonObjec.getString("ProductionID");
+                                id+="\n";
 
                             }
 //                            jsonObjec.getString("SPReceiveTime");

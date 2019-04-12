@@ -3,6 +3,7 @@ package com.example.helloworld.producer;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
+import com.example.helloworld.HttpUtil;
+import com.example.helloworld.JsonUtil;
 import com.example.helloworld.R;
 import com.yzq.zxinglibrary.android.CaptureActivity;
 import com.yzq.zxinglibrary.common.Constant;
@@ -18,8 +21,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
+
 public class OutActivity extends AppCompatActivity  {
 private TextView id=null;
+    private static final String TAG = "tigercheng";
+private String p_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +77,17 @@ private TextView id=null;
 
 
         });
+        Button out=findViewById(R.id.out_b);
+        out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                out_sheep();
+            }
+        });
     }
+
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -78,19 +99,62 @@ private TextView id=null;
 
                 String content = data.getStringExtra(Constant.CODED_CONTENT);
                Toast.makeText(OutActivity.this,"扫描结果为;"+content,Toast.LENGTH_SHORT).show();
-                try {
-                    JSONObject jsonObject=new JSONObject(content);
-                    String p_id=jsonObject.getString("ProductionId");
-                    id.setText(p_id);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+
+//                    JSONObject jsonObject=new JSONObject(content);
+//                    p_id=jsonObject.getString("ProductionID");
+                    id.setText(content);
+
 
             }
         }
     }
 
+    private void out_sheep(){
+        HttpUtil.sendOKHttp3RequestGET("http://223.3.79.211:8000/produce/fully_grown?SheepID=1234567800000000",
 
+                new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        Log.d(TAG, "onFailure: " + e.toString());
+                    }
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        final String resStr = response.body().string();
+
+
+                        try{
+                            JSONObject jsonObjec=new JSONObject(resStr);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        Log.d(TAG, "code: " + response.code());
+                        Log.d(TAG, "resStr: " + resStr);
+                        try {
+                            JSONObject resJson = new JSONObject(resStr);
+                            Log.d(TAG, "resJson: " + resJson.toString());
+
+                        } catch (JSONException e) {
+                            Log.d(TAG, "JSONException: " + e.toString());
+                            runOnUiThread(new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(OutActivity.this, ""+resStr, Toast.LENGTH_SHORT).show();
+                                }
+                            }));
+//                            e.printStackTrace();
+                        }
+                    }
+                }
+
+
+
+
+        );
+
+
+    }
 
 
 }

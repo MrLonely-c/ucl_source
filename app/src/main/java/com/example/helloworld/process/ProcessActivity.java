@@ -42,7 +42,7 @@ public class ProcessActivity extends AppCompatActivity  {
             switch(msg.what){
 
                 case UPDATE_TEXT:
-                    getreact();
+
                     if(flag==1) {
                         information = findViewById(R.id.information);
                         information.append("运输人员姓名：" + name);
@@ -114,9 +114,15 @@ public class ProcessActivity extends AppCompatActivity  {
         apply_trans.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getreact();
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                         Message message=new Message();
                         message.what=UPDATE_TEXT;
                         handler.sendMessage(message);

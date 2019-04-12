@@ -68,7 +68,7 @@ public class BaseUserActivity extends AppCompatActivity {
                 case UPDATE_TEXT:
                     if(count==1) {
                         process_num = 0;
-                        HttpUtil.sendOKHttp3RequestGET("http://223.3.90.242:8000/user/origin/?ProductionID=" + id,
+                        HttpUtil.sendOKHttp3RequestGET(HttpUtil.BASEURL_PROCESSAND_SOURCE+"/user/origin/?ProductionID=" +id,
                                 new okhttp3.Callback() {
                                     @Override
                                     public void onFailure(Call call, IOException e) {
