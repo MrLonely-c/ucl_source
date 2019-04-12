@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.helloworld.baseuser.BaseUserActivity;
 import com.example.helloworld.checker.checkerActivity;
 import com.example.helloworld.loginAndSign.LoginAndSignActivity;
 import com.example.helloworld.process.ProcessActivity;
@@ -74,7 +75,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button realstart=(Button)findViewById(R.id.bt_6);
+
+        Button baseuser=(Button)findViewById(R.id.bt_6);
+        baseuser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this, BaseUserActivity.class);
+                startActivity(intent);
+                //finish();
+            }
+        });
+
+
+        Button realstart=(Button)findViewById(R.id.bt_7);
         realstart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

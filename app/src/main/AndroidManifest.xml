@@ -28,6 +28,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".producer.ProducerActivity" />
         <activity android:name=".transporter.TransporterActivity" />
         <activity android:name=".checker.checkerActivity" />
@@ -64,6 +65,49 @@
         <activity android:name=".checker.CheckerMessCompleteActivity" />
         <activity android:name=".producer.ProducerMessCompleteActivity" />
         <activity android:name=".transporter.TransporterMessCompleteActivity" />
+=======
+        <activity android:name=".producer.ProducerActivity"/>
+        <activity android:name=".transporter.TransporterActivity"/>
+        <activity android:name=".checker.checkerActivity"/>
+        <activity android:name=".process.ProcessActivity"/>
+        <activity android:name=".sell.SellerActivity"/>
+        <activity android:name=".producer.OutActivity"/>
+        <activity android:name=".sell.marketinf_inActivity"/>
+        <activity android:name=".sell.marketinf_changeActivity"/>
+        <activity android:name=".sell.sellerinf_changeActivity"/>
+        <activity android:name=".sell.Item_in_Activity"/>
+        <activity android:name=".sell.sellrecordActivity"/>
+        <activity android:name=".sell.SellerMessCompleteActivity"/>
+        <activity android:name=".sell.Iteminf_findActivity"/>
+        <activity android:name=".producer.productionStateActivity"/>
+        <activity android:name=".producer.producer_inf_changeActivity"/>
+        <activity android:name=".checker.check_inf_markActivity"></activity>
+        <activity android:name=".producer.farm_inf_changeActivity"></activity>
+        <activity android:name=".transporter.transporterinf_changeActivity"></activity>
+        <activity android:name=".process.process_inf_changeActivity"></activity>
+        <activity android:name=".checker.checker_inf_changeActivity"></activity>
+        <activity android:name=".process.process_inf_loginActivity"></activity>
+        <activity android:name=".transporter.TransportDataActivity"></activity>
+        <activity android:name=".transporter.ProductionCheckActivity"></activity>
+        <activity android:name=".checker.checker_outActivity"></activity>
+        <activity android:name=".process.process_out_Activity"></activity>
+        <activity android:name=".process.ProcesserMessCompleteActivity"></activity>
+        <activity android:name=".baseuser.BaseUserSignUpActivity"></activity>
+        <activity android:name=".baseuser.BaseUserActivity"></activity>
+
+        <activity android:name=".company.CompanyManagerActivity"></activity>
+        <activity android:name=".company.CompanySignupActivity"></activity>
+        <activity android:name=".loginAndSign.LoginAndSignActivity"></activity>
+        <activity android:name=".loginAndSign.ResponsibleChooseActivity"></activity>
+        <activity android:name=".checker.CheckerMessCompleteActivity"></activity>
+        <activity android:name=".producer.ProducerMessCompleteActivity"></activity>
+        <activity android:name=".transporter.TransporterMessCompleteActivity"></activity>
+        <activity android:name=".producer.sheep_inActivity"></activity>
+        <activity android:name=".producer.sheep_follow_Activity"></activity>
+
+
+
+>>>>>>> 78973ca39bc402117f1a929ebf3800cef6882c70
 
         <provider
             android:name="android.support.v4.content.FileProvider"

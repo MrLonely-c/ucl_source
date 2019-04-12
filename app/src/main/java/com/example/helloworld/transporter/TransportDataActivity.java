@@ -94,7 +94,7 @@ public class TransportDataActivity extends AppCompatActivity {
 
         Log.d(TAG, "transportdata_submit: ");
         //http://223.3.72.161/register??characterFlag=1
-        HttpUtil.sendOKHttp3RequestPOST("http://223.3.74.177:8000/transport/start/",
+        HttpUtil.sendOKHttp3RequestPOST("http://223.3.82.173:8000/transport/start/",
                 JsonUtil.getJSON(
 
 
@@ -153,7 +153,7 @@ public class TransportDataActivity extends AppCompatActivity {
 
         Log.d(TAG, "transportdata_submit: ");
         //http://223.3.72.161/register??characterFlag=1
-        HttpUtil.sendOKHttp3RequestPOST("http://223.3.74.177:8000/transport/end/",
+        HttpUtil.sendOKHttp3RequestPOST("http://223.3.82.173:8000/transport/end/",
                 JsonUtil.getJSON(
 
                         "TransactionPersonID",getid,

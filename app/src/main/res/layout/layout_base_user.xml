@@ -16,4 +16,50 @@
     app:title_text="普通用户"
     tools:context="com.example.helloworld.producer.ProducerActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+
+            <Button
+                android:id="@+id/source"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+
+                android:layout_marginTop="20dip"
+                android:background="@drawable/button_select"
+                android:layout_gravity="center_horizontal"
+                />
+
+
+
+            <TextView
+                android:id="@+id/information_all"
+                android:layout_width="280dp"
+                android:layout_height="400dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:scrollbars="vertical"
+                android:background="@color/result_points"
+
+                />
+
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
 </com.example.helloworld.CustomToolBar>

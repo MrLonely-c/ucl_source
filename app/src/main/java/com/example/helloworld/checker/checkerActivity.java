@@ -1,6 +1,8 @@
 package com.example.helloworld.checker;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -28,13 +30,38 @@ public class checkerActivity extends AppCompatActivity  {
     private DrawerLayout mDrawerLayout;
     private static final String TAG = "tigercheng";
     private TextView information;
+    private String name;
+    private String phone;
+    private int flag=0;
+    public static final int UPDATE_TEXT=1;
+    private Handler handler=new Handler(){
+        public void handleMessage(Message msg){
+            switch(msg.what){
+
+                case UPDATE_TEXT:
+                    getreact();
+                    if(flag==1) {
+                        information = findViewById(R.id.information);
+                        information.append("运输人员姓名：" + name);
+                        information.append("\n");
+                        information.append("运输人员联系方式:" + phone);
+                        information.append("\n");
+                    }
+
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.checker);
-
+        information=findViewById(R.id.information);
+        information.setText("人员申请信息：\n");
         TextView btnback=findViewById(R.id.toolbar_left_tv);
         btnback.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -75,18 +102,27 @@ public class checkerActivity extends AppCompatActivity  {
             }
         });
 
-        Button checke_record=findViewById(R.id.bt_check_3);
-        checke_record.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-//                Intent intent=new Intent(checkerActivity.this, checker_outActivity.class);
-//                startActivity(intent);
-                getreact();
+        Button apply_trans=findViewById(R.id.bt_check_3);
+
+
+        apply_trans.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Message message=new Message();
+                        message.what=UPDATE_TEXT;
+                        handler.sendMessage(message);
+                    }
+                }).start();
+
             }
         });
     }
 
     private void getreact(){
-        HttpUtil.sendOKHttp3RequestGET("http://223.3.74.177:8000/transport/transpoter/apply/",
+        HttpUtil.sendOKHttp3RequestGET("http://223.3.82.173:8000/transport/transpoter/apply/",
 
                 new Callback() {
                     @Override
@@ -114,11 +150,9 @@ public class checkerActivity extends AppCompatActivity  {
 ////                            information.append("联系电话：");
 ////                            information.append(jsonObjec.getString("ContactNo"));
 
-
-                            String phone=jsonObjec.getString("ContactNo");
-
-
-                            information.setText(jsonObjec.getString("ConsumerName")+phone);
+                            flag=1;
+                            phone=jsonObjec.getString("ContactNo");
+                            name=jsonObjec.getString("ConsumerName");
 
                         } catch (JSONException e) {
                             e.printStackTrace();

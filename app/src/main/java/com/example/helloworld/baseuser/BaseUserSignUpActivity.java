@@ -42,7 +42,7 @@ public class BaseUserSignUpActivity extends AppCompatActivity
     private String vCode = "";
 
     private Button btnGetVerificationCode = null;
-    private ImageView ivVerification = null;
+    private ImageView ivVerification = null; 
     private Button btnBaseUserSignUp = null;
 
     private Intent intent = null;

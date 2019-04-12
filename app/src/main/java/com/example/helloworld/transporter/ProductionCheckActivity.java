@@ -25,6 +25,7 @@ import java.io.IOException;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+import test.Test_Pack;
 
 public class ProductionCheckActivity extends AppCompatActivity {
     private EditText p_id;
@@ -76,13 +77,38 @@ public class ProductionCheckActivity extends AppCompatActivity {
 
 
         Log.d(TAG, "productioncheck_submit: ");
+
+        JSONObject json = new JSONObject();
+        JSONObject cdpsJson = new JSONObject();
+        JSONObject contentJson = new JSONObject();
+        try {
+            contentJson.put("ProductionID" ,getid);
+            contentJson.put("TransactionPersonID" , getpid);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            cdpsJson.put("content",contentJson);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            json.put("cdps",cdpsJson);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        String uclStr = json.toString();
+
+        String re= Test_Pack.JSONToUCL(uclStr);
+        Log.d(TAG, "productioncheck: "+re);
         //http://223.3.72.161/register??characterFlag=1
-        HttpUtil.sendOKHttp3RequestPOST("http://223.3.74.177:8000/transport/product_enter/",
+        HttpUtil.sendOKHttp3RequestPOST("http://223.3.82.173:8000/transport/product_enter/",
                 JsonUtil.getJSON(
 
 
-                        "ProductionID",getpid,
-                "TransactionPersonID",getid
+//                        "ProductionID",getpid,
+//                "TransactionPersonID",getid
+                        "transport",re
 
 
 

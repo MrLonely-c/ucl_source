@@ -216,7 +216,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="36521"
+                android:hint="请填写"
                 android:inputType="textPersonName" />
 
 
@@ -228,7 +228,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="89aa"
+                android:hint=""
                 android:inputType="textPersonName" />
             <Button
                 android:layout_marginLeft="5dp"

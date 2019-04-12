@@ -1,7 +1,10 @@
 package com.example.helloworld.process;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -19,6 +22,7 @@ import com.example.helloworld.HttpUtil;
 import com.example.helloworld.JsonUtil;
 import com.example.helloworld.R;
 import com.example.helloworld.sell.marketinf_inActivity;
+import com.yzq.zxinglibrary.android.CaptureActivity;
 import com.yzq.zxinglibrary.common.Constant;
 
 import org.json.JSONException;
@@ -43,6 +47,24 @@ public class process_inf_loginActivity extends AppCompatActivity {
     private EditText kind_num=null;
     private EditText process_new_id=null;
     private Button submit=null;
+    private TextView res=null;
+    public static final int UPDATE_TEXT=1;
+    private String resStr;
+    private int flag=0;
+    private Handler handler=new Handler(){
+        public void handleMessage(Message msg){
+            switch(msg.what){
+
+                case UPDATE_TEXT:
+
+                    res.setText(resStr);
+
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,6 +122,55 @@ public class process_inf_loginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 in_processinf();
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                Thread.sleep(1000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        if(flag==1){
+                            Message message=new Message();
+                            message.what=UPDATE_TEXT;
+                            handler.sendMessage(message);
+                        }}
+                    }).start();
+
+            }
+        });
+
+        Button code_photo=findViewById(R.id.code_getid);
+        code_photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(process_inf_loginActivity.this, CaptureActivity.class);
+                /*ZxingConfig是配置类  可以设置是否显示底部布局，闪光灯，相册，是否播放提示音  震动等动能
+                 * 也可以不传这个参数
+                 * 不传的话  默认都为默认不震动  其他都为true
+                 * */
+
+                //ZxingConfig config = new ZxingConfig();
+                //config.setShowbottomLayout(true);//底部布局（包括闪光灯和相册）
+                //config.setPlayBeep(true);//是否播放提示音
+                //config.setShake(true);//是否震动
+                //config.setShowAlbum(true);//是否显示相册
+                //config.setShowFlashLight(true);//是否显示闪光灯
+                //intent.putExtra(Constant.INTENT_ZXING_CONFIG, config);
+                startActivityForResult(intent,0);
+
+            }
+
+
+        });
+        res=findViewById(R.id.code_res);
+        res.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+              Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse(resStr));
+
+                startActivity(intent);
             }
         });
     }
@@ -124,20 +195,24 @@ public class process_inf_loginActivity extends AppCompatActivity {
         String getlocation = process_location.getText().toString();
         String getproid=process_old_id.getText().toString();
         String getkind=process_kind_total.getText().toString();
+        String getkindnum=kind_num.getText().toString();
+        String newid=getproid.replaceFirst("00",getkindnum);
+        process_new_id.setText(newid);
+        String getnewid=process_new_id.getText().toString();
 
+        flag=1;
         Log.d(TAG, "processerinf_change: ");
         //http://223.3.72.161/register??characterFlag=1
-        HttpUtil.sendOKHttp3RequestPOST("http://223.3.74.248:8000/process/processtion_add/",
+        HttpUtil.sendOKHttp3RequestPOST(HttpUtil.BASEURL_PROCESSAND_SOURCE+"/process/processtion_add/",
                 JsonUtil.getJSON(
 
-                        "ProcessID", "20181455",
+                        "ProcessID","2018040311",
                 "ProductionID", getproid,
-                "ConsumerID",getworkid,
+                "ConsumerId",getworkid,
                 "ProcessLocation", getlocation,
-                "ProductionKind",getkind,
-                "ReproductionID1", "121238273 ",
-                "ReproductionID2", "1354651351",
-                "ProcessUCLLink","121315112"
+                "ProductionKind",getkindnum,
+                "ReproductionID",getnewid,
+                        "Step","2"
 
 
 
@@ -154,10 +229,11 @@ public class process_inf_loginActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
-                        final String resStr = response.body().string();
+                        resStr = response.body().string();
 
                         Log.d(TAG, "code: " + response.code());
                         Log.d(TAG, "resStr: " + resStr);
+
                         try {
                             JSONObject resJson = new JSONObject(resStr);
                             Log.d(TAG, "resJson: " + resJson.toString());
@@ -179,5 +255,24 @@ public class process_inf_loginActivity extends AppCompatActivity {
 
 
     }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+        // 扫描二维码/条码回传
+        if (requestCode == 0 && resultCode == RESULT_OK) {
+            if (data != null) {
+
+                String content = data.getStringExtra(Constant.CODED_CONTENT);
+                Toast.makeText(process_inf_loginActivity.this,"扫描结果为;"+content,Toast.LENGTH_SHORT).show();
+                try {
+                    JSONObject jsonObject=new JSONObject(content);
+                    String p_id=jsonObject.getString("ProductionID");
+                    process_old_id.setText(p_id);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }
+    }
 }

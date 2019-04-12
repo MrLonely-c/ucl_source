@@ -136,7 +136,11 @@ public class check_inf_markActivity extends AppCompatActivity {
 //                                "Applicant", "wang"   ,
 //                                 "QuarantinerName", "lin" ,
 //                                 "QuarantineRes" , "***"
-                            "quarantine",re
+                            "ucl",re,
+                        "productionId", "3000000",
+                "serialnumber", "40",
+                "flag","1"
+
 
 
 
