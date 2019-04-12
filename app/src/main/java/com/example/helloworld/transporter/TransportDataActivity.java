@@ -25,6 +25,7 @@ import java.util.Date;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+import test.Test_Pack;
 
 public class TransportDataActivity extends AppCompatActivity {
     private Button start=null;
@@ -59,7 +60,7 @@ public class TransportDataActivity extends AppCompatActivity {
         arrive_show=findViewById(R.id.arrive_show);
         from=findViewById(R.id.from);
         to=findViewById(R.id.to);
-        passer_id=findViewById(R.id.passer_id);
+        passer_id=findViewById(R.id.passer_id_1);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,16 +94,40 @@ public class TransportDataActivity extends AppCompatActivity {
 
 
         Log.d(TAG, "transportdata_submit: ");
+        JSONObject json = new JSONObject();
+        JSONObject cdpsJson = new JSONObject();
+        JSONObject contentJson = new JSONObject();
+        try {
+            contentJson.put("TransactionPersonID",getid);
+            contentJson.put("From",getfrom);
+            contentJson.put("To",getto);
+            contentJson.put("TransactionStartTime",getstime);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            cdpsJson.put("content",contentJson);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            json.put("cdps",cdpsJson);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        String uclStr = json.toString();
+
+        String re= Test_Pack.JSONToUCL(uclStr);
+        Log.d(TAG, "productioncheck: "+re);
         //http://223.3.72.161/register??characterFlag=1
         HttpUtil.sendOKHttp3RequestPOST("http://223.3.82.173:8000/transport/start/",
                 JsonUtil.getJSON(
 
 
-                        "TransactionPersonID",getid,
-                "From",getfrom,
-                "To",getto,
-                "TransactionStartTime",getstime
-
+                        "ucl",re,
+                        "productionId", "3000000",
+                        "serialnumber", "40",
+                        "flag","2"
 
 
 
@@ -152,12 +177,38 @@ public class TransportDataActivity extends AppCompatActivity {
         String getatime=arrive_show.getText().toString();
 
         Log.d(TAG, "transportdata_submit: ");
+        JSONObject json = new JSONObject();
+        JSONObject cdpsJson = new JSONObject();
+        JSONObject contentJson = new JSONObject();
+        try {
+            contentJson.put("TransactionPersonID",getid);
+            contentJson.put( "TransactionEndTime",getatime);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            cdpsJson.put("content",contentJson);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            json.put("cdps",cdpsJson);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        String uclStr = json.toString();
+
+        String re= Test_Pack.JSONToUCL(uclStr);
+        Log.d(TAG, "productioncheck: "+re);
         //http://223.3.72.161/register??characterFlag=1
         HttpUtil.sendOKHttp3RequestPOST("http://223.3.82.173:8000/transport/end/",
                 JsonUtil.getJSON(
 
-                        "TransactionPersonID",getid,
-                "TransactionEndTime",getatime
+                        "ucl",re,
+                        "productionId", "3000000",
+                        "serialnumber", "41",
+                        "flag","2"
 
 
 

@@ -28,7 +28,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <!--<<<<<<< HEAD-->
+=======
+
+>>>>>>> e5ea50a4f393e80224ec6b2379d4832161f7c632
         <activity android:name=".producer.ProducerActivity" />
         <activity android:name=".transporter.TransporterActivity" />
         <activity android:name=".checker.checkerActivity" />
@@ -65,6 +69,7 @@
         <activity android:name=".checker.CheckerMessCompleteActivity" />
         <activity android:name=".producer.ProducerMessCompleteActivity" />
         <activity android:name=".transporter.TransporterMessCompleteActivity" />
+<<<<<<< HEAD
         <!--=======-->
         <!--<activity android:name=".producer.ProducerActivity"/>-->
         <!--<activity android:name=".transporter.TransporterActivity"/>-->
@@ -102,11 +107,28 @@
         <!--<activity android:name=".checker.CheckerMessCompleteActivity"></activity>-->
         <!--<activity android:name=".producer.ProducerMessCompleteActivity"></activity>-->
         <!--<activity android:name=".transporter.TransporterMessCompleteActivity"></activity>-->
+=======
+
+
+
+
+
+
+
+
+
+
+>>>>>>> e5ea50a4f393e80224ec6b2379d4832161f7c632
         <activity android:name=".producer.sheep_inActivity"></activity>
         <activity android:name=".producer.sheep_follow_Activity"></activity>
 
 
+<<<<<<< HEAD
         <!--&gt;>>>>>> 78973ca39bc402117f1a929ebf3800cef6882c70-->
+=======
+
+
+>>>>>>> e5ea50a4f393e80224ec6b2379d4832161f7c632
 
         <provider
             android:name="android.support.v4.content.FileProvider"

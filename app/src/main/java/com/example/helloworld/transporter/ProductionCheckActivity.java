@@ -40,7 +40,7 @@ public class ProductionCheckActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
-        p_id=findViewById(R.id.p_id);
+        p_id=findViewById(R.id.item_id);
         passer_id=findViewById(R.id.passer_id);
 
         TextView btnback=findViewById(R.id.toolbar_left_tv);
@@ -82,8 +82,8 @@ public class ProductionCheckActivity extends AppCompatActivity {
         JSONObject cdpsJson = new JSONObject();
         JSONObject contentJson = new JSONObject();
         try {
-            contentJson.put("ProductionID" ,getid);
-            contentJson.put("TransactionPersonID" , getpid);
+            contentJson.put("ProductionID" ,getpid);
+            contentJson.put("TransactionPersonID" , getid);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -108,8 +108,10 @@ public class ProductionCheckActivity extends AppCompatActivity {
 
 //                        "ProductionID",getpid,
 //                "TransactionPersonID",getid
-                        "transport",re
-
+                        "ucl",re,
+                        "productionId", "3000000",
+                        "serialnumber", "40",
+                        "flag","2"
 
 
 

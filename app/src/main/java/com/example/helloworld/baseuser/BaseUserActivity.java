@@ -219,11 +219,12 @@ public class BaseUserActivity extends AppCompatActivity {
                     public void run() {
 
                         try {
-                            Thread.sleep(3000);
+                            Thread.sleep(1000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                         if(count==1) {
+
                             Message message = new Message();
                             message.what = UPDATE_TEXT;
                             handler.sendMessage(message);
@@ -237,6 +238,8 @@ public class BaseUserActivity extends AppCompatActivity {
         });
 
     }
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -247,6 +250,7 @@ public class BaseUserActivity extends AppCompatActivity {
 
                 String content = data.getStringExtra(Constant.CODED_CONTENT);
                 Toast.makeText(BaseUserActivity.this,"扫描结果为;"+content,Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onActivityResult: "+content);
                 try {
                     JSONObject jsonObject=new JSONObject(content);
                     id=jsonObject.getString("ProductionID");

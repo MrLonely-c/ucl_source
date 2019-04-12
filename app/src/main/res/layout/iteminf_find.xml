@@ -15,7 +15,19 @@
     app:title_visible="true"
     app:title_text="在售商品信息查询"
     tools:context="com.example.helloworld.producer.ProducerActivity">
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:id="@+id/item_find"
+            >
     <scut.carson_ho.searchview.SearchView
         android:id="@+id/search_view"
         android:layout_width="match_parent"
@@ -27,11 +39,14 @@
         app:searchBlockColor="#ffffff"
         />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:id="@+id/result"
-        android:hint="内容展示"/>
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_marginTop="30dp"-->
+        <!--android:id="@+id/result"-->
+        <!--android:hint="内容展示"/>-->
+        </LinearLayout>
+
+    </ScrollView>
 </com.example.helloworld.CustomToolBar>
