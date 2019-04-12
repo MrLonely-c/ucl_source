@@ -59,12 +59,14 @@ public class BaseUserSignUpActivity extends AppCompatActivity
     }
 
     private void initUI() {
+
         etxUserName = findViewById(R.id.etxUserName);
         etxContact = findViewById(R.id.etxContact);
         etxPassword = findViewById(R.id.etxPassword);
         etxRePassword = findViewById(R.id.etxRePassword);
         etxVerificationCode = findViewById(R.id.etxVerificationCode);
 
+//        btnGetVerificationCode = findViewById(R.id.btn_getVerificationCode);
         ivVerification = findViewById(R.id.iv_verification);
         ivVerification.setOnClickListener(this);
         btnBaseUserSignUp = findViewById(R.id.btn_baseUserSignUp);
@@ -78,6 +80,9 @@ public class BaseUserSignUpActivity extends AppCompatActivity
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+//            case R.id.btn_getVerificationCode:
+//                Log.d(TAG, "获取验证码");
+//                break;
 
             case R.id.iv_verification:
                 ivVerification.setImageBitmap(CodeUtil.getInstance().createBitmap());
@@ -115,7 +120,7 @@ public class BaseUserSignUpActivity extends AppCompatActivity
                 HttpUtil.BASEURL_LOGIN_SIGN_PRODUCE + "/user/register?CharacterFlag=1",
                 JsonUtil.getJSON(
                         "ConsumerName", userName,
-                        "ContactNo", Integer.parseInt(contact),
+                        "ContactNo", contact,
                         "Password", password
                 ),
                 new Callback() {
@@ -153,6 +158,64 @@ public class BaseUserSignUpActivity extends AppCompatActivity
                     }
                 }
         );
+
+//        HttpUtil.sendOKHttp3RequestGET(
+////                HttpUtil.BASEURL_SELL + "/sell/Sell2/inquiry_supermarket?CompanyID=123",
+//                "http://223.3.74.177:8000/transport/product_enter/transpoter/apply/",
+//                new Callback() {
+//                    @Override
+//                    public void onFailure(Call call, IOException e) {
+//                        Log.d(TAG, "onFailure: " + e);
+//                    }
+//
+//                    @Override
+//                    public void onResponse(Call call, Response response) throws IOException {
+//                        String resStr = response.body().string();
+//                        Log.d(TAG, "response.code: " + response.code());
+//                        Log.d(TAG, "resStr: " + resStr);
+//
+//                        //处理多个Json
+//                        Log.d(TAG, "length: " + resStr.split("\\{").length);
+//                        Log.d(TAG, "0: " + resStr.split("\\{")[0]);
+//                        Log.d(TAG, "1: " + resStr.split("\\{")[1]);
+//                        String test = "{\"hhh\":123,\"huhuhuh\":\"jjj\"}" +
+//                                "{\"hhh\":123,\"qwhdiuq\":\"qwq\"}" +
+//                                "{\"hhh\":123,\"bhbhbhb\":\"jjqdedj\"}" +
+//                                "{\"hhh\":123,\"dcc\":\"vfvfvf\"}" +
+//                                "{\"hhh\":123,\"jiuyiu\":\"ijqutuydfwqu\"}" +
+//                                "{\"hhh\":12134223,\"dwqdwqd\":\"qewqedw\"}";
+//                        Log.d(TAG, "onResponse: " + JsonUtil.getJSONArray(resStr).toString());
+//                    }
+//                });
+
+//        HttpUtil.sendOKHttp3RequestPOST(
+//                "",
+//                JsonUtil.getJSON(
+//                        "id", 12,
+//                        "TransactionID", 312,
+//                        "ProductionID", 1245,
+//                        "TransactionPersonID", "001",
+//                        "From", "广州",
+//                        "To", "西藏",
+//                        "Flag", "002",
+//                        "TransactionStartTime", "2019-03-15",
+//                        "TransactionEndTime", "2019-03-17",
+//                        "TransactionStartUCLLink", "link01",
+//                        "TransactionEndUCLLink", "link02"
+//                ), new Callback() {
+//                    @Override
+//                    public void onFailure(Call call, IOException e) {
+//                        Log.d(TAG, "onFailure: " + e);
+//                    }
+//
+//                    @Override
+//                    public void onResponse(Call call, Response response) throws IOException {
+//                        String resStr = response.body().string();
+//                        Log.d(TAG, "response.code: " + response.code());
+//                        Log.d(TAG, "resStr: " + resStr);
+//                    }
+//                });
+        Log.d(TAG, "baseUserSignUp: in");
         return access;
     }
 }

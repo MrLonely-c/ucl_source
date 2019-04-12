@@ -7,6 +7,7 @@ import android.support.annotation.UiThread;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
@@ -120,11 +121,13 @@ public class LoginAndSignActivity extends AppCompatActivity
                     case R.id.rbtn_company:
                         Toast.makeText(LoginAndSignActivity.this, "企业用户", Toast.LENGTH_SHORT).show();
                         companyFlag = true;
+                        etxContactNo.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
                         break;
 
                     case R.id.rbtn_personal:
                         Toast.makeText(LoginAndSignActivity.this, "个人用户", Toast.LENGTH_SHORT).show();
                         companyFlag = false;
+                        etxContactNo.setInputType(InputType.TYPE_CLASS_NUMBER);
                         break;
                 }
             }
@@ -256,6 +259,7 @@ public class LoginAndSignActivity extends AppCompatActivity
                             }
                         }
                     });
+
         } else {
             //个人用户登录操作
             Log.d(TAG, "个人用户登录操作");

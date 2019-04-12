@@ -1,18 +1,17 @@
-<com.example.helloworld.CustomToolBar
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<com.example.helloworld.CustomToolBar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    app:left_tv_visible="true"
     app:left_tv_text="返回"
+    app:left_tv_visible="true"
     app:right_btn_visible="true"
-    app:right_tv_visible="true"
     app:right_tv_text="菜单"
-    app:title_visible="true"
+    app:right_tv_visible="true"
     app:title_text="生产者信息完善"
+    app:title_visible="true"
     tools:context="com.example.helloworld.producer.ProducerActivity">
 
     <LinearLayout
@@ -60,7 +59,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="证件照图片" />
+                android:text="工作证件图片" />
 
         </LinearLayout>
 
@@ -72,13 +71,13 @@
             android:weightSum="8">
 
             <EditText
-                android:id="@+id/editText18"
+                android:id="@+id/etxIDCardNo"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="身份证号"
-                android:inputType="textPersonName" />
+                android:inputType="number" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -87,15 +86,42 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
+                <ImageView
+                    android:id="@+id/ivIDCard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/idcard" />
+
                 <Button
-                    android:id="@+id/button14"
+                    android:id="@+id/btnPhotoIDCard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="拍照上传" />
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/btn_selector"
+                    android:letterSpacing="0.2"
+                    android:minWidth="40dp"
+                    android:minHeight="20dp"
+                    android:text="拍照"
+                    android:textColor="#fff"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/btnAlbumIDCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/btn_selector"
+                    android:letterSpacing="0.2"
+                    android:minWidth="40dp"
+                    android:minHeight="20dp"
+                    android:text="相册"
+                    android:textColor="#fff"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <EditText
-                android:id="@+id/editText21"
+                android:id="@+id/etxEmployerName"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -110,11 +136,38 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
+                <ImageView
+                    android:id="@+id/ivCertificates"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/certificates" />
+
                 <Button
-                    android:id="@+id/button17"
+                    android:id="@+id/btnPhotoCertificates"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="拍照上传" />
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/btn_selector"
+                    android:letterSpacing="0.2"
+                    android:minWidth="40dp"
+                    android:minHeight="20dp"
+                    android:text="拍照"
+                    android:textColor="#fff"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/btnAlbumCertificates"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/btn_selector"
+                    android:letterSpacing="0.2"
+                    android:minWidth="40dp"
+                    android:minHeight="20dp"
+                    android:text="相册"
+                    android:textColor="#fff"
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -133,8 +186,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="@drawable/shape"
+            android:background="@drawable/btn_selector"
             android:letterSpacing="0.4"
+            android:minWidth="120dp"
             android:text="提交保存"
             android:textColor="#fff"
             android:textSize="19sp"

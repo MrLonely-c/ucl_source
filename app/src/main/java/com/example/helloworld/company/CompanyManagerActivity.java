@@ -75,6 +75,31 @@ public class CompanyManagerActivity extends AppCompatActivity
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnCompanyMessage:
+                HttpUtil.sendOKHttpMultipartRequestPOST(
+                        HttpUtil.BASEURL_COMPANY + "/information.action",
+                        new MultipartBody.Builder("AaB03x")
+                                .setType(MultipartBody.FORM)
+                                .addFormDataPart("loginName", companyName)
+                                .build(),
+                        new Callback() {
+                            @Override
+                            public void onFailure(Call call, IOException e) {
+                                Log.d(TAG, "onFailure: " + e.toString());
+                            }
+
+                            @Override
+                            public void onResponse(Call call, Response response) throws IOException {
+                                String resStr = response.body().string();
+                                Log.d(TAG, "btnCompanyMessage response.code: " + response.code());
+                                Log.d(TAG, "btnCompanyMessage resStr: " + resStr);
+
+                                intent = new Intent(CompanyManagerActivity.this, CompanyMessageActivity.class);
+                                intent.putExtra("title", "企业信息管理");
+                                intent.putExtra("companyMess", resStr);
+                                startActivity(intent);
+                            }
+                        }
+                );
                 break;
             case R.id.btnCompanyStaff:
                 HttpUtil.sendOKHttpMultipartRequestPOST(
@@ -93,8 +118,8 @@ public class CompanyManagerActivity extends AppCompatActivity
                             @Override
                             public void onResponse(Call call, Response response) throws IOException {
                                 String resStr = response.body().string();
-                                Log.d(TAG, "response.code: " + response.code());
-                                Log.d(TAG, "企业组织用户登录操作resStr: " + resStr);
+                                Log.d(TAG, "btnCompanyStaff response.code: " + response.code());
+                                Log.d(TAG, "btnCompanyStaff resStr: " + resStr);
 
                                 intent = new Intent(CompanyManagerActivity.this, CompanyStaffMActivity.class);
                                 intent.putExtra("title", "企业人员管理");
@@ -102,6 +127,7 @@ public class CompanyManagerActivity extends AppCompatActivity
                                 startActivity(intent);
                             }
                         }
+
                 );
                 break;
 //            case R.id.btnOperateScale:

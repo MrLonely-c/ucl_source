@@ -44,10 +44,11 @@ public class CompanyStaffMActivity extends AppCompatActivity
     }
 
     private void initUI() {
+        intent = getIntent();
 
         rv_staff = findViewById(R.id.rv_staff);
 
-        //staffJsonStr = intent.getStringExtra("staff");
+        staffJsonStr = intent.getStringExtra("staff");
         try {
             JSONObject staffJson = new JSONObject(staffJsonStr);
             staffesStr = staffJson.getString("json");
