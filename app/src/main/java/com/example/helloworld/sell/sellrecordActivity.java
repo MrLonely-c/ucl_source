@@ -51,20 +51,20 @@ public class sellrecordActivity extends AppCompatActivity  {
                 switch (flag){
                     case 1:
                         //为获取到的实例设置新的id
-                        item_id.setId(R.id.text_view_1);
+                        item_id.setId(R.id.etName_1);
                         //为获取到的实例设置文本
                         item_id.setText(flag+"");
                         break;
                     case 2:
-                        item_id.setId(R.id.text_view_2);
+                        item_id.setId(R.id.etName_2);
                         item_id.setText(flag+"");
                         break;
                     case 3:
-                        item_id.setId(R.id.text_view_3);
+                        item_id.setId(R.id.etName_3);
                         item_id.setText(flag+"");
                         break;
                     case 4:
-                        item_id.setId(R.id.text_view_4);
+                        item_id.setId(R.id.etName_4);
                         item_id.setText(flag+"");
                         break;
                 }
@@ -79,8 +79,8 @@ public class sellrecordActivity extends AppCompatActivity  {
                 R.layout.itemrecord, null).findViewById(R.id.LinearLayout_item);
         // 将布局加入到当前布局中
         linearLayout.addView(layout);
-        EditText i_name=(EditText)findViewById(R.id.itemName_current);
-        i_name.setText("朔州羊肉精品");
+
+
 
 
     }

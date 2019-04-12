@@ -39,13 +39,14 @@ public class ProducerActivity extends AppCompatActivity  {
     public static final int UPDATE_TEXT=1;
     public static final int UPDATE_TEXT_1=2;
     private int flag=0;
+    private int flag_t=0;
     private Handler handler=new Handler(){
     public void handleMessage(Message msg){
         switch(msg.what){
             case UPDATE_TEXT_1:
                 check_apply();
                 information=findViewById(R.id.information);
-                if(flag==1) {
+                if(check_name!=null) {
                     information.append("检疫人员姓名：" + check_name);
                     information.append("\n");
                     information.append("检疫人员联系方式:" + checker_phone);
@@ -56,11 +57,12 @@ public class ProducerActivity extends AppCompatActivity  {
             case UPDATE_TEXT:
                 getreact();
                 information=findViewById(R.id.information);
-                information.append("运输人员姓名："+name);
-                information.append("\n");
-                information.append("运输人员联系方式:"+phone);
-                information.append("\n");
-
+                if(name!=null) {
+                    information.append("运输人员姓名：" + name);
+                    information.append("\n");
+                    information.append("运输人员联系方式:" + phone);
+                    information.append("\n");
+                }
 
                 break;
                 default:
@@ -144,9 +146,16 @@ public class ProducerActivity extends AppCompatActivity  {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        Message message=new Message();
-                        message.what=UPDATE_TEXT;
-                        handler.sendMessage(message);
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                            Message message = new Message();
+                            message.what = UPDATE_TEXT;
+                            handler.sendMessage(message);
+
                     }
                 }).start();
 
@@ -162,9 +171,16 @@ public class ProducerActivity extends AppCompatActivity  {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        Message message=new Message();
-                        message.what=UPDATE_TEXT_1;
-                        handler.sendMessage(message);
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                            Message message = new Message();
+                            message.what = UPDATE_TEXT_1;
+                            handler.sendMessage(message);
+
                     }
                 }).start();
 
@@ -276,7 +292,7 @@ public class ProducerActivity extends AppCompatActivity  {
                             checker_phone=jsonObjec.getString("ContactNo");
                             check_name=jsonObjec.getString("QuarantinerName");
 //                            information.append("申请所得检疫人员信息如下："+"\n");
-                            flag=1;
+
 //                            information.append(name+phone);
 
                         } catch (JSONException e) {

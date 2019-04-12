@@ -95,7 +95,10 @@ public class check_inf_markActivity extends AppCompatActivity {
         //http://223.3.72.161/register??characterFlag=1
         JSONObject json = new JSONObject();
         JSONObject cdpsJson = new JSONObject();
+        JSONObject cgpsJson = new JSONObject();
         JSONObject contentJson = new JSONObject();
+        String productionID="4000";
+        String serialNumber="40";
         try {
             contentJson.put("QuarantineID" ,"acx0");
             contentJson.put("QuarantineBatch" , "axc023");
@@ -110,20 +113,41 @@ public class check_inf_markActivity extends AppCompatActivity {
         }
         try {
             cdpsJson.put("content",contentJson);
+            cdpsJson.put("tag",serialNumber);
+            cdpsJson.put("relatedUCL", productionID + ";" + serialNumber);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         try {
-            json.put("cdps",cdpsJson);
+            cgpsJson.put("contentid",productionID);
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        String key = "MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAwbb0r0rOMet2lz7k\nr7usGBGROIeFgjXJ2TPF9rH2LwMjFBUEBciVPG8FVej2DrXhdjGzyE6C0H+2w3GD\nLrtEhQIDAQABAkAywpNJX6u6Tv4LUdKw7deBkxDfpDtqzFdxD+z+4NEmrhG3zJPK\nLNIWpzempDymlcwIcR8EsWf92g3NX6en+tSBAiEA8CicGBsa1ozwcDh6vGbYXdGf\nURQqpzxRF9bcU5d1waECIQDOfhRZbZlNo0QcuiabZ4T8jQvMFbsM6uVqxc1x5zng\nZQIhAK6L1Wdvy8HEDbyCUDI+TWNix3gWQCnsHMRG1TusCVoBAiAQvKdpmDiU0mby\n7SOz9PASiFwsbpZ6tY9i2CWO1e8bAQIgHByogCSMuWtc8CZMU2L083NFjwytpzhi\nXZlwXqx5MEg=";
+        try {
+            json.put("cdps",cdpsJson);
+            json.put("cgps",cgpsJson);
+            json.put("privateKey", key);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         String uclStr = json.toString();
 
         String re=Test_Pack.JSONToUCL(uclStr);
         Log.d(TAG, "check_result_in: "+re);
 
         String back=Test_Pack.UCLToJSON(re);
+
+
+        try {
+            JSONObject unpack = new JSONObject(back);
+            serialNumber = unpack.getJSONObject("cdps").getString("tag");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        String s_num=Integer.toString(Integer.parseInt(serialNumber) + 1);
         Log.d(TAG, "check_result_in: "+back);
         HttpUtil.sendOKHttp3RequestPOST("http://223.3.95.218:8000/quarantine/quarantine/submit",
                 JsonUtil.getJSON(
@@ -137,8 +161,8 @@ public class check_inf_markActivity extends AppCompatActivity {
 //                                 "QuarantinerName", "lin" ,
 //                                 "QuarantineRes" , "***"
                             "ucl",re,
-                        "productionId", "3000000",
-                "serialnumber", "40",
+                        "productionId", productionID,
+                "serialnumber",s_num ,
                 "flag","1"
 
 

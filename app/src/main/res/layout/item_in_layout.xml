@@ -29,19 +29,14 @@
                     android:layout_gravity="center"
                     android:layout_height="wrap_content" />
                 <EditText
+                    android:id="@+id/name"
                     android:layout_width="240dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:text="朔州神仙羊肉"
                     android:textAlignment="center"
                     android:background="#FFFFFF"/>
-                <Button
-                    android:id="@+id/item_photo"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
 
-                    android:background="@drawable/button_select"
-                    />
             </LinearLayout>
             <View  android:layout_height="1px"
                 android:layout_width="match_parent"
@@ -121,7 +116,7 @@
                     android:layout_width="240dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="2018.7.1"
+                    android:text=""
                     android:textSize="18dp"
 
                     android:textAlignment="center"
@@ -134,33 +129,33 @@
 
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                >
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="40dp"-->
+                <!--&gt;-->
 
-                <TextView
-                    android:text="商品上架时间"
+                <!--<TextView-->
+                    <!--android:text="商品上架时间"-->
 
-                    android:layout_width="120dp"
-                    android:layout_gravity="center"
-                    android:layout_height="wrap_content" />
-                <EditText
-                    android:id="@+id/sellouttime"
+                    <!--android:layout_width="120dp"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_height="wrap_content" />-->
+                <!--<EditText-->
+                    <!--android:id="@+id/sellouttime"-->
 
-                    android:layout_width="240dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="2018.12.3"
-                    android:textSize="18dp"
+                    <!--android:layout_width="240dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text=""-->
+                    <!--android:textSize="18dp"-->
 
-                    android:textAlignment="center"
-                    android:background="#FFFFFF"/>
-            </LinearLayout>
-            <View  android:layout_height="1px"
-                android:layout_width="match_parent"
-                android:background="#FF4081"
-                />
+                    <!--android:textAlignment="center"-->
+                    <!--android:background="#FFFFFF"/>-->
+            <!--</LinearLayout>-->
+            <!--<View  android:layout_height="1px"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:background="#FF4081"-->
+                <!--/>-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -188,7 +183,14 @@
                 android:layout_width="match_parent"
                 android:background="#FF4081"
                 />
-
+    <Button
+        android:id="@+id/item_photo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="14dip"
+        android:background="@drawable/button_select"
+        />
             <Button
                 android:id="@+id/item_submit"
                 android:layout_width="150dip"

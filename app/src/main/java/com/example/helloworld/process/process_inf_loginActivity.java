@@ -33,6 +33,7 @@ import java.io.IOException;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+import test.Test_Pack;
 
 public class process_inf_loginActivity extends AppCompatActivity {
     private int kind;
@@ -201,18 +202,46 @@ public class process_inf_loginActivity extends AppCompatActivity {
         String getnewid=process_new_id.getText().toString();
 
         flag=1;
-        Log.d(TAG, "processerinf_change: ");
+        Log.d(TAG, "processerinf_login: ");
+        JSONObject json = new JSONObject();
+        JSONObject cdpsJson = new JSONObject();
+        JSONObject contentJson = new JSONObject();
+        try {
+            contentJson.put("ProcessID","2018040311");
+            contentJson.put("ProductionID", getproid);
+            contentJson.put("ConsumerId",getworkid);
+            contentJson.put("ProcessLocation", getlocation);
+            contentJson.put("ProductionKind",getkindnum);
+            contentJson.put("ReproductionID",getnewid);
+            contentJson.put( "Step","2");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            cdpsJson.put("content",contentJson);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        try {
+            json.put("cdps",cdpsJson);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        String uclStr = json.toString();
+
+        String re= Test_Pack.JSONToUCL(uclStr);
+        Log.d(TAG, "process_inf_login: "+re);
         //http://223.3.72.161/register??characterFlag=1
         HttpUtil.sendOKHttp3RequestPOST(HttpUtil.BASEURL_PROCESSAND_SOURCE+"/process/processtion_add/",
                 JsonUtil.getJSON(
 
-                        "ProcessID","2018040311",
-                "ProductionID", getproid,
-                "ConsumerId",getworkid,
-                "ProcessLocation", getlocation,
-                "ProductionKind",getkindnum,
-                "ReproductionID",getnewid,
-                        "Step","2"
+                        "ucl",re,
+                        "productionId", "3000000",
+                        "serialnumber", "42",
+                        "flag","3"
+
+
+
 
 
 
