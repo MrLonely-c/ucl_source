@@ -29,12 +29,6 @@
         android:text="企业人员管理" />
 
     <Button
-        android:id="@+id/btnOperateScale"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="经营规模" />
-
-    <Button
         android:id="@+id/btnExit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

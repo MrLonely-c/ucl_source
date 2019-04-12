@@ -2,17 +2,27 @@ package com.example.helloworld.company;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.helloworld.BaseUtil;
+import com.example.helloworld.HttpUtil;
+import com.example.helloworld.JsonUtil;
 import com.example.helloworld.R;
 import com.example.helloworld.loginAndSign.LoginAndSignActivity;
+
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MultipartBody;
+import okhttp3.Response;
 
 public class CompanyManagerActivity extends AppCompatActivity
         implements View.OnClickListener {
@@ -21,13 +31,16 @@ public class CompanyManagerActivity extends AppCompatActivity
 
     private Button btnCompanyMessage = null;
     private Button btnCompanyStaff = null;
-    private Button btnOperateScale = null;
+    //    private Button btnOperateScale = null;
     private Button btnExit = null;
 
     private Intent intent = null;
 
     private SharedPreferences pref = null;
     private SharedPreferences.Editor prefEditor = null;
+
+    private String companyName = "";
+    private String companyCharacterFlag = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,14 +51,13 @@ public class CompanyManagerActivity extends AppCompatActivity
             actionBar.hide();
         }
         initUI();
-        TextView btnback=findViewById(R.id.toolbar_left_tv);
-        btnback.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                onBackPressed();
-            }
-        });
+
         pref = PreferenceManager.getDefaultSharedPreferences(this);
         prefEditor = pref.edit();
+        companyName = pref.getString("companyName", "companyName");
+        companyCharacterFlag = pref.getString("companyCharacterFlag", "error");
+        Log.d(TAG, "companyName: " + companyName + "*companyCharacterFlag:" + companyCharacterFlag);
+
     }
 
     private void initUI() {
@@ -53,24 +65,73 @@ public class CompanyManagerActivity extends AppCompatActivity
         btnCompanyMessage.setOnClickListener(this);
         btnCompanyStaff = findViewById(R.id.btnCompanyStaff);
         btnCompanyStaff.setOnClickListener(this);
-        btnOperateScale = findViewById(R.id.btnOperateScale);
-        btnOperateScale.setOnClickListener(this);
+//        btnOperateScale = findViewById(R.id.btnOperateScale);
+//        btnOperateScale.setOnClickListener(this);
         btnExit = findViewById(R.id.btnExit);
         btnExit.setOnClickListener(this);
-
-        intent = getIntent();
-
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnCompanyMessage:
+                HttpUtil.sendOKHttpMultipartRequestPOST(
+                        HttpUtil.BASEURL_COMPANY + "/information.action",
+                        new MultipartBody.Builder("AaB03x")
+                                .setType(MultipartBody.FORM)
+                                .addFormDataPart("loginName", companyName)
+                                .build(),
+                        new Callback() {
+                            @Override
+                            public void onFailure(Call call, IOException e) {
+                                Log.d(TAG, "onFailure: " + e.toString());
+                            }
+
+                            @Override
+                            public void onResponse(Call call, Response response) throws IOException {
+                                String resStr = response.body().string();
+                                Log.d(TAG, "btnCompanyMessage response.code: " + response.code());
+                                Log.d(TAG, "btnCompanyMessage resStr: " + resStr);
+
+                                intent = new Intent(CompanyManagerActivity.this, CompanyMessageActivity.class);
+                                intent.putExtra("title", "企业信息管理");
+                                intent.putExtra("companyMess", resStr);
+                                startActivity(intent);
+                            }
+                        }
+                );
                 break;
             case R.id.btnCompanyStaff:
+                HttpUtil.sendOKHttpMultipartRequestPOST(
+                        HttpUtil.BASEURL_COMPANY + "/employee.action",
+                        new MultipartBody.Builder("AaB03x")
+                                .setType(MultipartBody.FORM)
+                                .addFormDataPart("Flag", companyCharacterFlag)
+                                .addFormDataPart("LoginName", companyName)
+                                .build(),
+                        new Callback() {
+                            @Override
+                            public void onFailure(Call call, IOException e) {
+                                Log.d(TAG, "onFailure: " + e.toString());
+                            }
+
+                            @Override
+                            public void onResponse(Call call, Response response) throws IOException {
+                                String resStr = response.body().string();
+                                Log.d(TAG, "btnCompanyStaff response.code: " + response.code());
+                                Log.d(TAG, "btnCompanyStaff resStr: " + resStr);
+
+                                intent = new Intent(CompanyManagerActivity.this, CompanyStaffMActivity.class);
+                                intent.putExtra("title", "企业人员管理");
+                                intent.putExtra("staff", resStr);
+                                startActivity(intent);
+                            }
+                        }
+
+                );
                 break;
-            case R.id.btnOperateScale:
-                break;
+//            case R.id.btnOperateScale:
+//                break;
             case R.id.btnExit:
                 prefEditor.putBoolean("rememberPwd", false);
                 prefEditor.apply();

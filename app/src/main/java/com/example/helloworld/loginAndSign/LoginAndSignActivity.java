@@ -7,6 +7,7 @@ import android.support.annotation.UiThread;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
@@ -31,6 +32,9 @@ import java.io.IOException;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class LoginAndSignActivity extends AppCompatActivity
@@ -78,6 +82,22 @@ public class LoginAndSignActivity extends AppCompatActivity
         }
         initUI();
 
+        /**  测试 **/
+
+        Log.d(TAG, "JsonUtil.isJSON: " + JsonUtil.isJSON("{\"hh\":231}"));
+        Log.d(TAG, "JsonUtil.isJSON: " + JsonUtil.isJSON("{hh:231}"));
+        try {
+            //java中json的键会自动加上双引号，从而正常的解析
+            JSONObject jsonObject = new JSONObject("{hh:\"231\"}");
+            Log.d(TAG, "jsonObject: " + jsonObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.d(TAG, "JsonUtil.isJSON: " + JsonUtil.isJSON("123hhh"));
+
+        /**  测试 **/
+
+
         //以当前应用程序包名来命名sharedpreferences文件，当前应用程序共享
         pref = PreferenceManager.getDefaultSharedPreferences(this);
         rememberPwdFlag = pref.getBoolean("rememberPwd", false);
@@ -101,11 +121,13 @@ public class LoginAndSignActivity extends AppCompatActivity
                     case R.id.rbtn_company:
                         Toast.makeText(LoginAndSignActivity.this, "企业用户", Toast.LENGTH_SHORT).show();
                         companyFlag = true;
+                        etxContactNo.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
                         break;
 
                     case R.id.rbtn_personal:
                         Toast.makeText(LoginAndSignActivity.this, "个人用户", Toast.LENGTH_SHORT).show();
                         companyFlag = false;
+                        etxContactNo.setInputType(InputType.TYPE_CLASS_NUMBER);
                         break;
                 }
             }
@@ -117,6 +139,16 @@ public class LoginAndSignActivity extends AppCompatActivity
     protected void onStart() {
         Log.d(TAG, "onStart: ");
         super.onStart();
+//        rememberPwdFlag = pref.getBoolean("rememberPwd", false);
+//        if (!rememberPwdFlag) {
+//            companyFlag = pref.getBoolean("companyFlag", false);
+//            rbtnCompany.setChecked(companyFlag);
+//            rbtnPersonal.setChecked(!companyFlag);
+//
+//            etxUserName.setText("");
+//            etxPassword.setText("");
+//            cboxRemeberPwd.setChecked(false);
+//        }
     }
 
     private void initUI() {
@@ -175,17 +207,22 @@ public class LoginAndSignActivity extends AppCompatActivity
         Log.d(TAG, "companyFlag: " + companyFlag);
         final String contactNo = etxContactNo.getText().toString();
         final String password = etxPassword.getText().toString();
-
+        Log.d(TAG, "logIn: " + contactNo + "::::" + password);
+        Log.d(TAG, "JsonUtil.getJSON: " + JsonUtil.getJSON(
+                "name", contactNo,
+                "password", password
+        ));
 
         if (companyFlag) {
             //企业组织登录操作
             Log.d(TAG, "企业组织用户登录操作");
 
-            HttpUtil.sendOKHttp3RequestPOST(HttpUtil.BASEURL_LOGIN_SIGN_PRODUCE + "/user/login?characterFlag=0",
-                    JsonUtil.getJSON(
-                            "ContactNo", Integer.parseInt(contactNo),
-                            "Password", password
-                    ),
+            HttpUtil.sendOKHttpMultipartRequestPOST(HttpUtil.BASEURL_COMPANY + "/login.action",
+                    new MultipartBody.Builder("AaB03x")
+                            .setType(MultipartBody.FORM)
+                            .addFormDataPart("name", contactNo)
+                            .addFormDataPart("password", password)
+                            .build(),
                     new Callback() {
                         @Override
                         public void onFailure(Call call, IOException e) {
@@ -197,16 +234,31 @@ public class LoginAndSignActivity extends AppCompatActivity
                             String resStr = response.body().string();
                             Log.d(TAG, "response.code: " + response.code());
                             Log.d(TAG, "企业组织用户登录操作resStr: " + resStr);
-
-                            intent = new Intent(LoginAndSignActivity.this, CompanyManagerActivity.class);
-                            intent.putExtra("title", "企业组织管理");
-                            handlePreference(companyFlag, contactNo, password, characterFlags, "");
-
-                            startActivity(intent);
-                            finish();
+                            try {
+                                JSONObject resJson = new JSONObject(resStr);
+                                if (!resJson.getString("status").equals("error")) {
+                                    intent = new Intent(LoginAndSignActivity.this, CompanyManagerActivity.class);
+                                    intent.putExtra("title", "企业组织管理");
+                                    handlePreference(companyFlag, contactNo, password, characterFlags, "");
+                                    prefEditor = pref.edit();
+                                    prefEditor.putString("companyName", contactNo);
+                                    prefEditor.putString("companyCharacterFlag", resJson.getString("status"));
+                                    prefEditor.apply();
+                                    startActivity(intent);
+                                    finish();
+                                } else {
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(LoginAndSignActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                }
+                            } catch (JSONException e) {
+//                                e.printStackTrace();
+                            }
                         }
                     });
-
 
         } else {
             //个人用户登录操作
@@ -286,68 +338,5 @@ public class LoginAndSignActivity extends AppCompatActivity
         prefEditor.putString("id", id);
 
         prefEditor.apply();
-    }
-
-    private void sendLoginRequest(boolean isComapany) {
-        Log.d(TAG, "json:{\"cheng\":1,\"chang\":\"hu\"} " + JsonUtil.getJSON(
-                "cheng", "1", "chang", "hu"
-        ));
-
-        HttpUtil.sendOKHttp3RequestPOST("https://www.baidu.com",
-                JsonUtil.getJSON(
-                        "isCompany", isComapany ? "true" : "false",
-                        "username", etxContactNo.getText().toString(),
-                        "password", etxPassword.getText().toString()
-                ),
-                new Callback() {
-                    @Override
-                    public void onFailure(Call call, IOException e) {
-                        Log.d(TAG, "onFailure: " + e);
-                    }
-
-                    @Override
-                    public void onResponse(Call call, Response response) throws IOException {
-                        Log.d(TAG, "response code: " + response.code());
-//                Log.d(TAG, "response tostring: " + response.toString());
-
-                        if (response.code() == 200) {
-                            loginAccess = true;
-//        characterFlags = 0b011000;
-                            characterFlags = 0;
-                        }
-
-                    }
-                });
-
-        HttpUtil.sendOKHttp3RequestGET("https://www.baidu.com/s",
-
-                new Callback() {
-                    @Override
-                    public void onFailure(Call call, IOException e) {
-                        Log.d(TAG, "onFailure: " + e);
-                    }
-
-                    @Override
-                    public void onResponse(Call call, Response response) throws IOException {
-                        Log.d(TAG, "response code: " + response.code());
-//                Log.d(TAG, "response tostring: " + response.toString());
-//                        String res = response.body().string();
-//                        try {
-//                            JSONObject jsonObjec = new JSONObject(res);
-//                            etxContactNo.setText(jsonObjec.getString("name"));
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-                        if (response.code() == 200) {
-                            loginAccess = true;
-//        characterFlags = 0b011000;
-                            characterFlags = 48;
-                        }
-
-                    }
-                }, "wd", "android",
-                "id", 123);
-
-
     }
 }

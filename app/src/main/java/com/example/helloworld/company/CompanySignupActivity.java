@@ -234,7 +234,6 @@ public class CompanySignupActivity extends AppCompatActivity
 
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_company_signup);
@@ -556,10 +555,7 @@ public class CompanySignupActivity extends AppCompatActivity
                             public void onResponse(Call call, Response response) throws IOException {
                                 String resStr = response.body().string();
                                 Log.d(TAG, "protocol:" + response.protocol() + " code:" + response.code() + " message:" + response.message());
-//                                            Headers headers = response.headers();
-//                                            for (int i = 0; i < headers.size(); i++) {
-//                                                Log.d(TAG, headers.name(i) + ":" + headers.value(i));
-//                                            }
+
                                 Log.d(TAG, "onResponse: " + resStr);
                                 if (response.code() == 200) {
 
