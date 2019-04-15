@@ -86,7 +86,7 @@ public class BaseUtil {
 
             if (Build.VERSION.SDK_INT >= 24) {
                 imageUri = FileProvider.getUriForFile(context,
-                        "com.example.uclsourceproject.fileprovider", outputImage);
+                        "com.example.helloworld.sell", outputImage);
             } else {
                 imageUri = Uri.fromFile(outputImage);
             }
