@@ -1,9 +1,9 @@
 package com.example.helloworld.company;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -166,49 +166,49 @@ public class CompanyMessageActivity extends AppCompatActivity {
             case 2:
                 setInvisible();
                 sv_quarantiner.setVisibility(View.VISIBLE);
-//                edit(etxCompanyName1, "CompanyName");
-//                edit(etxCorporate1, "CorporateName");
-//                edit(etxCompanySignUpTime1, "RegisterTime");
-//                edit(etxCoporateIDCardNo1, "CorporateIDNo");
-//                edit(etxTradeLocation1, "OperatingPlace");
-//                edit(etxLoginName1, "LoginName");
-//                edit(etxCompanyName1, "CompanyName");
+                edit(etxCompanyName2, "CompanyName");
+                edit(etxTradeLocation2, "OperatingPlace");
+                edit(etxLoginName2, "LoginName");
+                edit(etxLoginPassword2, "PASSWORD");
                 break;
 
             case 3:
                 setInvisible();
                 sv_processer.setVisibility(View.VISIBLE);
-//                edit(etxCompanyName1, "CompanyName");
-//                edit(etxCorporate1, "CorporateName");
-//                edit(etxCompanySignUpTime1, "RegisterTime");
-//                edit(etxCoporateIDCardNo1, "CorporateIDNo");
-//                edit(etxTradeLocation1, "OperatingPlace");
-//                edit(etxLoginName1, "LoginName");
-//                edit(etxCompanyName1, "CompanyName");
+                edit(etxCompanyName3, "CompanyName");
+                edit(etxCorporate3, "CorporateName");
+                edit(etxCorporateIDCardNo3, "CorporateIDNo");
+                edit(etxCompanyContactNo3, "CorporateContactNo");
+                edit(etxCompanySignUpTime3, "RegisterTime");
+                edit(etxTradeLocation3, "OperatingPlace");
+                edit(etxLoginName3, "LoginName");
+                edit(etxLoginPassword3, "PASSWORD");
                 break;
 
             case 4:
                 setInvisible();
                 sv_transporter.setVisibility(View.VISIBLE);
-//                edit(etxCompanyName1, "CompanyName");
-//                edit(etxCorporate1, "CorporateName");
-//                edit(etxCompanySignUpTime1, "RegisterTime");
-//                edit(etxCoporateIDCardNo1, "CorporateIDNo");
-//                edit(etxTradeLocation1, "OperatingPlace");
-//                edit(etxLoginName1, "LoginName");
-//                edit(etxCompanyName1, "CompanyName");
+
+                edit(etxCompanyName4, "CompanyName");
+                edit(etxCorporate4, "CorporateName");
+                edit(etxCorporateIDCardNo4, "CorporateIDNo");
+                edit(etxCompanyContactNo4, "CorporateContactNo");
+                edit(etxTradeLocation4, "OperatingPlace");
+                edit(etxLoginName4, "LoginName");
+                edit(etxLoginPassword4, "PASSWORD");
                 break;
 
             case 5:
                 setInvisible();
                 sv_seller.setVisibility(View.VISIBLE);
-//                edit(etxCompanyName1, "CompanyName");
-//                edit(etxCorporate1, "CorporateName");
-//                edit(etxCompanySignUpTime1, "RegisterTime");
-//                edit(etxCoporateIDCardNo1, "CorporateIDNo");
-//                edit(etxTradeLocation1, "OperatingPlace");
-//                edit(etxLoginName1, "LoginName");
-//                edit(etxCompanyName1, "CompanyName");
+
+                edit(etxCompanyName5, "CompanyName");
+                edit(etxCorporate5, "CorporateName");
+                edit(etxCorporateIDCardNo5, "CorporateIDNo");
+                edit(etxCompanyContactNo5, "CorporateContactNo");
+                edit(etxTradeLocation5, "OperatingPlace");
+                edit(etxLoginName5, "LoginName");
+                edit(etxLoginPassword5, "PASSWORD");
                 break;
         }
     }

@@ -7,11 +7,6 @@
     android:orientation="vertical"
     tools:context=".company.CompanyMessageActivity">
 
-    <include
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <ScrollView
         android:id="@+id/sv_producer"
         android:layout_width="match_parent"

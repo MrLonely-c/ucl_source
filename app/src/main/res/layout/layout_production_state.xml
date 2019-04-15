@@ -1,23 +1,35 @@
-<com.example.helloworld.CustomToolBar
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<com.example.helloworld.CustomToolBar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    app:left_tv_visible="true"
     app:left_tv_text="返回"
+    app:left_tv_visible="true"
     app:right_btn_visible="true"
-    app:right_tv_visible="true"
     app:right_tv_text="菜单"
-    app:title_visible="true"
+    app:right_tv_visible="true"
     app:title_text="羊状态信息查询"
+    app:title_visible="true"
     tools:context="com.example.helloworld.producer.ProducerActivity">
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycle_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+    <scut.carson_ho.searchview.SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:searchBlockColor="#ffffff"
+        app:searchBlockHeight="150"
+        app:textColorSearch="#3F51B5"
+        app:textHintSearch="请输入羊id"
+        app:textSizeSearch="5dp">
+
+    </scut.carson_ho.searchview.SearchView>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_production"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
 </com.example.helloworld.CustomToolBar>

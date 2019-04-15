@@ -1,55 +1,117 @@
 package com.example.helloworld.UCLclasses;
 
 public class ProductionState {
+    private String RecordID;
+    private String MonitorId;
+    private String State;
+    private String HealthState;
+    private String GPSLocation;
+    private String ActiveDis;
+    private String Weight;
+    private String BodyTemperature;
+    private String UCLLink;
+    private String MonitorRecordTime;
+    private String Flag;
 
-    //羊的Id 编号
-    private int productionId;
-
-    //健康状况
-    private String healthState;
-
-    //每日步数
-    private int daySteps;
-
-    //体温
-    private int dayTemperature;
-
-    public ProductionState(int productionId, String healthState, int daySteps, int dayTemperature) {
-        this.productionId = productionId;
-        this.healthState = healthState;
-        this.daySteps = daySteps;
-        this.dayTemperature = dayTemperature;
+    public String getRecordID() {
+        return RecordID;
     }
 
-    public int getProductionId() {
-        return productionId;
+    public void setRecordID(String recordID) {
+        RecordID = recordID;
     }
 
-    public void setProductionId(int productionId) {
-        this.productionId = productionId;
+    public String getMonitorId() {
+        return MonitorId;
+    }
+
+    public void setMonitorId(String monitorId) {
+        MonitorId = monitorId;
+    }
+
+    public String getState() {
+        return State;
+    }
+
+    public void setState(String state) {
+        State = state;
     }
 
     public String getHealthState() {
-        return healthState;
+        return HealthState;
     }
 
     public void setHealthState(String healthState) {
-        this.healthState = healthState;
+        HealthState = healthState;
     }
 
-    public int getDaySteps() {
-        return daySteps;
+    public String getGPSLocation() {
+        return GPSLocation;
     }
 
-    public void setDaySteps(int daySteps) {
-        this.daySteps = daySteps;
+    public void setGPSLocation(String GPSLocation) {
+        this.GPSLocation = GPSLocation;
     }
 
-    public int getDayTemperature() {
-        return dayTemperature;
+    public String getActiveDis() {
+        return ActiveDis;
     }
 
-    public void setDayTemperature(int dayTemperature) {
-        this.dayTemperature = dayTemperature;
+    public void setActiveDis(String activeDis) {
+        ActiveDis = activeDis;
+    }
+
+    public String getWeight() {
+        return Weight;
+    }
+
+    public void setWeight(String weight) {
+        Weight = weight;
+    }
+
+    public String getBodyTemperature() {
+        return BodyTemperature;
+    }
+
+    public void setBodyTemperature(String bodyTemperature) {
+        BodyTemperature = bodyTemperature;
+    }
+
+    public String getUCLLink() {
+        return UCLLink;
+    }
+
+    public void setUCLLink(String UCLLink) {
+        this.UCLLink = UCLLink;
+    }
+
+    public String getMonitorRecordTime() {
+        return MonitorRecordTime;
+    }
+
+    public void setMonitorRecordTime(String monitorRecordTime) {
+        MonitorRecordTime = monitorRecordTime;
+    }
+
+    public String getFlag() {
+        return Flag;
+    }
+
+    public void setFlag(String flag) {
+        Flag = flag;
+    }
+
+    public ProductionState(String recordID, String monitorId, String state, String healthState, String GPSLocation, String activeDis, String weight, String bodyTemperature, String UCLLink, String monitorRecordTime, String flag) {
+        RecordID = recordID;
+        MonitorId = monitorId;
+        State = state;
+        HealthState = healthState;
+        this.GPSLocation = GPSLocation;
+        ActiveDis = activeDis;
+        Weight = weight;
+        BodyTemperature = bodyTemperature;
+        this.UCLLink = UCLLink;
+        MonitorRecordTime = monitorRecordTime;
+        Flag = flag;
     }
 }

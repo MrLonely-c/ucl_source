@@ -107,6 +107,7 @@ public class CheckerMessCompleteActivity extends AppCompatActivity
     }
 
     private void initUI() {
+        Log.d(TAG, "initUI: CheckerMessCompleteActivity");
         intent = getIntent();
 
         iv_idcard2 = findViewById(R.id.iv_idcard2);
@@ -142,6 +143,7 @@ public class CheckerMessCompleteActivity extends AppCompatActivity
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_photo_idcard2:
+                Log.d(TAG, "btn_photo_idcard2: "+btn_photo_idcard2);
                 BaseUtil.takeAPhoto(this, String.valueOf(getExternalCacheDir()), new TCCallbackListener() {
                     @Override
                     public void jump(Uri uri, File file, int requestCode) {

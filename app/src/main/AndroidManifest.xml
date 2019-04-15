@@ -66,21 +66,8 @@
         <activity android:name=".producer.ProducerMessCompleteActivity" />
         <activity android:name=".transporter.TransporterMessCompleteActivity" />
 
-
-
-
-
-
-
-
-
-
         <activity android:name=".producer.sheep_inActivity"></activity>
         <activity android:name=".producer.sheep_follow_Activity"></activity>
-
-
-
-
 
         <provider
             android:name="android.support.v4.content.FileProvider"

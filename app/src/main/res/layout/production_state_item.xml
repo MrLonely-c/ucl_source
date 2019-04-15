@@ -3,18 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_margin="5dp"
+    android:background="@drawable/bg_card"
+    android:orientation="vertical"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="6"
+            android:layout_weight="7"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -30,7 +37,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:paddingLeft="5dp"
-                    android:text="羊编号：" />
+                    android:text="监测器：" />
 
                 <TextView
                     android:id="@+id/label_healthState"
@@ -39,16 +46,34 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:paddingLeft="5dp"
-                    android:text="健康状况：" />
+                    android:text="状态：" />
 
                 <TextView
-                    android:id="@+id/label_daySteps"
+                    android:id="@+id/label_healthState1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:paddingLeft="5dp"
-                    android:text="每日步数：" />
+                    android:text="健康状况：" />
+
+                <TextView
+                    android:id="@+id/label_daySteps2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="GPS位置：" />
+
+                <TextView
+                    android:id="@+id/label_daySteps3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="活动距离：" />
 
                 <TextView
                     android:id="@+id/label_dayTemperature"
@@ -59,17 +84,26 @@
                     android:paddingLeft="5dp"
                     android:text="体温：" />
 
+                <TextView
+                    android:id="@+id/label_dayTemperature2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="体重：" />
+
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="6"
+                android:layout_weight="4.5"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/text_productionId"
+                    android:id="@+id/tvProductionState1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -78,7 +112,16 @@
                     android:text="TextView" />
 
                 <TextView
-                    android:id="@+id/text_healthState"
+                    android:id="@+id/tvProductionState2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/tvProductionState3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -88,7 +131,7 @@
                     android:textColor="#2386D5" />
 
                 <TextView
-                    android:id="@+id/text_daySteps"
+                    android:id="@+id/tvProductionState4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -97,13 +140,32 @@
                     android:text="TextView" />
 
                 <TextView
-                    android:id="@+id/text_dayTemperature"
+                    android:id="@+id/tvProductionState5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:paddingLeft="5dp"
                     android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/tvProductionState6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/tvProductionState7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:text="TextView" />
+
             </LinearLayout>
 
         </LinearLayout>
@@ -113,6 +175,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="horizontal">
 
         <TextView
@@ -121,20 +185,20 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right|center_vertical"
-            android:paddingRight="5dp"
+            android:paddingRight="15dp"
             android:text="2019/03/01"
             android:textColor="#999"
             android:textSize="10sp" />
 
-        <TextView
-            android:id="@+id/link_more"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="7"
-            android:gravity="center"
-            android:text="更多>>"
-            android:textColor="#0C48E2"
-            android:textSize="12sp" />
+        <!--<TextView-->
+        <!--android:id="@+id/link_more"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="7"-->
+        <!--android:gravity="center"-->
+        <!--android:text="更多>>"-->
+        <!--android:textColor="#0C48E2"-->
+        <!--android:textSize="12sp" />-->
     </LinearLayout>
 
 </LinearLayout>
