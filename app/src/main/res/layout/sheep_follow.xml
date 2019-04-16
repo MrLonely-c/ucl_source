@@ -16,17 +16,42 @@
     app:title_text="羊流程追溯"
     tools:context="com.example.helloworld.producer.ProducerActivity">
 
-    <scut.carson_ho.searchview.SearchView
-        android:id="@+id/search_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:textSizeSearch="5dp"
-        app:textColorSearch="#3F51B5"
-        app:textHintSearch="请输入羊id"
-        app:searchBlockHeight="150"
-        app:searchBlockColor="#ffffff"
-        />
+    <!--<scut.carson_ho.searchview.SearchView-->
+        <!--android:id="@+id/search_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:textSizeSearch="5dp"-->
+        <!--app:textColorSearch="#3F51B5"-->
+        <!--app:textHintSearch="请输入羊id"-->
+        <!--app:searchBlockHeight="150"-->
+        <!--app:searchBlockColor="#ffffff"-->
+        <!--/>-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
+        <TextView
+            android:id="@+id/code_out"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dip"
+            android:layout_marginLeft="30dip"
+            android:text="扫码查看羊流程"
+            android:gravity="center_horizontal"
+            android:textSize="20dp"
+            android:textColor="#030303"
+            android:textStyle="bold"
+            android:background="#F0F8FF"/>
+
+        <Button
+            android:id="@+id/photo_follow"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dip"
+            android:layout_marginTop="60dip"
+            android:background="@drawable/button_select"
+            />
+    </LinearLayout>
     <TextView
         android:layout_width="280dp"
         android:layout_height="380dp"

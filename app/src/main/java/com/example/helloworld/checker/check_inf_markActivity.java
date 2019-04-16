@@ -7,8 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,11 +40,11 @@ public class check_inf_markActivity extends AppCompatActivity {
     private EditText checkerid=null;
     private EditText check_place=null;
     private EditText applicant=null;
-    private EditText checker_res=null;
+
     private EditText checker_name=null;
     private EditText productionid=null;
     private Button submit_check=null;
-
+    private String str;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +62,43 @@ public class check_inf_markActivity extends AppCompatActivity {
             actionBar.hide();
         }
         initUI();
+        String[] ctype = new String[]{"产地检疫", "异地运输检疫", "入厂检疫", "加工后检疫"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ctype);  //创建一个数组适配器
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);     //设置下拉列表框的下拉选项样式
+
+        final Spinner spinner = super.findViewById(R.id.check_round);
+        spinner.setAdapter(adapter);
+
+        str = (String) spinner.getSelectedItem();
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+
+                //拿到被选择项的值
+                str = (String) spinner.getSelectedItem();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+            }
+        });
+        Button code_photo=findViewById(R.id.photo_checkid);
+        code_photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(check_inf_markActivity.this, CaptureActivity.class);
+
+                startActivityForResult(intent,0);
+
+            }
+
+
+        });
+
         submit_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,21 +111,48 @@ public class check_inf_markActivity extends AppCompatActivity {
     private void initUI() {
         submit_check=findViewById(R.id.submit_check);
 
-        check_roundid=findViewById(R.id.check_round);
-        checkerbatch=findViewById(R.id.checkbatch);
+
+
         checkerid=findViewById(R.id.checkerid);
         check_place=findViewById(R.id.workplace);
-        applicant=findViewById(R.id.applicant);
+
 //        checker_res=findViewById(); 检疫结果需要拍照上传
         checker_name=findViewById(R.id.checkername);
          productionid=findViewById(R.id.production_id);
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // 扫描二维码/条码回传
+        if (requestCode == 0 && resultCode == RESULT_OK) {
+            if (data != null) {
+
+                String content = data.getStringExtra(Constant.CODED_CONTENT);
+                Toast.makeText(check_inf_markActivity.this,"扫描结果为;"+content,Toast.LENGTH_SHORT).show();
+
+                JSONObject jsonObject= null;
+                try {
+                    jsonObject = new JSONObject(content);
+                    String p_id=jsonObject.getString("ProductionID");
+                    productionid.setText(p_id);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+
+
+            }
+        }
+    }
     private void check_result_in() {
         String getname = checker_name.getText().toString();
         String getapplicant = applicant.getText().toString();
         String getidno = checkerid.getText().toString();
-        String getroundid = check_roundid.getText().toString();
+        String getroundid = str;
         String getproducion = productionid.getText().toString();
         String getplace = check_place.getText().toString();
 

@@ -1,5 +1,6 @@
 package com.example.helloworld.producer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -8,11 +9,14 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.helloworld.HttpUtil;
 import com.example.helloworld.R;
+import com.yzq.zxinglibrary.android.CaptureActivity;
+import com.yzq.zxinglibrary.common.Constant;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -56,7 +60,7 @@ public class sheep_follow_Activity extends AppCompatActivity  {
     private String process_id="  ";
     private int process_num;
     private String r_flag;
-
+    private  String p_id;
     private String weight="  ";
     private String dis="  ";
     private String tem="  ";
@@ -201,24 +205,20 @@ public class sheep_follow_Activity extends AppCompatActivity  {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.sheep_follow);
-        TextView btnback=findViewById(R.id.toolbar_left_tv);
-        btnback.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
+        TextView btnback = findViewById(R.id.toolbar_left_tv);
+        btnback.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 onBackPressed();
             }
         });
-
-
-        searchView=findViewById(R.id.search_view);
-        // 4. 设置点击键盘上的搜索按键后的操作（通过回调接口）
-        // 参数 = 搜索框输入的内容
-        searchView.setOnClickSearch(new ICallBack() {
+        Button code_photo=findViewById(R.id.photo_follow);
+        code_photo.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void SearchAciton(final String string) {
+            public void onClick(View v) {
+                Intent intent = new Intent(sheep_follow_Activity.this, CaptureActivity.class);
 
-                System.out.println("我收到了" + string);
-                id=string;
-                count=1;
+                startActivityForResult(intent,0);
+                if(count==1){
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -228,30 +228,83 @@ public class sheep_follow_Activity extends AppCompatActivity  {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        if(count==1) {
+
                             Message message = new Message();
                             message.what = UPDATE_TEXT;
                             handler.sendMessage(message);
-                        }
+
                     }
                 }).start();
-            }
+            }}
+
 
         });
-
-        // 5. 设置点击返回按键后的操作（通过回调接口）
-        searchView.setOnClickBack(new bCallBack() {
-            @Override
-            public void BackAciton() {
-                finish();
-            }
-        });
+//
+//        searchView=findViewById(R.id.search_view);
+//        // 4. 设置点击键盘上的搜索按键后的操作（通过回调接口）
+//        // 参数 = 搜索框输入的内容
+//        searchView.setOnClickSearch(new ICallBack() {
+//            @Override
+//            public void SearchAciton(final String string) {
+//
+//                System.out.println("我收到了" + string);
+//                id=string;
+//                count=1;
+//                new Thread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//
+//                        try {
+//                            Thread.sleep(3000);
+//                        } catch (InterruptedException e) {
+//                            e.printStackTrace();
+//                        }
+//                        if(count==1) {
+//                            Message message = new Message();
+//                            message.what = UPDATE_TEXT;
+//                            handler.sendMessage(message);
+//                        }
+//                    }
+//                }).start();
+//            }
+//
+//        });
+//
+//        // 5. 设置点击返回按键后的操作（通过回调接口）
+//        searchView.setOnClickBack(new bCallBack() {
+//            @Override
+//            public void BackAciton() {
+//                finish();
+//            }
+//        });
+//
+//
+//    }
 
 
     }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+        // 扫描二维码/条码回传
+        if (requestCode == 0 && resultCode == RESULT_OK) {
+            if (data != null) {
 
+                String content = data.getStringExtra(Constant.CODED_CONTENT);
+                Toast.makeText(sheep_follow_Activity.this,"扫描结果为;"+content,Toast.LENGTH_SHORT).show();
 
+                JSONObject jsonObject= null;
+                try {
+                    jsonObject = new JSONObject(content);
+                    p_id=jsonObject.getString("ProductionID");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
+                id=p_id;
+                count=1;
 
+            }
+        }
+    }
 }

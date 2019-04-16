@@ -164,6 +164,17 @@
 
             <!--android:text="到达终点" />-->
     <!--</LinearLayout>-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="返回二维码如下："/>
+    <ImageView
+        android:id="@+id/code_show"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

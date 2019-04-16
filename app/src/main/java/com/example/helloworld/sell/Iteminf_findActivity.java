@@ -159,7 +159,7 @@ default:break;
 
     private void search_item(String s) {
 
-        HttpUtil.sendOKHttp3RequestGET("http://223.3.79.119:8000/sell/sell_state/?GoodsName=" + s,
+        HttpUtil.sendOKHttp3RequestGET("http://223.3.69.148:8000/sell/sell_state/?GoodsName=" + s,
 
                 new Callback() {
                     @Override

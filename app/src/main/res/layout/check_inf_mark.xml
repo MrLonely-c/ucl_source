@@ -74,15 +74,15 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="检疫批次：" />
+                android:text="扫码录入ID：" />
 
-            <TextView
-                android:id="@+id/textView28"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="申请者：" />
+            <!--<TextView-->
+                <!--android:id="@+id/textView28"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="center"-->
+                <!--android:text="申请者：" />-->
 
             <TextView
                 android:id="@+id/textView29"
@@ -100,13 +100,13 @@
             android:layout_weight="7"
             android:orientation="vertical">
 
-            <EditText
+            <Spinner
                 android:id="@+id/check_round"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="可选"
+
                 android:inputType="textPersonName" />
 
             <EditText
@@ -136,32 +136,42 @@
                 android:hint="检疫者所属单位"
                 android:inputType="textPersonName" />
 
-            <EditText
-                android:id="@+id/production_id"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
 
             <EditText
-                android:id="@+id/checkbatch"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
+                    android:id="@+id/production_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="Name" />
+            <Button
+                android:id="@+id/photo_checkid"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="20dip"
+                android:layout_marginTop="20dip"
+                android:background="@drawable/button_select"
+                />
 
-            <EditText
-                android:id="@+id/applicant"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
+
+            <!--<EditText-->
+                <!--android:id="@+id/checkbatch"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:ems="10"-->
+                <!--android:inputType="textPersonName"-->
+                <!--android:text="Name" />-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/applicant"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:ems="10"-->
+                <!--android:inputType="textPersonName"-->
+                <!--android:text="Name" />-->
 
             <LinearLayout
                 android:layout_width="match_parent"

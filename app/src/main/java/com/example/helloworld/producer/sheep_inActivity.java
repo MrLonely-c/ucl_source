@@ -2,6 +2,9 @@ package com.example.helloworld.producer;
 
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +12,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +26,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -35,6 +43,8 @@ public class sheep_inActivity extends AppCompatActivity  {
     private EditText uid=null;
     private EditText manager=null;
     private Button submit=null;
+
+    private ImageView imView;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +52,14 @@ public class sheep_inActivity extends AppCompatActivity  {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.sheepin);
+
+        imView = (ImageView) findViewById(R.id.code_show);
+
+        StrictMode.setThreadPolicy(new
+                StrictMode.ThreadPolicy.Builder().detectDiskReads().detectDiskWrites().detectNetwork().penaltyLog().build());
+        StrictMode.setVmPolicy(
+                new StrictMode.VmPolicy.Builder().detectLeakedSqlLiteObjects().detectLeakedClosableObjects().penaltyLog().penaltyDeath().build());
+
 
         TextView btnback = findViewById(R.id.toolbar_left_tv);
         btnback.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +79,10 @@ public class sheep_inActivity extends AppCompatActivity  {
         uid=findViewById(R.id.u_id);
         manager=findViewById(R.id.manger_id);
         intime=findViewById(R.id.in_time);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// HH:mm:ss
+//获取当前时间
+        Date date = new Date(System.currentTimeMillis());
+        intime.setText(simpleDateFormat.format(date));
         submit=findViewById(R.id.submit_in);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,12 +90,39 @@ public class sheep_inActivity extends AppCompatActivity  {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// HH:mm:ss
 //获取当前时间
                 Date date = new Date(System.currentTimeMillis());
-                intime.setText(simpleDateFormat.format(date));
-                sheepin();
-
+                String getuid=uid.getText().toString();
+                if(getuid.trim().length()==0){
+                    Toast.makeText(sheep_inActivity.this, ""+"项圈ID不能为空，请重新输入！", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    sheepin();
+                    intime.setText(simpleDateFormat.format(date));
+                    uid.setText("");
+                }
             }
         });
     }
+
+    public Bitmap getBitmap(String path) throws IOException {
+        try {
+            URL url = new URL(path);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setConnectTimeout(5000);
+            conn.setRequestMethod("GET");
+            if (conn.getResponseCode() == 200) {
+                InputStream inputStream = conn.getInputStream();
+                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                return bitmap;
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+
     private void sheepin() {
         String getuid=uid.getText().toString();
         String getmid=manager.getText().toString();
@@ -109,6 +158,16 @@ public class sheep_inActivity extends AppCompatActivity  {
                                 @Override
                                 public void run() {
                                     Toast.makeText(sheep_inActivity.this, ""+resStr, Toast.LENGTH_SHORT).show();
+
+
+                                    try {
+                                        Bitmap bitmap = getBitmap(resStr);
+                                        imView.setImageBitmap(bitmap);
+                                    } catch (IOException e) {
+                                        // TODO Auto-generated catch block
+                                        e.printStackTrace();
+                                    }
+
                                 }
                             }));
 //                            e.printStackTrace();

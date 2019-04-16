@@ -137,7 +137,7 @@ public class Item_in_Activity extends AppCompatActivity  {
         Log.d(TAG, "check_result_in: "+re);
 
         //http://223.3.72.161/register??characterFlag=1
-        HttpUtil.sendOKHttp3RequestPOST("http://223.3.79.119:8000/sell/register_commodity/",
+        HttpUtil.sendOKHttp3RequestPOST("http://223.3.69.148:8000/sell/register_commodity/",
                 JsonUtil.getJSON(
                         "ucl",re,
                         "productionId", "3000000",

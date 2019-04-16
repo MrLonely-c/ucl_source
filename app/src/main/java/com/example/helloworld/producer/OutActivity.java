@@ -100,9 +100,15 @@ private String p_id;
                 String content = data.getStringExtra(Constant.CODED_CONTENT);
                Toast.makeText(OutActivity.this,"扫描结果为;"+content,Toast.LENGTH_SHORT).show();
 
-//                    JSONObject jsonObject=new JSONObject(content);
-//                    p_id=jsonObject.getString("ProductionID");
-                    id.setText(content);
+                JSONObject jsonObject= null;
+                try {
+                    jsonObject = new JSONObject(content);
+                    p_id=jsonObject.getString("ProductionID");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                    id.setText(p_id);
 
 
             }

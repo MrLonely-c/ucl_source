@@ -63,17 +63,6 @@
                         android:layout_marginTop="15dip"
                         android:text="@string/item_inf"
                         android:textColor="@android:color/black" />
-
-                    <Button
-                        android:id="@+id/bt_producer_4"
-                        android:layout_width="170dp"
-                        android:layout_height="50dp"
-                        android:drawableLeft="@drawable/outout"
-                        android:background="@drawable/shape2"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="15dip"
-                        android:text="@string/output"
-                        android:textColor="@android:color/black" />
              <Button
                  android:id="@+id/bt_producer_5"
                  android:layout_width="170dp"
@@ -94,6 +83,17 @@
                  android:layout_marginTop="15dip"
                  android:text="产地运输申请"
                  android:textColor="@android:color/black" />
+                    <Button
+                        android:id="@+id/bt_producer_4"
+                        android:layout_width="170dp"
+                        android:layout_height="50dp"
+                        android:drawableLeft="@drawable/outout"
+                        android:background="@drawable/shape2"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="15dip"
+                        android:text="@string/output"
+                        android:textColor="@android:color/black" />
+
 
              <Button
 

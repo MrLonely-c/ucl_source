@@ -123,7 +123,7 @@ public class sellerinf_changeActivity extends AppCompatActivity  {
     }
 
     private void get_inf(){
-        HttpUtil.sendOKHttp3RequestGET("http://223.3.79.119:8000/sell/inquiry_seller/?ConsumerId=3200000002",
+        HttpUtil.sendOKHttp3RequestGET("http://223.3.69.148:8000/sell/inquiry_seller/?ConsumerId=3200000002",
 
                 new Callback() {
                     @Override
@@ -192,7 +192,7 @@ public class sellerinf_changeActivity extends AppCompatActivity  {
         String getnewpassword = new_password.getText().toString();
         Log.d(TAG, "sellerinf_change: ");
         //http://223.3.72.161/register??characterFlag=1
-        HttpUtil.sendOKHttp3RequestPOST("http://223.3.79.119:8000/sell/alter_seller/",
+        HttpUtil.sendOKHttp3RequestPOST("http://223.3.69.148:8000/sell/alter_seller/",
                 JsonUtil.getJSON(
 
                         "ConsumerId", "3200000002",
