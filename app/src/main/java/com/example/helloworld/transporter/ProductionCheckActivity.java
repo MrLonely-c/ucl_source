@@ -1,7 +1,9 @@
 package com.example.helloworld.transporter;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -31,7 +33,10 @@ public class ProductionCheckActivity extends AppCompatActivity {
     private EditText p_id;
     private EditText passer_id;
     private static final String TAG = "tigercheng";
-    private Button submit=null;
+    private Button submit = null;
+
+    private SharedPreferences pref = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,16 +45,21 @@ public class ProductionCheckActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
-        p_id=findViewById(R.id.item_id);
-        passer_id=findViewById(R.id.passer_id);
 
-        TextView btnback=findViewById(R.id.toolbar_left_tv);
-        btnback.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
+
+        p_id = findViewById(R.id.item_id);
+        passer_id = findViewById(R.id.passer_id);
+        passer_id.setText(pref.getString("id", "id"));
+        passer_id.setEnabled(false);
+
+        TextView btnback = findViewById(R.id.toolbar_left_tv);
+        btnback.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 onBackPressed();
             }
         });
-        submit=findViewById(R.id.submit_item);
+        submit = findViewById(R.id.submit_item);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,13 +67,13 @@ public class ProductionCheckActivity extends AppCompatActivity {
             }
         });
 
-        Button code_photo=findViewById(R.id.photo_out);
+        Button code_photo = findViewById(R.id.photo_out);
         code_photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ProductionCheckActivity.this, CaptureActivity.class);
 
-                startActivityForResult(intent,0);
+                startActivityForResult(intent, 0);
 
             }
 
@@ -71,9 +81,10 @@ public class ProductionCheckActivity extends AppCompatActivity {
         });
 
     }
+
     private void submit_passer_item() {
-        String getid= passer_id.getText().toString();
-        String getpid=p_id.getText().toString();
+        String getid = passer_id.getText().toString();
+        String getpid = p_id.getText().toString();
 
 
         Log.d(TAG, "productioncheck_submit: ");
@@ -82,25 +93,25 @@ public class ProductionCheckActivity extends AppCompatActivity {
         JSONObject cdpsJson = new JSONObject();
         JSONObject contentJson = new JSONObject();
         try {
-            contentJson.put("ProductionID" ,getpid);
-            contentJson.put("TransactionPersonID" , getid);
+            contentJson.put("ProductionID", getpid);
+            contentJson.put("TransactionPersonID", getid);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         try {
-            cdpsJson.put("content",contentJson);
+            cdpsJson.put("content", contentJson);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         try {
-            json.put("cdps",cdpsJson);
+            json.put("cdps", cdpsJson);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         String uclStr = json.toString();
 
-        String re= Test_Pack.JSONToUCL(uclStr);
-        Log.d(TAG, "productioncheck: "+re);
+        String re = Test_Pack.JSONToUCL(uclStr);
+        Log.d(TAG, "productioncheck: " + re);
         //http://223.3.72.161/register??characterFlag=1
         HttpUtil.sendOKHttp3RequestPOST("http://223.3.82.173:8000/transport/product_enter/",
                 JsonUtil.getJSON(
@@ -108,13 +119,10 @@ public class ProductionCheckActivity extends AppCompatActivity {
 
 //                        "ProductionID",getpid,
 //                "TransactionPersonID",getid
-                        "ucl",re,
+                        "ucl", re,
                         "productionId", "3000000",
                         "serialnumber", "40",
-                        "flag","2"
-
-
-
+                        "flag", "2"
 
 
 //                        "password", passwordSS
@@ -140,7 +148,7 @@ public class ProductionCheckActivity extends AppCompatActivity {
                             runOnUiThread(new Thread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    Toast.makeText(ProductionCheckActivity.this, ""+resStr, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ProductionCheckActivity.this, "" + resStr, Toast.LENGTH_SHORT).show();
                                 }
                             }));
 //                            e.printStackTrace();
@@ -151,8 +159,8 @@ public class ProductionCheckActivity extends AppCompatActivity {
         );
 
 
-
     }
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -162,7 +170,7 @@ public class ProductionCheckActivity extends AppCompatActivity {
 
                 String content = data.getStringExtra(Constant.CODED_CONTENT);
                 p_id.setText(content);
-                Toast.makeText(ProductionCheckActivity.this,"扫描结果为;"+content,Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProductionCheckActivity.this, "扫描结果为;" + content, Toast.LENGTH_SHORT).show();
             }
         }
     }
