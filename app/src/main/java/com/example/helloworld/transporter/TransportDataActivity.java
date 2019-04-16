@@ -1,6 +1,8 @@
 package com.example.helloworld.transporter;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,10 +39,14 @@ public class TransportDataActivity extends AppCompatActivity {
     private EditText start_show;
     private EditText arrive_show;
     private static final String TAG = "tigercheng";
+
+    private SharedPreferences pref = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_transport_data);
+
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -61,6 +67,9 @@ public class TransportDataActivity extends AppCompatActivity {
         from=findViewById(R.id.from);
         to=findViewById(R.id.to);
         passer_id=findViewById(R.id.passer_id_1);
+        passer_id.setText(pref.getString("id", "id"));
+        passer_id.setEnabled(false);
+
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

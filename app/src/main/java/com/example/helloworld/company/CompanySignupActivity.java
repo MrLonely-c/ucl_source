@@ -289,6 +289,9 @@ public class CompanySignupActivity extends AppCompatActivity
         etxCoporateIDCardNo1 = findViewById(R.id.etxCoporateIDCardNo1);
         etxCompanyContactNo1 = findViewById(R.id.etxCompanyContactNo1);
         etxCompanySignUpTime1 = findViewById(R.id.etxCompanySignUpTime1);
+        etxCompanySignUpTime1.setFocusable(false);
+        etxCompanySignUpTime1.setClickable(true);
+        etxCompanySignUpTime1.setOnClickListener(this);
         etxLoginName1 = findViewById(R.id.etxLoginName1);
         etxLoginPassword1 = findViewById(R.id.etxLoginPassword1);
         etxReLoginPassword1 = findViewById(R.id.etxReLoginPassword1);
@@ -322,6 +325,9 @@ public class CompanySignupActivity extends AppCompatActivity
         etxCorporateIDCardNo3 = findViewById(R.id.etxCorporateIDCardNo3);
         etxCompanyContactNo3 = findViewById(R.id.etxCompanyContactNo3);
         etxCompanySignUpTime3 = findViewById(R.id.etxCompanySignUpTime3);
+        etxCompanySignUpTime3.setFocusable(false);
+        etxCompanySignUpTime3.setClickable(true);
+        etxCompanySignUpTime3.setOnClickListener(this);
         etxTradeLocation3 = findViewById(R.id.etxTradeLocation3);
         etxLoginName3 = findViewById(R.id.etxLoginName3);
         etxLoginPassword3 = findViewById(R.id.etxLoginPassword3);
@@ -1002,6 +1008,13 @@ public class CompanySignupActivity extends AppCompatActivity
                     intent.setType("image/*");
                     startActivityForResult(intent, SELLER_ALBUM_PAPER3);
                 }
+                break;
+            case R.id.etxCompanySignUpTime1:
+                BaseUtil.setDate(this, etxCompanySignUpTime1);
+                break;
+
+            case R.id.etxCompanySignUpTime3:
+                BaseUtil.setDate(this, etxCompanySignUpTime3);
                 break;
         }
     }

@@ -1,31 +1,23 @@
 package com.example.helloworld;
 
-import android.content.ContentResolver;
+import android.app.DatePickerDialog;
 import android.content.ContentUris;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.net.sip.SipSession;
 import android.os.Build;
-import android.os.Environment;
-import android.os.Handler;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
-import android.support.v7.app.ActionBar;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
+import android.widget.DatePicker;
+import android.widget.EditText;
 
 import java.io.File;
 import java.io.IOException;
-
-import javax.security.auth.callback.Callback;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class BaseUtil {
 
@@ -129,9 +121,6 @@ public class BaseUtil {
 
     public static String getImagePath(Context context, Uri uri, String selection) {
         String path = null;
-
-//        Cursor cursor = getContentResolver().query(uri,
-//                null, selection, null, null);
         Cursor cursor = context.getContentResolver().query(uri,
                 null, selection, null, null);
         if (cursor != null) {
@@ -139,8 +128,25 @@ public class BaseUtil {
                 path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
             }
         }
-
         return path;
+    }
+
+    public static void setDate(Context context, final EditText editText) {
+        int year = 2000, month = 0, day = 1;
+        new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Log.d(TAG, "onDateSet: " + String.format("%d年%02d月%02d日", year, monthOfYear + 1, dayOfMonth));
+                editText.setText(String.format("%d年%02d月%02d日", year, monthOfYear + 1, dayOfMonth));
+            }
+        }, year, month, day).show();
+    }
+
+    public static String getCurrentTime() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date(System.currentTimeMillis());
+        return simpleDateFormat.format(date);
     }
 
 }
