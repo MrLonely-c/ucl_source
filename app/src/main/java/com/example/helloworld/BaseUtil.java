@@ -1,5 +1,6 @@
 package com.example.helloworld;
 
+import android.app.DatePickerDialog;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
@@ -20,6 +21,8 @@ import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.File;
@@ -139,8 +142,19 @@ public class BaseUtil {
                 path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
             }
         }
-
         return path;
+    }
+
+    public static void setDate(Context context, final EditText editText) {
+        int year = 2000, month = 1, day = 1;
+        new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Log.d(TAG, "onDateSet: " + String.format("%d年%02d月%02d日", year, monthOfYear + 1, dayOfMonth));
+                editText.setText(String.format("%d年%02d月%02d日", year, monthOfYear + 1, dayOfMonth));
+            }
+        }, year, month, day).show();
     }
 
 }
