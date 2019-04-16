@@ -1,7 +1,8 @@
 package com.example.helloworld.producer;
 
 
-import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,11 +13,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.helloworld.BaseUtil;
 import com.example.helloworld.HttpUtil;
 import com.example.helloworld.JsonUtil;
 import com.example.helloworld.R;
-import com.yzq.zxinglibrary.android.CaptureActivity;
-import com.yzq.zxinglibrary.common.Constant;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,12 +29,15 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class sheep_inActivity extends AppCompatActivity  {
+public class sheep_inActivity extends AppCompatActivity {
     private EditText intime;
     private static final String TAG = "tigercheng";
-    private EditText uid=null;
-    private EditText manager=null;
-    private Button submit=null;
+    private EditText uid = null;
+    private EditText manager = null;
+    private Button submit = null;
+
+    private SharedPreferences pref = null;
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,8 @@ public class sheep_inActivity extends AppCompatActivity  {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.sheepin);
+
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
 
         TextView btnback = findViewById(R.id.toolbar_left_tv);
         btnback.setOnClickListener(new View.OnClickListener() {
@@ -51,17 +56,24 @@ public class sheep_inActivity extends AppCompatActivity  {
         });
 
         TextView rightClick = findViewById(R.id.toolbar_right_tv);
-        submit=findViewById(R.id.arrivetime);
+        submit = findViewById(R.id.arrivetime);
         rightClick.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Toast.makeText(sheep_inActivity.this,
                         "按钮被点击", Toast.LENGTH_SHORT).show();
             }
         });
-        uid=findViewById(R.id.u_id);
-        manager=findViewById(R.id.manger_id);
-        intime=findViewById(R.id.in_time);
-        submit=findViewById(R.id.submit_in);
+        uid = findViewById(R.id.u_id);
+
+        manager = findViewById(R.id.manger_id);
+        manager.setText(pref.getString("id", "id"));
+        manager.setEnabled(false);
+
+        intime = findViewById(R.id.in_time);
+        intime.setText(BaseUtil.getCurrentTime());
+        intime.setEnabled(false);
+
+        submit = findViewById(R.id.submit_in);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,15 +86,16 @@ public class sheep_inActivity extends AppCompatActivity  {
             }
         });
     }
+
     private void sheepin() {
-        String getuid=uid.getText().toString();
-        String getmid=manager.getText().toString();
+        String getuid = uid.getText().toString();
+        String getmid = manager.getText().toString();
         Log.d(TAG, "sheepin: ");
         //http://223.3.72.161/register??characterFlag=1
         HttpUtil.sendOKHttp3RequestPOST("http://223.3.79.211:8000/produce/input_sheep",
                 JsonUtil.getJSON(
-                        "UUID",getuid,
-                        "ConsumerId",getmid
+                        "UUID", getuid,
+                        "ConsumerId", getmid
 
                 ),
                 new Callback() {
@@ -103,12 +116,16 @@ public class sheep_inActivity extends AppCompatActivity  {
                             JSONObject resJson = new JSONObject(resStr);
                             Log.d(TAG, "resJson: " + resJson.toString());
 
+                            intime.setEnabled(true);
+                            intime.setText(BaseUtil.getCurrentTime());
+                            intime.setEnabled(false);
+
                         } catch (JSONException e) {
                             Log.d(TAG, "JSONException: " + e.toString());
                             runOnUiThread(new Thread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    Toast.makeText(sheep_inActivity.this, ""+resStr, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(sheep_inActivity.this, "" + resStr, Toast.LENGTH_SHORT).show();
                                 }
                             }));
 //                            e.printStackTrace();
