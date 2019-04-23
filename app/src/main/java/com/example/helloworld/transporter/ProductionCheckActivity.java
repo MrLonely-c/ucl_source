@@ -54,6 +54,7 @@ public class ProductionCheckActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 submit_passer_item();
+                p_id.setText("");
             }
         });
 

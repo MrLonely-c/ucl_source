@@ -147,6 +147,7 @@ private String p_id;
                                 @Override
                                 public void run() {
                                     Toast.makeText(OutActivity.this, ""+resStr, Toast.LENGTH_SHORT).show();
+                                    id.setText("");
                                 }
                             }));
 //                            e.printStackTrace();

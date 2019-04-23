@@ -17,14 +17,14 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class HttpUtil {
-    public static String BASEURL_LOGIN_SIGN_PRODUCE = "http://223.3.79.211:8000";
+    public static String BASEURL_LOGIN_SIGN_PRODUCE = "http://223.3.83.51:8000";
     public static String BASEURL_SELL = "http://223.3.69.148:8000";
     public static String BASEURL_TRANSPORT = "http://223.3.89.141:8000";
 
     public static String BASEURL_COMPANY = "http://223.3.79.135:8089";
 //    public static String BASEURL_PROCESSAND_SOURCE = "http://223.3.93.85:8000";
 
-    public static String BASEURL_PROCESSAND_SOURCE = "http://223.3.70.42:8000";
+    public static String BASEURL_PROCESSAND_SOURCE = "http://223.3.89.85:8000";
 
 
     public static final MediaType JSON

@@ -159,7 +159,7 @@ public class sheep_inActivity extends AppCompatActivity {
         String getmid = manager.getText().toString();
         Log.d(TAG, "sheepin: ");
         //http://223.3.72.161/register??characterFlag=1
-        HttpUtil.sendOKHttp3RequestPOST("http://223.3.79.211:8000/produce/input_sheep",
+        HttpUtil.sendOKHttp3RequestPOST("http://223.3.83.51:8000/produce/input_sheep",
                 JsonUtil.getJSON(
                         "UUID", getuid,
                         "ConsumerId", getmid

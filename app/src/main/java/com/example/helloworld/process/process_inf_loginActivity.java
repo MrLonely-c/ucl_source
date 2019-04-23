@@ -40,11 +40,12 @@ public class process_inf_loginActivity extends AppCompatActivity {
     private static final String TAG = "tigercheng";
     private String str;
 //    private EditText process_round=null;
+    private String num;
     private TextView processer=null;
     private EditText processer_num=null;
     private EditText process_location=null;
     private EditText process_old_id=null;
-    private  EditText process_kind_total=null;
+
     private EditText kind_num=null;
     private EditText process_new_id=null;
     private Button submit=null;
@@ -108,6 +109,31 @@ public class process_inf_loginActivity extends AppCompatActivity {
             }
         });
 
+
+        String[] ctype_2 = new String[]{"0","1","2", "3","4","5","6"};
+        ArrayAdapter<String> adapter_2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ctype_2);  //创建一个数组适配器
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);     //设置下拉列表框的下拉选项样式
+
+        final Spinner spinner_2 = super.findViewById(R.id.total_kind);
+        spinner_2.setAdapter(adapter_2);
+
+        num = (String) spinner_2.getSelectedItem();
+
+        spinner_2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+
+                //拿到被选择项的值
+                num = (String) spinner.getSelectedItem();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+            }
+        });
 
         Button next=findViewById(R.id.next);
         next.setOnClickListener(new View.OnClickListener() {
@@ -182,7 +208,7 @@ public class process_inf_loginActivity extends AppCompatActivity {
          processer_num=findViewById(R.id.processer_num);
         process_location=findViewById(R.id.location);
        process_old_id=findViewById(R.id.old_id);
-        process_kind_total=findViewById(R.id.total_kind);
+
         kind_num=findViewById(R.id.kind_num);
         process_new_id=findViewById(R.id.new_id);
         submit=findViewById(R.id.submit);
@@ -195,7 +221,7 @@ public class process_inf_loginActivity extends AppCompatActivity {
         String getworkid = processer_num.getText().toString();
         String getlocation = process_location.getText().toString();
         String getproid=process_old_id.getText().toString();
-        String getkind=process_kind_total.getText().toString();
+
         String getkindnum=kind_num.getText().toString();
         String newid=getproid.replaceFirst("00",getkindnum);
         process_new_id.setText(newid);
