@@ -27,6 +27,8 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
+import static com.example.helloworld.HttpUtil.BASEURL_LOGIN_SIGN_PRODUCE;
+
 public class OutActivity extends AppCompatActivity  {
 private TextView id=null;
     private static final String TAG = "tigercheng";
@@ -103,7 +105,7 @@ private String p_id;
                 JSONObject jsonObject= null;
                 try {
                     jsonObject = new JSONObject(content);
-                    p_id=jsonObject.getString("ProductionID");
+                    p_id=jsonObject.getString("RecordID");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -116,7 +118,7 @@ private String p_id;
     }
 
     private void out_sheep(){
-        HttpUtil.sendOKHttp3RequestGET("http://223.3.79.211:8000/produce/fully_grown?SheepID=1234567800000000",
+        HttpUtil.sendOKHttp3RequestGET(BASEURL_LOGIN_SIGN_PRODUCE+"/produce/fully_grown?SheepID=1234567800000000",
 
                 new Callback() {
                     @Override

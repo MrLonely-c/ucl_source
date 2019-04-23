@@ -150,13 +150,13 @@ public class check_inf_markActivity extends AppCompatActivity {
     }
     private void check_result_in() {
         String getname = checker_name.getText().toString();
-        String getapplicant = applicant.getText().toString();
+
         String getidno = checkerid.getText().toString();
         String getroundid = str;
         String getproducion = productionid.getText().toString();
         String getplace = check_place.getText().toString();
 
-        String getbatch = checkerbatch.getText().toString();
+//        String getbatch = checkerbatch.getText().toString();
 
         Log.d(TAG, "check_inf_markin: ");
         //http://223.3.72.161/register??characterFlag=1
