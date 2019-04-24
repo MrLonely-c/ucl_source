@@ -58,6 +58,7 @@
         <activity android:name=".baseuser.BaseUserSignUpActivity" />
         <activity android:name=".baseuser.BaseUserActivity" />
         <activity android:name=".company.CompanyManagerActivity" />
+        <activity android:name=".company.CompanyMessageActivity" />
         <activity android:name=".company.CompanySignupActivity" />
         <activity android:name=".company.CompanyStaffMActivity" />
         <activity android:name=".loginAndSign.LoginAndSignActivity" />

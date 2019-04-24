@@ -86,6 +86,7 @@ public class CompanyMessageActivity extends AppCompatActivity {
 
     private void initUI() {
         intent = getIntent();
+//        ((TextView) findViewById(R.id.title_text)).setText(intent.getStringExtra("title"));
 
         sv_producer = findViewById(R.id.sv_producer);
         sv_quarantiner = findViewById(R.id.sv_quarantiner);

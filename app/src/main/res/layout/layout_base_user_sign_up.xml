@@ -103,7 +103,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="联系方式"
-                    android:inputType="textPersonName" />
+                    android:inputType="phone" />
 
                 <EditText
                     android:id="@+id/etxPassword"
@@ -112,7 +112,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="密码"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPassword" />
 
                 <EditText
                     android:id="@+id/etxRePassword"
@@ -121,7 +121,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="再次输入密码"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPassword" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -136,7 +136,7 @@
                         android:layout_weight="2"
                         android:ems="10"
                         android:hint="验证码"
-                        android:inputType="textPersonName" />
+                        android:inputType="textPhonetic" />
 
                     <!--<Button-->
                     <!--android:id="@+id/btn_getVerificationCode"-->
@@ -169,7 +169,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/shape"
+            android:background="@drawable/btn_selector"
             android:letterSpacing="0.4"
             android:text="提交"
             android:textColor="#fff"

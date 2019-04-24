@@ -246,8 +246,8 @@
 
                             <ImageView
                                 android:id="@+id/ivProducerPaper1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
+                                android:layout_width="200px"
+                                android:layout_height="200px"
                                 android:layout_weight="1"
                                 app:srcCompat="@drawable/paper" />
 
@@ -288,7 +288,7 @@
                             <ImageView
                                 android:id="@+id/ivProducerPaper2"
                                 android:layout_width="200px"
-                                android:layout_height="120px"
+                                android:layout_height="200px"
                                 android:layout_weight="1"
                                 app:srcCompat="@drawable/paper" />
 
