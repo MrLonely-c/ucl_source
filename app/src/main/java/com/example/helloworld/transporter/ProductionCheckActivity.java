@@ -52,7 +52,7 @@ public class ProductionCheckActivity extends AppCompatActivity {
         passer_id = findViewById(R.id.passer_id);
         passer_id.setText(pref.getString("id", "id"));
         passer_id.setEnabled(false);
-
+        passer_id.setText("2013141314");
         TextView btnback = findViewById(R.id.toolbar_left_tv);
         btnback.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -112,9 +112,10 @@ public class ProductionCheckActivity extends AppCompatActivity {
         String uclStr = json.toString();
 
         String re = Test_Pack.JSONToUCL(uclStr);
+        Log.d(TAG, "productioncheck: " + uclStr);
         Log.d(TAG, "productioncheck: " + re);
         //http://223.3.72.161/register??characterFlag=1
-        HttpUtil.sendOKHttp3RequestPOST("http://223.3.82.173:8000/transport/product_enter/",
+        HttpUtil.sendOKHttp3RequestPOST("http:/223.3.67.245:8000/transport/product_enter/",
                 JsonUtil.getJSON(
 
 

@@ -44,6 +44,7 @@ public class check_inf_markActivity extends AppCompatActivity {
     private EditText checker_name=null;
     private EditText productionid=null;
     private Button submit_check=null;
+    private Button next=null;
     private String str;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +107,15 @@ public class check_inf_markActivity extends AppCompatActivity {
                 check_result_in();
             }
         });
+
+        next=findViewById(R.id.button_next);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(check_inf_markActivity.this,check_inf_markActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initUI() {
@@ -134,6 +144,7 @@ public class check_inf_markActivity extends AppCompatActivity {
                 Toast.makeText(check_inf_markActivity.this,"扫描结果为;"+content,Toast.LENGTH_SHORT).show();
 
                 JSONObject jsonObject= null;
+                productionid.setText(content);
                 try {
                     jsonObject = new JSONObject(content);
                     String p_id=jsonObject.getString("ProductionID");
@@ -170,7 +181,7 @@ public class check_inf_markActivity extends AppCompatActivity {
             contentJson.put("QuarantineID" ,"acx0");
             contentJson.put("QuarantineBatch" , "axc023");
             contentJson.put("QuarantinePersonID", "09093");
-            contentJson.put( "ProductionId" , "123");
+            contentJson.put( "ProductionId" , "3400000000000000");
             contentJson.put("QuarantineLocation", "nanjing");
             contentJson.put("Applicant", "wang");
             contentJson.put("QuarantinerName", "lin");
@@ -181,7 +192,7 @@ public class check_inf_markActivity extends AppCompatActivity {
         try {
             cdpsJson.put("content",contentJson);
             cdpsJson.put("tag",serialNumber);
-            cdpsJson.put("relatedUCL", productionID + ";" + serialNumber);
+//            cdpsJson.put("relatedUCL", productionID + ";" + serialNumber);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -216,7 +227,7 @@ public class check_inf_markActivity extends AppCompatActivity {
         }
         String s_num=Integer.toString(Integer.parseInt(serialNumber) + 1);
         Log.d(TAG, "check_result_in: "+back);
-        HttpUtil.sendOKHttp3RequestPOST("http://223.3.95.218:8000/quarantine/quarantine/submit",
+        HttpUtil.sendOKHttp3RequestPOST("http://223.3.90.52:8000/quarantine/quarantine/submit",
                 JsonUtil.getJSON(
 
 //                        "QuarantineID" , "acx0",
