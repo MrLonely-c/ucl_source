@@ -82,21 +82,6 @@ public class LoginAndSignActivity extends AppCompatActivity
         }
         initUI();
 
-        /**  测试 **/
-
-        Log.d(TAG, "JsonUtil.isJSON: " + JsonUtil.isJSON("{\"hh\":231}"));
-        Log.d(TAG, "JsonUtil.isJSON: " + JsonUtil.isJSON("{hh:231}"));
-        try {
-            //java中json的键会自动加上双引号，从而正常的解析
-            JSONObject jsonObject = new JSONObject("{hh:\"231\"}");
-            Log.d(TAG, "jsonObject: " + jsonObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        Log.d(TAG, "JsonUtil.isJSON: " + JsonUtil.isJSON("123hhh"));
-
-        /**  测试 **/
-
 
         //以当前应用程序包名来命名sharedpreferences文件，当前应用程序共享
         pref = PreferenceManager.getDefaultSharedPreferences(this);
