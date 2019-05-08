@@ -115,7 +115,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="检疫者姓名"
+                android:hint="王五"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -124,7 +124,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="检疫者ID"
+                android:hint="56874591"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -133,7 +133,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="检疫者所属单位"
+                android:hint="东大检疫局"
                 android:inputType="textPersonName" />
 
 
@@ -213,7 +213,7 @@
             android:text="提交" />
 
         <Button
-            android:id="@+id/button10"
+            android:id="@+id/button_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

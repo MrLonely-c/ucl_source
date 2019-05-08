@@ -69,7 +69,7 @@ public class TransportDataActivity extends AppCompatActivity {
         passer_id=findViewById(R.id.passer_id_1);
         passer_id.setText(pref.getString("id", "id"));
         passer_id.setEnabled(false);
-
+        passer_id.setText("2013141314");//实际不是写死的
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -129,12 +129,12 @@ public class TransportDataActivity extends AppCompatActivity {
         String re= Test_Pack.JSONToUCL(uclStr);
         Log.d(TAG, "productioncheck: "+re);
         //http://223.3.72.161/register??characterFlag=1
-        HttpUtil.sendOKHttp3RequestPOST("http://223.3.82.173:8000/transport/start/",
+        HttpUtil.sendOKHttp3RequestPOST("http://223.3.67.245:8000/transport/start/",
                 JsonUtil.getJSON(
 
 
                         "ucl",re,
-                        "productionId", "3000000",
+                        "productionId", "3400000000000000",
                         "serialnumber", "40",
                         "flag","2"
 
@@ -211,11 +211,11 @@ public class TransportDataActivity extends AppCompatActivity {
         String re= Test_Pack.JSONToUCL(uclStr);
         Log.d(TAG, "productioncheck: "+re);
         //http://223.3.72.161/register??characterFlag=1
-        HttpUtil.sendOKHttp3RequestPOST("http://223.3.82.173:8000/transport/end/",
+        HttpUtil.sendOKHttp3RequestPOST("http://223.3.67.245:8000/transport/end/",
                 JsonUtil.getJSON(
 
                         "ucl",re,
-                        "productionId", "3000000",
+                        "productionId", "3400000000000000",
                         "serialnumber", "41",
                         "flag","2"
 

@@ -200,7 +200,7 @@ public class ProducerActivity extends AppCompatActivity  {
 
     private void getreact(){
 
-        HttpUtil.sendOKHttp3RequestGET("http://223.3.82.173:8000/transport/transpoter/apply/",
+        HttpUtil.sendOKHttp3RequestGET("http://223.3.67.245:8000/transport/transpoter/apply/",
 
                 new Callback() {
                     @Override
@@ -263,7 +263,7 @@ public class ProducerActivity extends AppCompatActivity  {
 
     private void check_apply(){
 
-        HttpUtil.sendOKHttp3RequestGET("http://223.3.95.218:8000/quarantine/quarantiner/application",
+        HttpUtil.sendOKHttp3RequestGET("http://223.3.90.52:8000/quarantine/quarantiner/application",
 
                 new Callback() {
                     @Override

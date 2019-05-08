@@ -122,7 +122,7 @@ public class checkerActivity extends AppCompatActivity  {
     }
 
     private void getreact(){
-        HttpUtil.sendOKHttp3RequestGET("http://223.3.82.173:8000/transport/transpoter/apply/",
+        HttpUtil.sendOKHttp3RequestGET("http://223.3.67.245:8000/transport/transpoter/apply/",
 
                 new Callback() {
                     @Override

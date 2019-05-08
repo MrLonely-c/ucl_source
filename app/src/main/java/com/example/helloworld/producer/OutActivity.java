@@ -100,7 +100,7 @@ private String p_id;
             if (data != null) {
 
                 String content = data.getStringExtra(Constant.CODED_CONTENT);
-               Toast.makeText(OutActivity.this,"扫描结果为;"+content,Toast.LENGTH_SHORT).show();
+               Toast.makeText(OutActivity.this,"扫描结果为:"+content,Toast.LENGTH_SHORT).show();
 
                 JSONObject jsonObject= null;
                 try {
@@ -110,7 +110,7 @@ private String p_id;
                     e.printStackTrace();
                 }
 
-                    id.setText(p_id);
+                    id.setText(content);
 
 
             }
@@ -118,7 +118,7 @@ private String p_id;
     }
 
     private void out_sheep(){
-        HttpUtil.sendOKHttp3RequestGET(BASEURL_LOGIN_SIGN_PRODUCE+"/produce/fully_grown?SheepID=1234567800000000",
+        HttpUtil.sendOKHttp3RequestGET(BASEURL_LOGIN_SIGN_PRODUCE+"/produce/fully_grown?SheepID="+id.getText().toString(),
 
                 new Callback() {
                     @Override

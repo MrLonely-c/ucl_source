@@ -82,6 +82,7 @@ public class productionStateActivity extends AppCompatActivity {
     private void initUI() {
         rv_production = findViewById(R.id.rv_production);
         searchView = findViewById(R.id.search_view);
+
         // 4. 设置点击键盘上的搜索按键后的操作（通过回调接口）
         // 参数 = 搜索框输入的内容
         searchView.setOnClickSearch(new ICallBack() {
@@ -92,8 +93,8 @@ public class productionStateActivity extends AppCompatActivity {
                 HttpUtil.sendOKHttp3RequestPOST(
                         HttpUtil.BASEURL_LOGIN_SIGN_PRODUCE + "/produce/sheep_state",
                         JsonUtil.getJSON(
-                                "RecordID", "3400000000000000",
-                                "ConsumerId", "0400000003"
+                                "RecordID", string,
+                                "ConsumerId", pref.getString("id", "id")
                         ),
                         new Callback() {
                             @Override

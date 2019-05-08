@@ -319,13 +319,14 @@ public class process_inf_loginActivity extends AppCompatActivity {
 
                 String content = data.getStringExtra(Constant.CODED_CONTENT);
                 Toast.makeText(process_inf_loginActivity.this,"扫描结果为;"+content,Toast.LENGTH_SHORT).show();
-                try {
-                    JSONObject jsonObject=new JSONObject(content);
-                    String p_id=jsonObject.getString("ProductionID");
-                    process_old_id.setText(p_id);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                process_old_id.setText(content);
+//                try {
+//                    JSONObject jsonObject=new JSONObject(content);
+//                    String p_id=jsonObject.getString("ProductionID");
+//                    process_old_id.setText(content);
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
 
             }
         }
